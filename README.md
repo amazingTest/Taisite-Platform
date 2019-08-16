@@ -80,6 +80,15 @@ Helping software testing is my duty
     git clone https://github.com/amazingTest/Taisite-Platform.git
     sh deploy ${PORT} (如: sh deploy 5050)
     
+  部署的同时也创建的管理员帐号，如下图所示：
+  
+  ![image](https://github.com/amazingTest/Taisite-Platform/blob/master/images/002.png)
+  
 #### 访问项目
 
-    浏览器访问部署服务器的 ${PORT} 端口
+浏览器访问部署服务器地址的 ${PORT} 端口
+使用「启动项目」中创建的帐号密码登陆即可
+
+
+    
+    
