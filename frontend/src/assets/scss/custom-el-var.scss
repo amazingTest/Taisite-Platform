@@ -1,0 +1,9 @@
+// $--color-primary: #6B5CAF;
+$--color-primary: #FF9E1B;
+
+$--font-path: '~element-ui/packages/theme-chalk/src/fonts';
+@import "~element-ui/packages/theme-chalk/src/index";
+
+.fcube .el-input__inner:focus{
+    border-color: $--color-primary;
+}

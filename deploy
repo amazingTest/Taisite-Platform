@@ -1,0 +1,24 @@
+docker rm autotest-platform-frontend;
+docker stop autotest-platform-backend;
+docker rm autotest-platform-backend;
+
+docker build -f Dockerfile.frontend -t autotest-platform-frontend .;
+docker run --name autotest-platform-frontend autotest-platform-frontend;
+docker cp autotest-platform-frontend:/app/AutoTest-Platform/dist ./;
+
+docker build -f Dockerfile.backend \
+             -t autotest-platform-backend .;
+
+echo "AUTOTEST_PLATFORM_ENV=${AUTOTEST_PLATFORM_ENV}
+AUTOTEST_PLATFORM_MONGO_HOST=${AUTOTEST_PLATFORM_MONGO_HOST}
+AUTOTEST_PLATFORM_MONGO_PORT=${AUTOTEST_PLATFORM_MONGO_PORT}
+AUTOTEST_PLATFORM_NLP_SERVER_HOST=${AUTOTEST_PLATFORM_NLP_SERVER_HOST}
+AUTOTEST_PLATFORM_MONGO_USERNAME=${AUTOTEST_PLATFORM_MONGO_USERNAME}
+AUTOTEST_PLATFORM_MONGO_PASSWORD=${AUTOTEST_PLATFORM_MONGO_PASSWORD}
+AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME=${AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME}" > Envlist.txt;
+
+docker run --name autotest-platform-backend \
+           --env-file="./Envlist.txt"  \
+           -p 5050:5050 \
+           autotest-platform-backend;
+

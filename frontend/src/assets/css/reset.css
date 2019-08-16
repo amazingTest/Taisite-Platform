@@ -1,0 +1,161 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-weight: normal;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* custom */
+a {
+    color: #7e8c8d;
+    text-decoration: none;
+    backface-visibility: hidden;
+}
+
+li {
+    list-style: none;
+}
+:focus{
+    outline: none;
+}
+
+html{
+    height: 100%;
+}
+body {
+    position: relative;
+    min-height: 100%;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.iconfont{
+    margin-right: 5px;
+}
+.icomoon{
+    font-size: 14px;
+    margin-right: 5px;
+}
+.outer-box{
+    box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 0 0 1px rgba(63,63,68,.1);
+    background-color: #fff;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-column{
+    flex-direction: column;
+}
+.el-button-group{
+    background-color: transparent;
+}
+.bg-transparent{
+    background-color: transparent;
+}
+.cicle{
+    border-radius: 50%;
+}
+.placeholder{
+    font-size: 12px;
+    color: #909399;
+}
+.margin-right-5px{
+    margin-right: 5px;
+}
+body .el-button i{
+  font-size: 12px;
+}
+body .el-button--primary{
+  background-color: #FF9E1B;
+  border-color: #FF9E1B;
+  color: #fff;
+}
+body .el-button--primary:hover{
+  background: #ffb44f;
+  border-color: #ffb44f;
+  color: #fff;
+}
+body .el-button--primary.is-disabled,
+body .el-button--primary.is-disabled:hover{
+  background: #f8d6a7;
+  border-color: #f8d6a7;
+  color: #fff;
+}
+
+body .el-button--primary:active,
+body .el-button--primary:focus{
+  background: #ec9219;
+  border-color: #ec9219;
+  color: #fff;
+}
+body .el-button--small{
+  padding: 10px 24px;
+}
+body .el-input__inner:focus{
+  box-shadow: 0 0 0 2px rgba(255,158,27,0.20);
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+    }
+}

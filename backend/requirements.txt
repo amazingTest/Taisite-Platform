@@ -1,0 +1,11 @@
+six==1.11.0
+APScheduler==3.6.0
+Flask==1.0.2
+Flask-login==0.4.1
+Flask-Cors==3.0.6
+pymongo==3.7.2
+bert-serving-client==1.9.1
+requests==2.19.1
+xlrd==1.1.0
+xlsxwriter==1.1.8
+github_webhook==1.0.2
