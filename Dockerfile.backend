@@ -19,6 +19,7 @@ COPY backend/config.py /${WORKING_DIR}/backend/config.py
 COPY backend/app /${WORKING_DIR}/backend/app
 COPY backend/controllers /${WORKING_DIR}/backend/controllers
 COPY backend/models /${WORKING_DIR}/backend/models
+COPY backend/createAdminUser.py /${WORKING_DIR}/backend/createAdminUser.py
 COPY backend/run.py /${WORKING_DIR}/backend/run.py
 COPY ./dist /${WORKING_DIR}/dist
 
