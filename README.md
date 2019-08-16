@@ -63,7 +63,7 @@ Helping software testing is my duty
   其中 ${BERT_IPADRESS} 和 ${MONGO_HOST} 值可通过下列命令找到：
   
     docker inspect autotest-platform-bertserver
-    docker inspect autotest-platform-mongo
+    docker inspect autotest-platform-mongo // 若使用了上面的步骤部署数据库
   
   输出如下图所示：
   
