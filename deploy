@@ -19,6 +19,6 @@ AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME=${AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME}
 
 docker run --name autotest-platform-backend \
            --env-file="./Envlist.txt"  \
-           -p 5050:5050 \
+           -p $1:5050 \
            autotest-platform-backend;
 
