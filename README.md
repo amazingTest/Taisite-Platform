@@ -67,7 +67,7 @@ Helping software testing is my duty
   
   输出如下图所示：
   
-  ![image](https://github.com/amazingTest/violent-webdriver/blob/master/images/001.jpg)
+  ![image](https://github.com/amazingTest/Taisite-Platform/blob/master/images/001.png)
   
   ##### 插入完毕后点击 ESC 按钮、输入 :wq 后单击回车保存
   
