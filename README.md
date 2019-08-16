@@ -51,7 +51,7 @@ Helping software testing is my duty
   
   若出现警告则选择 (E)dit anyway (输入 E)
   
-  文本末端插入 (输入 i 则变为 insert 状态)
+  ##### 文本末端插入 (输入 i 则变为 insert 状态)
   
     export AUTOTEST_PLATFORM_NLP_HOST=${BERT_IPADRESS}
     export AUTOTEST_PLATFORM_MONGO_HOST=${MONGO_HOST}
@@ -65,18 +65,20 @@ Helping software testing is my duty
     docker inspect autotest-platform-bertserver
     docker inspect autotest-platform-mongo
   
+  输出如下图所示：
   
+  ![image](https://github.com/amazingTest/violent-webdriver/blob/master/images/001.jpg)
   
-  插入完毕后点击 ESC 按钮、输入 :wq 后单击回车保存
+  ##### 插入完毕后点击 ESC 按钮、输入 :wq 后单击回车保存
   
-  执行下列命令后环境变量立即生效
+  ##### 执行下列命令后环境变量立即生效
  
-	  source /etc/profile
+    source /etc/profile
 
 #### 启动项目
 
     git clone https://github.com/amazingTest/Taisite-Platform.git
-	  sh deploy ${PORT} (如: sh deploy 5050)
+    sh deploy ${PORT} (如: sh deploy 5050)
     
 #### 访问项目
 
