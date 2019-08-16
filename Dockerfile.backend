@@ -35,7 +35,7 @@ RUN sh -c "echo 'Asia/Shanghai' > /etc/timezone" \
     && cd ${WORKING_DIR}/backend\
     && pip install -r ./requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
-ENTRYPOINT cd ${WORKING_DIR}/backend; python run.py
+ENTRYPOINT cd ${WORKING_DIR}/backend; python createAdminUser.py; python run.py;
 
 
 
