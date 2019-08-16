@@ -2,7 +2,8 @@
 
 ## 项目简介
 
-「泰斯特平台」是一个由 「软件测试 & 机器学习」 爱好者开发，致力于成为让使用者拥有 **最佳使用体验** 的自动化测试解决方案。目标是成为 **最贴心、最智能、颜值最高**的开源测试平台。
+**「泰斯特平台」**是一个由 「软件测试 & 机器学习」 爱好者开发，致力于成为让使用者拥有 **最佳使用体验** 的自动化测试解决方案。目标是成为 **最贴心、
+最智能、颜值最高**的开源测试平台。
 
 ## 项目部署
 
@@ -79,9 +80,9 @@
 #### 启动项目
 
     git clone https://github.com/amazingTest/Taisite-Platform.git
-    sh deploy ${PORT} (如: sh deploy 5050)
+    sh deploy ${PORT} 
     
-  部署的同时也创建的管理员帐号，如下图所示：
+  其中 ${PORT} 变量填写项目访问端口即可， 项目启动的同时也创建了管理员帐号，如下图所示：
   
   ![image](https://github.com/amazingTest/Taisite-Platform/blob/master/images/002.png)
   
