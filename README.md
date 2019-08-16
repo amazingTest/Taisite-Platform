@@ -2,8 +2,7 @@
 
 ## 项目简介
 
-Helping software testing is my duty
-
+「泰斯特平台」是一个由 「软件测试 & 机器学习」 爱好者开发，致力于成为让使用者拥有 **最佳使用体验** 的自动化测试解决方案。目标是成为 **最贴心、最智能、颜值最高**的开源测试平台。
 
 ## 项目部署
 
@@ -51,14 +50,14 @@ Helping software testing is my duty
   
   若出现警告则选择 (E)dit anyway (输入 E)
   
-  ##### 文本末端插入 (输入 i 则变为 insert 状态)
+  ##### 文本末端插入下列数据 (输入 i 则变为 insert 状态)
   
     export AUTOTEST_PLATFORM_NLP_HOST=${BERT_IPADRESS}
     export AUTOTEST_PLATFORM_MONGO_HOST=${MONGO_HOST}
-    export AUTOTEST_PLATFORM_MONGO_PORT=27017
+    export AUTOTEST_PLATFORM_MONGO_PORT=${MONGO_PORT}
     export AUTOTEST_PLATFORM_MONGO_USERNAME=${USERNAME}
     export AUTOTEST_PLATFORM_MONGO_PASSWORD=${PASSWORD}
-    export AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME=attest
+    export AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME=${DBNAME}
 	
   其中 ${BERT_IPADRESS} 和 ${MONGO_HOST} 值可通过下列命令找到：
   
@@ -68,6 +67,8 @@ Helping software testing is my duty
   输出如下图所示：
   
   ![image](https://github.com/amazingTest/Taisite-Platform/blob/master/images/001.png)
+  
+  其他变量则为动态值，部署者自行根据实际情况输入，${DBNAME} 值可任意自定义
   
   ##### 插入完毕后点击 ESC 按钮、输入 :wq 后单击回车保存
   
@@ -86,8 +87,11 @@ Helping software testing is my duty
   
 #### 访问项目
 
-浏览器访问部署服务器地址的 ${PORT} 端口
-使用「启动项目」中创建的帐号密码登陆即可
+浏览器访问部署服务器地址的 ${PORT} 端口后使用「启动项目」中创建的帐号密码登陆即可
+
+## 使用教程
+
+
 
 
     
