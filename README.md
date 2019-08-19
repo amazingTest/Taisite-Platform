@@ -287,7 +287,7 @@
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)
 
-**开源不易** 热烈欢迎扫描下方二维码 **助力开源**。
+**开源不易** 欢迎扫描下方二维码 **助力开源**。
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/wechatDonation.jpg)    
 
