@@ -22,27 +22,27 @@
  1.平台遵循「小而精」的策略，最大化所有功能的开发、使用性价比，可帮助小型测试团队快速搭建起易于上手 / 维护的
  自动化测试体系。
  
- 2.平台遵循「颜值即正义」原则，操作界面展示如下：
+ 2. 平台遵循「颜值即正义」原则，操作界面展示如下：
  
  ![操作界面展示](https://github.com/amazingTest/Taisite-Platform/blob/master/images/操作界面展示.png)
  
- 3.平台拥有极佳的定时任务体验，启动定时任务后可随时停用 / 任意编辑任务内容且立即生效，同时拥有丰富的告警策略，
+ 3. 平台拥有极佳的定时任务体验，启动定时任务后可随时停用 / 任意编辑任务内容且立即生效，同时拥有丰富的告警策略，
  页面展示如下：
  
  ![定时任务配置](https://github.com/amazingTest/Taisite-Platform/blob/master/images/定时任务配置.png)
  
- 4.平台拥有丰富、详细、集中、实用的测试报告内容，展示如下：
+ 4. 平台拥有丰富、详细、集中、实用的测试报告内容，展示如下：
  
  ![测试报告展示](https://github.com/amazingTest/Taisite-Platform/blob/master/images/测试报告展示.png)
  
- 5.平台支持用例导入 / 导出功能，统一使用 Excel 格式，易于批量生成 / 修改用例。
+ 5. 平台支持用例导入 / 导出功能，统一使用 Excel 格式，易于批量生成 / 修改用例。
  
  ![数据导入展示](https://github.com/amazingTest/Taisite-Platform/blob/master/images/数据导入展示.png)
  
- 6.平台拥有较为丰富的测试结果校验体系，支持**文本相似度**校验，
+ 6. 平台拥有较为丰富的测试结果校验体系，支持**文本相似度**校验，
  具体内容可参考[这篇博文](https://juejin.im/post/5cfe1dd96fb9a07ed7407321)
  
- 7.......
+ 7. ......
  
  ***泰斯特平台还有许许多多令人惊喜的小特色等着你去探索 & 挖掘***
  
@@ -59,8 +59,17 @@
 ### windows 环境下部署
 
 ***
-    
-#### 1. 安装 python 3.6 环境
+
+#### 0. 克隆项目
+
+git clone https://github.com/amazingTest/Taisite-Platform.git
+
+***
+
+#### 1. 安装 python 3 环境
+
+可参考[该教程](https://www.runoob.com/python3/python3-install.html)
+
 ***
 
 #### 2. 启动自然语言模型
@@ -86,6 +95,8 @@
 ***
 
 #### 3. 部署 Mongo 数据库
+
+可参考[该教程](https://www.runoob.com/mongodb/mongodb-window-install.html)
 
 ***
 
@@ -152,6 +163,12 @@
 
 [Docker 安装指南](https://www.runoob.com/docker/ubuntu-docker-install.html)
 
+#### 0. 克隆项目
+
+git clone https://github.com/amazingTest/Taisite-Platform.git
+
+***
+
 #### 1. 自然语言模型部署
 
 	sudo -i
@@ -162,8 +179,6 @@
 
 #### 2. Mongo 数据库部署 (若已有现成数据库可用则可跳过此步)
 
-
-  
 ##### 2.1 启动数据库 & 数据挂载至宿主机
     
     sudo -i
@@ -229,10 +244,7 @@
 
 #### 4. 启动项目
     
-    //克隆项目
-    git clone https://github.com/amazingTest/Taisite-Platform.git
-    
-    //执行部署文件
+    //在项目根目录下执行部署文件
     sh deploy ${PORT} 
     
   其中 ${PORT} 变量填写项目访问端口即可，项目启动的同时也创建了管理员帐号和随机密码，如下图所示：
