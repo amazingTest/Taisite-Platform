@@ -1,5 +1,7 @@
 # Taisite-Platform
 
+![泰斯特平台LOGO.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/泰斯特平台LOGO.png)
+
 ## Ⅰ. 泰斯特平台简介
 
 ### 背景
@@ -126,7 +128,7 @@
 
 ***
 
-#### 5. 打包前端 dist 文件 （这一步我已做好，若不需二次开发可跳过）
+#### 5. 打包前端 dist 文件 （这一步我已为你们做好，若不需二次开发可跳过）
 
 ##### 5.1 安装 Vue 环境，下载 node.js 并配置环境，下载 npm 包管理器
 
@@ -147,8 +149,6 @@
 ***   
    
 #### 6. 启动后端
-
-##### 6.1 安装后端依赖包
     
     // 切换至项目根目录下执行
     pip install -r ./backend/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
@@ -164,6 +164,8 @@
 #### 7. 访问项目
 
 现在就可以访问 [http://127.0.0.1:5050/#/login](http://127.0.0.1:5050/#/login) 进行登录
+
+![平台登录界面2.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/平台登录界面2.png.png)
     
 ### Linux 环境下 Docker 容器化部署 
 
