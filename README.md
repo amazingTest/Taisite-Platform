@@ -106,9 +106,12 @@
     AUTOTEST_PLATFORM_MONGO_PORT=${MONGO_PORT}
     AUTOTEST_PLATFORM_MONGO_USERNAME=${USERNAME}
     AUTOTEST_PLATFORM_MONGO_PASSWORD=${PASSWORD}
-    AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME=${DBNAME}
-	
-其中 AUTOTEST_PLATFORM_NLP_SERVER（自然语言模型服务）默认为本机启动
+    AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME=taisite
+
+其中 **AUTOTEST_PLATFORM_MONGO_HOST** 和 **AUTOTEST_PLATFORM_MONGO_PORT** 分别表示数据库的地址和端口（必填），
+**AUTOTEST_PLATFORM_MONGO_USERNAME** 和 **AUTOTEST_PLATFORM_MONGO_PASSWORD** 分别表示数据库的帐号密码（若无可不填），
+其中 **AUTOTEST_PLATFORM_NLP_SERVER**（自然语言模型服务）默认为本机启动，
+**AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME** 为默认的数据表名（必填）、
 
 设置完成后可通过下列命令进行测试（CMD切换至项目根目录下）
 
@@ -118,7 +121,7 @@
 
 ***
 
-#### 5. 打包前端 dist 文件
+#### 5. 打包前端 dist 文件 （这一步我已做好，若不需二次开发可跳过）
 
 ##### 5.1 安装 Vue 环境，下载 node.js 并配置环境，下载 npm 包管理器
 
