@@ -160,7 +160,7 @@
     // 启动后端 ( 默认5050端口 )
     python ./backend/run.py
     
-    // 创建管理员随机帐号、密码( 不可重复创建 )
+    // 创建平台管理员帐号密码
     python ./backend/createAdminUser.py
  
 ***
@@ -261,7 +261,7 @@
     //在项目根目录下执行部署文件
     sh deploy ${PORT} 
     
-  其中 ${PORT} 变量填写项目访问端口即可，项目启动的同时也创建了管理员帐号和随机密码，如下图所示：
+  其中 ${PORT} 变量填写项目访问端口即可，项目启动的同时也创建了管理员帐号密码，如下图所示：
   
   ![控制台输出2](https://github.com/amazingTest/Taisite-Platform/blob/master/images/控制台输出2.png)
   
@@ -279,7 +279,7 @@
 
 平台主流程使用可参考 [这篇博文中的正文部分](https://juejin.im/post/5cd0117be51d456e537ef3bd) 
 
-详细的使用教程后续补上 :)
+	# TODO 详细的使用教程
 
 ## VI . 联系泰斯特
 
