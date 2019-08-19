@@ -10,8 +10,6 @@
 
 「泰斯特平台」是一个由「软件测试 & 机器学习爱好者」开发的接口自动化测试平台。
 
-[***（感谢该开源项目给我带来的灵感)***)](https://github.com/githublitao/api_automation_test) 
-
 ### 愿景
 
  平台致力于将人工智能技术与软件测试有效结合，让平台在保障测试精确性要求的同时更具智能化、泛化能力，
@@ -21,6 +19,9 @@
 
  平台遵循「前后端分离开发」思想，技术栈为：「Python + Vue + Mongodb」，后端开发使用的是轻量级 Web 框架 Flask，
 前端 UI 框架则采用的是易上手的 ElementUi。
+ 
+ [***（在这里感谢一下该开源项目给我带来的启发)***)](https://github.com/githublitao/api_automation_test) 
+
     
 ## Ⅱ. 泰斯特平台特点 （os：和其他测试平台有什么区别？）
 
