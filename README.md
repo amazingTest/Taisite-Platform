@@ -283,7 +283,7 @@
 
 ## VI . 联系泰斯特
 
-若有任何疑问、建议，或想关注更多关于平台的咨询， 欢迎扫描下方二维码关注我、联系我。
+若有任何关于平台的疑问、建议，或想关注更多平台咨询， 欢迎扫描下方二维码关注我、联系我。
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)
 
