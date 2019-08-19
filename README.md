@@ -54,13 +54,14 @@
 
 ## 
 
-## 泰斯特平台部署
+## Ⅲ . 泰斯特平台部署
 
 ### windows 环境下部署
 
 ***
     
 #### 1. 安装 python 3.6 环境
+***
 
 #### 2. 启动自然语言模型
 
@@ -81,8 +82,12 @@
 启动成功后输出如下：
 
 ![NLP模型启动成功输出](https://github.com/amazingTest/Taisite-Platform/blob/master/images/NLP模型启动成功输出.png)
- 
+
+***
+
 #### 3. 部署 Mongo 数据库
+
+***
 
 #### 4. 设置系统环境变量
     
@@ -99,6 +104,8 @@
 	python ./backend/config.py
 	
 若配置成功则可看见输入的配置
+
+***
 
 #### 5. 打包前端dist文件
 
@@ -118,6 +125,8 @@
 
 若成功打包则会在项目根目录下生成 dist 文件夹
    
+***   
+   
 #### 6. 启动后端
 
 ##### 6.1 安装后端依赖包
@@ -130,7 +139,9 @@
     
     // 启动后端 ( 默认5050端口 )
     python ./backend/run.py
-    
+ 
+***
+
 #### 7. 访问项目
 
 现在就可以访问 [http://127.0.0.1:5050/login](http://127.0.0.1:5050/login) 进行登录
@@ -146,8 +157,12 @@
 	sudo -i
 	docker pull shaoyuyishiwo/bertserver
 	docker run --name autotest-platform-bertserver -d shaoyuyishiwo/bertserver 
+	
+***
 
 #### 2. Mongo 数据库部署 (若已有现成数据库可用则可跳过此步)
+
+
   
 ##### 2.1 启动数据库 & 数据挂载至宿主机
     
@@ -175,6 +190,7 @@
     
     { "was" : 33554432, "ok" : 1 }
  
+***
 
 #### 3. 环境变量配置
   
@@ -208,6 +224,8 @@
   ##### 3.3 执行下列命令后环境变量立即生效
  
     source /etc/profile
+    
+***
 
 #### 4. 启动项目
     
@@ -221,6 +239,8 @@
   
   ![控制台输出2](https://github.com/amazingTest/Taisite-Platform/blob/master/images/控制台输出2.png)
   
+***  
+  
 #### 5. 访问项目
 
 浏览器访问部署服务器地址的 ${PORT} 端口后使用「4.启动项目」中创建的帐号密码登陆即可
@@ -228,7 +248,9 @@
 ![平台登录界面](https://github.com/amazingTest/Taisite-Platform/blob/master/images/平台登录界面.png)
 
 
-## Ⅱ. 泰斯特平台使用教程
+## IV . 泰斯特平台使用教程
+
+***
 
 主流程使用可参考 [这篇博文](https://juejin.im/post/5cd0117be51d456e537ef3bd)
 详细的教程后续补上:)
