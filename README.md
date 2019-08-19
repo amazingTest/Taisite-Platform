@@ -2,7 +2,7 @@
 
 ## Ⅰ. 泰斯特平台简介
 
-「泰斯特平台」是一个由「同时拥有丰富 软件测试 & 机器学习 经验的软件爱好者」开发的自动化测试平台。
+「泰斯特平台」是一个由「拥有丰富 软件测试 & 机器学习 经验的软件爱好者」开发的自动化测试平台。
  
  平台遵循「前后端分离开发」思想，技术栈为：「Python + Vue + Mongodb」，后端开发使用的是轻量级 Web 框架 Flask，
 前端 UI 框架则采用的是易上手的 ElementUi。
@@ -34,7 +34,7 @@
  
  ![数据导入展示](https://github.com/amazingTest/Taisite-Platform/blob/master/images/数据导入展示.png)
  
- 6.平台拥有丰富的测试结果校验体系，同时支持**文本相似度**校验方法，
+ 6.平台拥有丰富的测试结果校验体系，支持**文本相似度**校验方法，
  具体内容可参考[这篇博文](https://juejin.im/post/5cfe1dd96fb9a07ed7407321)
  
  7.......
@@ -79,18 +79,19 @@
 
 #### 4. 设置系统环境变量
     
-	AUTOTEST_PLATFORM_NLP_SERVER=127.0.0.1
+    AUTOTEST_PLATFORM_ENV=production
+    AUTOTEST_PLATFORM_NLP_SERVER=127.0.0.1
     AUTOTEST_PLATFORM_MONGO_HOST=${MONGO_HOST}
     AUTOTEST_PLATFORM_MONGO_PORT=${MONGO_PORT}
     AUTOTEST_PLATFORM_MONGO_USERNAME=${USERNAME}
     AUTOTEST_PLATFORM_MONGO_PASSWORD=${PASSWORD}
     AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME=${DBNAME}
 	
-设置完成后需重启电脑生效，可通过下列命令进行测试输出（CMD切换至项目根目录下）
+设置完成后可通过下列命令进行测试（CMD切换至项目根目录下）
 
 	python ./backend/config.py
 	
-若配置成功则可看到配置的值
+若配置成功则可看见输入的配置
 
 #### 5. 打包前端dist文件
 
@@ -100,11 +101,11 @@
         
     npm install -g cnpm --registry=https://registry.npm.taobao.org    
         
-##### 5.3 cmd进入frontend目录下，执行安装依赖包命令:
+##### 5.3 执行安装依赖包命令:
 
     cnpm install
     
-##### 5.4 cmd进入frontend目录下，执行打包命令:
+##### 5.4 执行打包命令:
 
     cnpm run build
 
@@ -116,8 +117,10 @@
     
     // 切换至项目根目录下执行
     pip install -r ./backend/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+    
     // 创建管理员帐号( 注意查看输出，记录下帐号密码 )
     python ./backend/createAdminUser.py
+    
     // 启动后端 ( 默认5050端口 )
     python ./backend/run.py
     
@@ -218,7 +221,7 @@
 
 ## Ⅱ. 泰斯特平台使用教程
 
-    主流程使用可参考[这篇博文](https://juejin.im/post/5cd0117be51d456e537ef3bd)
+    主流程使用可参考 [这篇博文](https://juejin.im/post/5cd0117be51d456e537ef3bd)
     详细的教程后续补上:)
 
 
