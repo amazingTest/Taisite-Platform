@@ -43,7 +43,7 @@
  ![数据导入展示](https://github.com/amazingTest/Taisite-Platform/blob/master/images/数据导入展示.png)
  
  6. 平台拥有较为丰富的测试结果校验体系，支持**文本相似度**校验。
- ([具体内容可参考这篇博文](https://juejin.im/post/5cfe1dd96fb9a07ed7407321))
+ ([具体内容可参考本篇博文](https://juejin.im/post/5cfe1dd96fb9a07ed7407321))
  
  7. ......
  
@@ -252,6 +252,7 @@
   
   ##### 3.3 执行下列命令后环境变量立即生效
  
+
     source /etc/profile
     
 ***
@@ -277,7 +278,7 @@
 ## V . 泰斯特平台使用教程
 
 
-平台主流程使用可参考 [这篇博文中的正文部分](https://juejin.im/post/5cd0117be51d456e537ef3bd) 
+平台主流程使用可参考 [本篇博文中的正文部分](https://juejin.im/post/5cd0117be51d456e537ef3bd) 
 
 	# TODO 详细的使用教程
 
