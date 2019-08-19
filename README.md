@@ -73,7 +73,7 @@
 
 #### 1. 安装 python 3 环境
 
-可参考[该教程](https://www.runoob.com/python3/python3-install.html)
+[点击进入 python 环境部署教程](https://www.runoob.com/python3/python3-install.html)
 
 ***
 
@@ -99,9 +99,9 @@
 
 ***
 
-#### 3. 部署 Mongo 数据库
+#### 3. 部署 Mongodb 数据库
 
-可参考[该教程](https://www.runoob.com/mongodb/mongodb-window-install.html)
+[点击进入 Mongodb 部署教程](https://www.runoob.com/mongodb/mongodb-window-install.html)
 
 ***
 
@@ -176,7 +176,7 @@
 
 ***
 
-[Docker 安装指南](https://www.runoob.com/docker/ubuntu-docker-install.html)
+[点击进入Docker 安装指南](https://www.runoob.com/docker/ubuntu-docker-install.html)
 
 #### 0. 克隆项目
 
