@@ -1,5 +1,7 @@
 # Taisite-Platform
 
+![](https://img.shields.io/badge/-%20marvelous-orange) ![](https://img.shields.io/badge/-%20gogeous-grey) ![](https://img.shields.io/badge/-%20elegant-blue)   
+
 ![泰斯特平台LOGO.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/泰斯特平台LOGO.png)
 
 ## Ⅰ. 泰斯特平台简介
