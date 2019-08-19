@@ -165,7 +165,7 @@
 
 现在就可以访问 [http://127.0.0.1:5050/#/login](http://127.0.0.1:5050/#/login) 进行登录
 
-![平台登录界面2.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/平台登录界面2.png.png)
+![平台登录界面2.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/平台登录界面2.png)
     
 ### Linux 环境下 Docker 容器化部署 
 
