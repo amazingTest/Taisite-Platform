@@ -20,7 +20,7 @@
  平台遵循「前后端分离开发」思想，技术栈为：「Python + Vue + Mongodb」，后端开发使用的是轻量级 Web 框架 Flask，
 前端 UI 框架则采用的是易上手的 ElementUi。
  
- [***（在这里感谢一下该开源项目给我带来的启发)***)](https://github.com/githublitao/api_automation_test) 
+ [***（在这里感谢一下该开源项目给我带来的启发)***](https://github.com/githublitao/api_automation_test) 
 
     
 ## Ⅱ. 泰斯特平台特点 （os：和其他测试平台有什么区别？）
@@ -285,7 +285,7 @@
 
 ## VI . 联系泰斯特
 
-若有任何关于平台的疑问、建议，或想关注更多平台咨询， 欢迎扫描下方二维码关注我、联系我。
+若对平台有任何疑问、建议，或想关注更多平台资讯， 欢迎扫描下方二维码关注我、联系我。
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)
 
