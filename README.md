@@ -270,12 +270,9 @@
 
 若有任何疑问、建议，或想关注更多关于平台的咨询， 欢迎扫描下方二维码关注我、联系我。
 
-<div align="center">
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)
-</div>
 
 同时欢迎扫描下方二维码助力开源。
 
-<div align="center">
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/wechatDonation.jpg)    
-</div>
+
