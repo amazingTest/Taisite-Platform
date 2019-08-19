@@ -63,7 +63,7 @@
 
 #### 0. 克隆项目
 
-git clone https://github.com/amazingTest/Taisite-Platform.git
+    git clone https://github.com/amazingTest/Taisite-Platform.git
 
 ***
 
@@ -166,7 +166,7 @@ git clone https://github.com/amazingTest/Taisite-Platform.git
 
 #### 0. 克隆项目
 
-git clone https://github.com/amazingTest/Taisite-Platform.git
+    git clone https://github.com/amazingTest/Taisite-Platform.git
 
 ***
 
