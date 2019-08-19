@@ -208,7 +208,7 @@
     //执行部署文件
     sh deploy ${PORT} 
     
-  其中 ${PORT} 变量填写项目访问端口即可，项目启动的同时也创建了管理员帐号，如下图所示：
+  其中 ${PORT} 变量填写项目访问端口即可，项目启动的同时也创建了管理员帐号和随机密码，如下图所示：
   
   ![控制台输出2](https://github.com/amazingTest/Taisite-Platform/blob/master/images/控制台输出2.png)
   
@@ -221,8 +221,8 @@
 
 ## Ⅱ. 泰斯特平台使用教程
 
-    主流程使用可参考 [这篇博文](https://juejin.im/post/5cd0117be51d456e537ef3bd)
-    详细的教程后续补上:)
+主流程使用可参考 [这篇博文](https://juejin.im/post/5cd0117be51d456e537ef3bd)
+详细的教程后续补上:)
 
 
 
