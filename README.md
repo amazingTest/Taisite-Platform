@@ -9,7 +9,7 @@
 ### 背景
 
 
-「泰斯特平台」是一个由「软件测试 & 机器学习爱好者」开发的自动化测试平台。
+「泰斯特平台」是一个由「软件测试 & 机器学习爱好者」开发的接口自动化测试平台。
 
 ### 愿景
 
@@ -38,7 +38,7 @@
  
  ![定时任务配置](https://github.com/amazingTest/Taisite-Platform/blob/master/images/定时任务配置.png)
  
- 5. 平台支持用例导入 / 导出功能，统一使用测试人员 **"最喜爱的"** Excel 格式，易于批量生成 / 修改用例。
+ 5. 平台拥有导入 / 导出功能，支持测试人员 **"最喜爱的"** Excel 格式，易于批量生成 / 修改用例。
  
  ![数据导入展示](https://github.com/amazingTest/Taisite-Platform/blob/master/images/数据导入展示.png)
  
