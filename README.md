@@ -118,11 +118,11 @@
 
 ***
 
-#### 5. 打包前端dist文件
+#### 5. 打包前端 dist 文件
 
-##### 5.1 安装Vue环境，下载node.js并配置环境，下载npm包管理器
+##### 5.1 安装 Vue 环境，下载 node.js 并配置环境，下载 npm 包管理器
 
-##### 5.2 cmd进入frontend目录下，配置 cnpm:
+##### 5.2 cmd 进入 frontend 目录下，配置 cnpm :
         
     npm install -g cnpm --registry=https://registry.npm.taobao.org    
         
@@ -263,8 +263,9 @@
 ## V . 泰斯特平台使用教程
 
 
-主流程使用可参考 [这篇博文](https://juejin.im/post/5cd0117be51d456e537ef3bd)
-详细的教程后续补上:)
+平台主流程使用可参考 [这篇博文中的正文部分](https://juejin.im/post/5cd0117be51d456e537ef3bd) 
+
+详细的使用教程后续补上 :)
 
 ## VI . 联系泰斯特
 
@@ -272,7 +273,7 @@
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)
 
-同时欢迎扫描下方二维码助力开源。
+**开源不易** 热烈欢迎扫描下方二维码 **助力开源**。
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/wechatDonation.jpg)    
 
