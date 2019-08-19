@@ -42,8 +42,8 @@
  
  ![数据导入展示](https://github.com/amazingTest/Taisite-Platform/blob/master/images/数据导入展示.png)
  
- 6. 平台拥有较为丰富的测试结果校验体系，支持**文本相似度**校验，
- 具体内容可参考[这篇博文](https://juejin.im/post/5cfe1dd96fb9a07ed7407321)
+ 6. 平台拥有较为丰富的测试结果校验体系，支持**文本相似度**校验。
+ ([具体内容可参考这篇博文](https://juejin.im/post/5cfe1dd96fb9a07ed7407321))
  
  7. ......
  
