@@ -70,7 +70,7 @@
 
 ***
 
-#### 2. 启动自然语言模型
+#### 2. 部署自然语言模型
 
 ##### 2.1 [点击下载压缩包](https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip)
 
@@ -108,11 +108,13 @@
     AUTOTEST_PLATFORM_MONGO_PASSWORD=${PASSWORD}
     AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME=${DBNAME}
 	
+其中 AUTOTEST_PLATFORM_NLP_SERVER（自然语言模型服务）默认为本机启动
+
 设置完成后可通过下列命令进行测试（CMD切换至项目根目录下）
 
 	python ./backend/config.py
 	
-若配置成功则可看见输入的配置
+若配置成功则可看见输入的配置数据
 
 ***
 
@@ -268,8 +270,12 @@
 
 若有任何疑问、建议，或想关注更多关于平台的咨询， 欢迎扫描下方二维码关注我、联系我。
 
+<div align="center">
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)
+</div>
 
 同时欢迎扫描下方二维码助力开源。
 
+<div align="center">
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/wechatDonation.jpg)    
+</div>
