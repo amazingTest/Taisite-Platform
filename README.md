@@ -51,7 +51,9 @@
  
 
 ## Ⅲ .泰斯特平台功能图解
-    
+
+### V1.0
+
 ![泰斯特平台结构图_V1.0](https://github.com/amazingTest/Taisite-Platform/blob/master/images/泰斯特平台结构图_V1.0.png)
 
 
