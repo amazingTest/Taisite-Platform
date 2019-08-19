@@ -52,7 +52,7 @@
 
 ## Ⅲ .泰斯特平台功能图解
     
-    
+![泰斯特平台结构图_V1.0](https://github.com/amazingTest/Taisite-Platform/blob/master/images/泰斯特平台结构图_V1.0.png)
 
 
 ## IV . 泰斯特平台部署
@@ -155,17 +155,17 @@
     // 切换至项目根目录下执行
     pip install -r ./backend/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
     
-    // 创建管理员帐号( 注意查看输出，记录下帐号密码 )
-    python ./backend/createAdminUser.py
-    
     // 启动后端 ( 默认5050端口 )
     python ./backend/run.py
+    
+    // 创建管理员帐号( 注意查看输出，记录下帐号密码 )
+    python ./backend/createAdminUser.py
  
 ***
 
 #### 7. 访问项目
 
-现在就可以访问 [http://127.0.0.1:5050/#/login](http://127.0.0.1:5050/#/login) 进行登录
+现在就可以访问 [http://127.0.0.1:5050/#/login](http://127.0.0.1:5050/#/login) 使用创建的管理员帐号进行登录
 
 ![平台登录界面2.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/平台登录界面2.png)
     
