@@ -160,14 +160,14 @@
     // 启动后端 ( 默认5050端口 )
     python ./backend/run.py
     
-    // 创建管理员帐号( 注意查看输出，记录下帐号密码 )
+    // 创建管理员随机帐号、密码( 不可重复创建 )
     python ./backend/createAdminUser.py
  
 ***
 
 #### 7. 访问项目
 
-现在就可以访问 [http://127.0.0.1:5050/#/login](http://127.0.0.1:5050/#/login) 使用创建的管理员帐号进行登录
+现在就可以访问 [http://127.0.0.1:5050/#/login](http://127.0.0.1:5050/#/login) 使用创建的管理员帐号密码进行登录
 
 ![平台登录界面2.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/平台登录界面2.png)
     
