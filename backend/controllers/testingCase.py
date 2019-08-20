@@ -5,6 +5,7 @@ from flask import Flask, jsonify, request, abort, send_file
 import xlsxwriter
 import xlrd
 import ast
+import json
 from io import BytesIO
 from models.testingCase import TestingCase
 from models.caseSuite import CaseSuite
@@ -84,7 +85,7 @@ def update_case(project_id, case_suite_id, case_id):
         else:
             try:
                 request.get_json()['presendParams'] = request.get_json()['presendParams'].replace('\'', '\"')
-                request.get_json()['presendParams'] = ast.literal_eval(request.get_json()['presendParams'])
+                request.get_json()['presendParams'] = json.loads(request.get_json()['presendParams'])
                 if not isinstance(request.get_json()['presendParams'], dict):
                     return jsonify({'status': 'failed', 'data': '请求参数数据格式不正确!'})
             except BaseException as e:
