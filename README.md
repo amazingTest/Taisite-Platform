@@ -233,7 +233,8 @@
   若出现警告则选择 (E)dit anyway (输入 E)
   
   ##### 3.1 文本末端插入下列数据 (输入 i 则变为 insert 状态)
-  
+    
+    export AUTOTEST_PLATFORM_ENV=production
     export AUTOTEST_PLATFORM_NLP_HOST=${BERT_IPADRESS}
     export AUTOTEST_PLATFORM_MONGO_HOST=${MONGO_HOST}
     export AUTOTEST_PLATFORM_MONGO_PORT=${MONGO_PORT}
