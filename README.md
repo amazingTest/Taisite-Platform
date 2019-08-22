@@ -99,6 +99,22 @@
 
 ![NLP模型启动成功输出](https://github.com/amazingTest/Taisite-Platform/blob/master/images/NLP模型启动成功输出.png)
 
+**注意事项：** 有很多小伙伴反应在配置较低（2G 1核）的服务器中会无法成功启动这个模型、导致启动项目时报连接超时的错误。
+
+**解决方案：** 取消项目对模型的依赖（副作用: 平台丧失了所有智能相关的功能）
+
+**解决步骤：**
+
+1.删除 ./backend/app/__init__.py 中的这段代码：
+
+![不使用NLP模型方法指南1](https://github.com/amazingTest/Taisite-Platform/blob/master/images/不使用NLP模型方法指南1.png)
+
+2.将 ./backend/testframe/interfaceTest/tester.py 中的下列代码修改成 **pass**：
+
+![不使用NLP模型方法指南2](https://github.com/amazingTest/Taisite-Platform/blob/master/images/不使用NLP模型方法指南2.png)
+
+完成后在启动项目时，就不会依赖于自然语言模型了~
+
 ***
 
 #### 3. 部署 Mongodb 数据库
@@ -201,11 +217,11 @@
 
 1.删除 ./backend/app/__init__.py 中的这段代码：
 
-![控制台输出1](https://github.com/amazingTest/Taisite-Platform/blob/master/images/不使用NLP模型方法指南1.png)
+![不使用NLP模型方法指南1](https://github.com/amazingTest/Taisite-Platform/blob/master/images/不使用NLP模型方法指南1.png)
 
 2.将 ./backend/testframe/interfaceTest/tester.py 中的下列代码修改成 **pass**：
 
-![控制台输出1](https://github.com/amazingTest/Taisite-Platform/blob/master/images/不使用NLP模型方法指南2.png)
+![不使用NLP模型方法指南2](https://github.com/amazingTest/Taisite-Platform/blob/master/images/不使用NLP模型方法指南2.png)
 
 完成后在启动项目时，就不会依赖于自然语言模型了~
 
