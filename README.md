@@ -199,11 +199,11 @@
 
 **解决步骤：**
 
-1.删除./backend/app/__init__.py 下的这段代码：
+1.删除 ./backend/app/__init__.py 中的这段代码：
 
 ![控制台输出1](https://github.com/amazingTest/Taisite-Platform/blob/master/images/不使用NLP模型方法指南1.png)
 
-2.将下列代码修改成 **pass**：
+2.将 ./backend/testframe/interfaceTest/tester.py 中的下列代码修改成 **pass**：
 
 ![控制台输出1](https://github.com/amazingTest/Taisite-Platform/blob/master/images/不使用NLP模型方法指南2.png)
 
