@@ -177,8 +177,13 @@ class tester:
             test_case['cookies'].append(cookie_dic)
 
         try:
-            response = session.request(url=url, method=method, json=json_data,
-                                       headers=headers)
+
+            use_json_data = len(list(filter(lambda x: str(x).lower() == 'content-type' and 'json'
+                                                      in headers[x], headers.keys()))) > 0
+
+            response = session.request(url=url, method=method, json=json_data, headers=headers) if use_json_data\
+                else session.request(url=url, method=method, data=json_data, headers=headers)
+
         except BaseException as e:
            returned_data["status"] = 'failed'
            returned_data["testConclusion"].append('请求失败, 错误信息: <%s> ' % e)
