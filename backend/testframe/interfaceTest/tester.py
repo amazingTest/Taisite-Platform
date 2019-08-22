@@ -9,18 +9,18 @@ from bson import ObjectId
 from threading import Thread
 
 
-def async(f):
+def async_test(f):
     def wrapper(*args, **kwargs):
         thr = Thread(target=f, args=args, kwargs=kwargs)
         thr.start()
 
     return wrapper
 
+
 # 基础测试类，负责获取测试用例的参数，请求，验证等信息后，进行测试，测试通过则返回True，不通过则抛出异常 -- 2019-1-7 09:27
 
 # 基础测试类，负责获取测试用例的参数，请求，验证等信息后，进行测试，测试通过则返回{'status': 'ok'} ，
 # 不通过则返回{'status': 'failed'} -- 2019-1-11 15:03
-
 
 class tester:
 
@@ -51,7 +51,7 @@ class tester:
             self.global_vars = {}
 
     # 异步方便返回测试启动是否成功的提示给前端
-    @async
+    @async_test
     def execute_all_test_and_send_report(self, testing_case_model, test_report_model,
                                          project_id, executor_nick_name, execution_mode):
         test_results = []
