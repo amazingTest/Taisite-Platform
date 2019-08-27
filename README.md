@@ -65,7 +65,9 @@
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)    
 
-公众号内回复： 部署文档 即可获得部署指引文档
+公众号内回复： 部署文档 
+
+即可获得部署指引文档~
 
 ## V . 泰斯特平台使用教程
 
