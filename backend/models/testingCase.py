@@ -71,7 +71,7 @@ class TestingCase(Model):
     isClearCookie = BooleanField(field_name='isClearCookie', default=False)
     checkHttpCode = StringField()
     checkResponseData = ArrayField(field_name='checkResponseData', default=[{'regex': '', 'query': []}],
-                                   expected_structure={'expectedTypeRange': [list],
+                                   expected_structure={'expectedTypeRange': [list, type(None)],
                                                        'expectedValueRange': [{
                                                            'expectedTypeRange': [dict],
                                                            'expectedDict': {
@@ -88,7 +88,7 @@ class TestingCase(Model):
     checkResponseSimilarity = ArrayField(
         field_name='checkResponseSimilarity',
         default=[{"baseText": "", "compairedText": "", "targetSimilarity": None}],
-        expected_structure={'expectedTypeRange': [list],
+        expected_structure={'expectedTypeRange': [list, type(None)],
                             'expectedValueRange': [
                                 {
                                     'expectedTypeRange': [dict],
@@ -110,7 +110,7 @@ class TestingCase(Model):
                       'expectResult': ''
                   }
                   }],
-        expected_structure={'expectedTypeRange': [list],
+        expected_structure={'expectedTypeRange': [list, type(None)],
                             'expectedValueRange': [{
                                 'expectedTypeRange': [dict],
                                 'expectedDict': {
