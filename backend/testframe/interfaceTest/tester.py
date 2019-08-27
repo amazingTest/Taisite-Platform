@@ -8,6 +8,9 @@ from utils import common
 from bson import ObjectId
 from threading import Thread
 
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 
 def async_test(f):
     def wrapper(*args, **kwargs):
@@ -180,9 +183,9 @@ class tester:
 
             use_json_data = len(list(filter(lambda x: str(x).lower() == 'content-type' and 'json'
                                                       in headers[x], headers.keys()))) > 0
-
-            response = session.request(url=url, method=method, json=json_data, headers=headers) if use_json_data\
-                else session.request(url=url, method=method, data=json_data, headers=headers)
+            
+            response = session.request(url=url, method=method, json=json_data, headers=headers, verify=False) if use_json_data\
+                else session.request(url=url, method=method, data=json_data, headers=headers, verify=False)
 
         except BaseException as e:
            returned_data["status"] = 'failed'
