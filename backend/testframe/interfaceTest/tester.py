@@ -182,8 +182,8 @@ class tester:
         try:
 
             use_json_data = len(list(filter(lambda x: str(x).lower() == 'content-type' and 'json'
-                                                      in headers[x], headers.keys()))) > 0
-            
+                                                      in headers[x], headers.keys() if headers else {}))) > 0
+
             response = session.request(url=url, method=method, json=json_data, headers=headers, verify=False) if use_json_data\
                 else session.request(url=url, method=method, data=json_data, headers=headers, verify=False)
 
