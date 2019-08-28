@@ -24,7 +24,7 @@
 
 ### 开源协议
 
-***Server Side Public License (SSPL)***
+***APGL-3.0***
 
 （详细内容请查阅 LICENSE 文件）
 
