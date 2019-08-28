@@ -22,7 +22,12 @@
  
  [***（在这里感谢一下该开源项目给我带来的启发)***](https://github.com/githublitao/api_automation_test) 
 
-    
+### 开源协议
+
+***Server Side Public License (SSPL)***
+
+（详细内容请查阅 LICENSE 文件）
+
 ## Ⅱ. 泰斯特平台特点 （os：和其他测试平台有什么区别？）
 
  1. 平台遵循「小而精」的策略，最大化所有功能的开发、使用性价比，可帮助测试团队快速搭建起易于上手 / 维护的接口
