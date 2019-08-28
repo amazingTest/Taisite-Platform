@@ -461,7 +461,7 @@ def export_test_cases():
         export_case = list()
         for key in test_case_map.keys():
             if isinstance(case.get(key), list):
-                case_data = ';'.join(([str(x) if common.can_convert_to_str(x) else '' for x in case[key]]))
+                case_data = '；'.join(([str(x) if common.can_convert_to_str(x) else '' for x in case[key]]))
             elif isinstance(case.get(key), datetime.datetime):
                 case_data = str(case.get(key)).replace('.', ':', 1) \
                     if common.can_convert_to_str(case.get(key)) \

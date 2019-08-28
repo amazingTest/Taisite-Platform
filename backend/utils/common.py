@@ -450,7 +450,7 @@ def validate_and_pre_process_import_test_case(case_suite_model, testing_case_mod
                     # TODO 判断优化: (默认值可能不是都存在)
                     _case_info[key] = case_attribute.default if not _case_info[key] else\
                         list(map(lambda x: ast.literal_eval(x.replace('\'', '\"')),
-                             str(_case_info[key]).strip().split(';')))
+                             str(_case_info[key]).strip().split('；')))
             elif attribute_type is dict:
                 _case_info[key] = ast.literal_eval(str(_case_info[key]).strip()) \
                     if _case_info[key] else {}
