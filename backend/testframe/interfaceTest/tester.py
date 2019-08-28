@@ -4,7 +4,7 @@ import time
 import datetime
 import re
 from utils import common
-
+import ast
 from bson import ObjectId
 from threading import Thread
 
@@ -150,11 +150,17 @@ class tester:
                     url += '%s=%s&' % (key, value)
             url = url[0:(len(url) - 1)]
         elif 'presendParams' in test_case and isinstance(test_case['presendParams'], dict):
-
-            for key, value in test_case['presendParams'].items():
-                test_case['presendParams'][key] = \
-                    common.resolve_global_var(pre_resolve_var=value, global_var_dic=self.global_vars) \
-                        if isinstance(value, str) else test_case['presendParams'][key]
+            
+            # dict 先转 str，方便全局变量替换
+            test_case['presendParams'] = str(test_case['presendParams'])
+            
+            # 全局替换
+            test_case['presendParams'] = common.resolve_global_var(pre_resolve_var=test_case['presendParams'],
+                                                                   global_var_dic=self.global_vars)
+            
+            # 转回 dict
+            test_case['presendParams'] = ast.literal_eval(test_case['presendParams'])
+            
             json_data = test_case['presendParams']
 
         if 'headers' in test_case and not test_case['headers'] in ["", None, {}, {'': ''}]:
