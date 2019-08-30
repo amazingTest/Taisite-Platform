@@ -341,7 +341,7 @@ class tester:
                 returned_data["status"] = 'failed'
                 returned_data["testConclusion"].append('判断数值时报错, 错误信息: <%s>。\t ' % e)
 
-        if self.nlper and check_response_similarity:
+        if hasattr(self, 'nlper') and self.nlper and check_response_similarity:
             try:
                 for crs in check_response_similarity:
                     base_text = crs['baseText']
