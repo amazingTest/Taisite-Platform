@@ -246,7 +246,7 @@ def dict_get(dic, locators, default=None):
 
 
 def is_slice_expression(expression):
-    if re.match('-?\d+:-?\d+', expression):
+    if re.match('(\d+)?:(\d+)?', expression):
         return True
     else:
         return False
