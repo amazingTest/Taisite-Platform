@@ -216,8 +216,8 @@ def dict_get(dic, locators, default=None):
         if isinstance(value, str) and is_slice_expression(locator):
             try:
                 slice_indexes = locator.split(':')
-                start_index = int(slice_indexes[0])
-                end_index = int(slice_indexes[-1])
+                start_index = int(slice_indexes[0]) if slice_indexes[0] else None
+                end_index = int(slice_indexes[-1]) if slice_indexes[-1] else None
                 value = value[start_index:end_index]
             except KeyError:
                 return default
