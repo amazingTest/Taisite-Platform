@@ -76,8 +76,9 @@
 
 ## V . 泰斯特平台使用教程
 
+平台主流程使用可参考[本篇博文中的正文部分](https://juejin.im/post/5cd0117be51d456e537ef3bd)
 
-欢迎扫描下方二维码关注「泰斯特平台」官方公众号
+若想获得详细教程欢迎扫描下方二维码关注「泰斯特平台」官方公众号
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)    
 
