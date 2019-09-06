@@ -18,13 +18,17 @@ if __name__ == '__main__':
     administrator_info = {
         'username': user_name,
         'password': random_pass_word,
-        'nickName': '系统管理员'
+        'nickName': nick_name
     }
-    try:
-        db['adminUser'].insert(administrator_info)
-    except database_errors.DuplicateKeyError as e:
+
+    if db['adminUser'].find_one({'username': user_name}):
         print('您已经创建过管理员用户啦! / you have already created adminUser account!')
     else:
-        print('管理员账号创建成功~ / adminUser has been successfully created~')
-        print('username: %s, password: %s' % (user_name, random_pass_word))
-        print('请记录并妥善保管好账号密码~ / please take good care of your account~')
+        try:
+            db['adminUser'].insert(administrator_info)
+        except database_errors.DuplicateKeyError as e:
+            print('您已经创建过管理员用户啦! / you have already created adminUser account!')
+        else:
+            print('管理员账号创建成功~ / adminUser has been successfully created~')
+            print('username: %s, password: %s' % (user_name, random_pass_word))
+            print('请记录并妥善保管好账号密码~ / please take good care of your account~')
