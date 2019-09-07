@@ -257,7 +257,7 @@ AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME 为默认的数据表名（必填）
 
 浏览器访问部署服务器地址的 ${PORT}端口即可
 
-![平台登录界面1.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/平台登录界面1.png)
+![平台登录界面.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/平台登录界面.png)
 
 
 #### EXTRA. 常见问题
