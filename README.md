@@ -262,7 +262,9 @@ AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME 为默认的数据表名（必填）
 
 #### EXTRA. 常见问题
 
-1. 下列输出代表 NLP模型 启动失败
+下列输出代表 NLP模型 启动失败
+
+![NLP部署失败.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/NLP部署失败.png) 
 
 解决步骤：
 
