@@ -208,6 +208,15 @@ class tester:
             response_json = json.loads(response.text) if isinstance(response.text, str) \
                                                          and response.text.strip() else {}
         except BaseException as e:
+            if 'checkHttpCode' in test_case and not test_case['checkHttpCode'] in ["", None]:
+                check_http_code = test_case['checkHttpCode']
+            
+            if check_http_code and not str(response_status_code) == str(check_http_code):
+                returned_data["status"] = 'failed'
+                returned_data["testConclusion"].append('响应状态码错误, 期待值: <%s>, 实际值: <%s>。\t'
+                                                       % (check_http_code, response_status_code))
+                return returned_data
+            
             is_check_res_data_valid = isinstance(test_case.get('checkResponseData'), list) and\
                                       len(list(filter(lambda x: str(x.get('regex')).strip() == '',
                                                       test_case.get('checkResponseData')))) < 1
