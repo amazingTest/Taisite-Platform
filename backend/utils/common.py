@@ -197,7 +197,15 @@ def dict_get(dic, locators, default=None):
 
     '''
 
-    if not isinstance(dic, dict) or not isinstance(locators, list):
+    if not isinstance(dic, dict):
+        if not isinstance(locators, list):
+            return default
+        elif isinstance(dic, str) and len(locators) == 1 and is_slice_expression(locators[0]):
+            slice_indexes = locators[0].split(':')
+            start_index = int(slice_indexes[0]) if slice_indexes[0] else None
+            end_index = int(slice_indexes[-1]) if slice_indexes[-1] else None
+            value = dic[start_index:end_index]
+            return value
         return default
 
     if dic == {} or len(locators) < 1:
@@ -246,7 +254,7 @@ def dict_get(dic, locators, default=None):
 
 
 def is_slice_expression(expression):
-    if re.match('(\d+)?:(\d+)?', expression):
+    if re.match('(-?\d+)?:(-?\d+)?', expression):
         return True
     else:
         return False

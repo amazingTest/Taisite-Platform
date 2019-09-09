@@ -208,6 +208,15 @@ class tester:
             response_json = json.loads(response.text) if isinstance(response.text, str) \
                                                          and response.text.strip() else {}
         except BaseException as e:
+
+            if set_global_vars and isinstance(set_global_vars, list):
+                for set_global_var in set_global_vars:
+                    if isinstance(set_global_var, dict) and isinstance(set_global_var.get('name'), str):
+                        name = set_global_var.get('name')
+                        query = set_global_var.get('query')
+                        value = common.dict_get(response.text, query)
+                        self.global_vars[name] = str(value) if value else value
+
             if 'checkHttpCode' in test_case and not test_case['checkHttpCode'] in ["", None]:
                 check_http_code = test_case['checkHttpCode']
             
