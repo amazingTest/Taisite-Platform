@@ -26,7 +26,6 @@
 
 ***APGL-3.0***
 
-
 （详细内容请查阅 LICENSE 文件）
 
 ## Ⅱ. 泰斯特平台特点 （os：和其他测试平台有什么区别？）
@@ -299,7 +298,20 @@ AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME 为默认的数据表名（必填）
 
 （感谢 TesterHome - qiChow 提供的服务器）
 
-## Ⅶ . 捐赠
+## Ⅶ . 泰斯特带你成长
+
+如果你想：
+
++ 熟悉平台的每一个最新改动
++ 了解人工智能与测试结合的最新动态
++ 打破测试水平的瓶颈
++ 泰斯特带你一起成长
+
+那么我欢迎你来加入 **我的星球** 一起问道技术巅峰
+
+![我的星球](https://github.com/amazingTest/Taisite-Platform/blob/master/images/知识星球海报.jpg)    
+
+## Ⅷ . 捐赠
 
 **开源不易** 欢迎扫描下方二维码 **助力开源**。
 
