@@ -309,7 +309,7 @@ AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME 为默认的数据表名（必填）
 
 那么我欢迎你来加入 **我的星球** 一起问道技术巅峰
 
-![我的星球](https://github.com/amazingTest/Taisite-Platform/blob/master/images/知识星球海报.jpg)    
+![我的星球](https://github.com/amazingTest/Taisite-Platform/blob/master/images/知识星球二维码.jpg)    
 
 ## Ⅷ . 捐赠
 
