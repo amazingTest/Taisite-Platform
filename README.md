@@ -22,6 +22,10 @@
  
  [***（在这里感谢一下该开源项目给我带来的启发)***](https://github.com/githublitao/api_automation_test) 
 
+### 使用环境
+
+**推荐使用 Chrome 最新浏览器使用~**
+
 ### 开源协议
 
 ***APGL-3.0***
