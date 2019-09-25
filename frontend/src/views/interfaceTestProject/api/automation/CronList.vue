@@ -98,7 +98,7 @@
 
        <transition name="el-zoom-in-top">
         <div
-            class="form-item-sub form-item-short form-item-smalldate"
+            class="form-item-sub form-item-short"
             v-if="editForm.triggerType.toString()==='interval' ||
                   editForm.triggerType.toString()==='date'">
           <el-form-item v-show="editForm.triggerType.toString()==='interval'" label="间隔/秒" prop="interval">
@@ -131,7 +131,7 @@
 
         <transition name="el-zoom-in-top">
           <div
-              class="form-item-sub form-item-short form-item-smalldate"
+              class="form-item-sub form-item-short"
               v-if="editForm.isDingDingNotify && editForm.isDingDingNotify.toString()==='true'">
             <el-form-item
                style="width:90%"
@@ -203,7 +203,7 @@
 
         <transition name="el-zoom-in-top">
           <div
-              class="form-item-sub form-item-short form-item-smalldate"
+              class="form-item-sub form-item-short"
               v-if="addForm.triggerType.toString()==='interval' ||
                     addForm.triggerType.toString()==='date'">
             <el-form-item v-if="addForm.triggerType.toString()==='interval'" label="间隔/秒" prop="interval">
@@ -236,7 +236,7 @@
 
         <transition name="el-zoom-in-top">
           <div
-              class="form-item-sub form-item-short form-item-smalldate"
+              class="form-item-sub form-item-short"
               v-if="addForm.isDingDingNotify && addForm.isDingDingNotify.toString()==='true'">
             <el-form-item
                style="width:90%"
@@ -1038,18 +1038,11 @@
       border-right: 8px solid transparent;
       border-top: 0px solid transparent;
     }
-    .form-item-smalldate>>>.el-date-editor{
-      width: 140px !important;
-    }
     .form-item-short>>>.el-form-item__content{
       margin-left: 100px !important;
     }
     .form-item-short>>>.el-input{
       margin: 0 10px;
-    }
-    .el-form-item>>>.el-input,
-    .el-form-item>>>.el-textarea{
-      width: 240px;
     }
     .el-form-item:last-child{
       margin-bottom: 0;
