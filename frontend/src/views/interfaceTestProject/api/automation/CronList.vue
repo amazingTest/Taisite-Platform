@@ -1041,9 +1041,6 @@
     .form-item-smalldate>>>.el-date-editor{
       width: 140px !important;
     }
-    .form-item-short>>>.el-form-item__label{
-      width: 0 !important;
-    }
     .form-item-short>>>.el-form-item__content{
       margin-left: 100px !important;
     }
