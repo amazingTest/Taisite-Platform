@@ -116,43 +116,6 @@
          </div>
         </transition>
 
-        <el-form-item label="钉钉提醒">
-            <el-radio
-                v-model="editForm.isDingDingNotify"
-                :label="true">
-                是
-            </el-radio>
-            <el-radio
-                v-model="editForm.isDingDingNotify"
-                :label="false">
-                否
-            </el-radio>
-        </el-form-item>
-
-        <transition name="el-zoom-in-top">
-          <div
-              class="form-item-sub form-item-short"
-              v-if="editForm.isDingDingNotify && editForm.isDingDingNotify.toString()==='true'">
-            <el-form-item
-               style="width:90%"
-               label="钉钉Token"
-               prop="dingdingAccessToken">
-              <el-input v-model.trim="editForm.dingdingAccessToken" auto-complete="off"></el-input>
-            </el-form-item>
-
-            <el-form-item v-show="editForm.isDingDingNotify.toString()==='true'" label="提醒策略">
-                <el-checkbox
-                    v-model="editForm.dingdingNotifyStrategy.success"
-                    label="测试全通过时提醒">
-                </el-checkbox>
-                <el-checkbox
-                    v-model="editForm.dingdingNotifyStrategy.fail"
-                    label="测试存在失败时提醒">
-                </el-checkbox>
-            </el-form-item>
-          </div>
-        </transition>
-
         <el-form-item label="告警邮箱" prop="alarmMailList">
           <el-select
             style="width: 60%;"
@@ -350,12 +313,6 @@
           alarmMailList: [
             { required: false, message: '请选择告警邮箱', trigger: 'blur' }
           ],
-          isDingDingNotify: [
-            { required: false, message: '请选择是否使用钉钉提醒', trigger: 'blur' }
-          ],
-          dingdingAccessToken: [
-            { required: false, message: '请输入钉钉AccessToken', trigger: 'blur' }
-          ],
           triggerType: [
             { required: true, message: '请选择触发类型', trigger: 'blur' }
           ],
@@ -378,9 +335,6 @@
           isExecuteForbiddenedCase: false,
           testDomain: '',
           alarmMailList: [],
-          isDingDingNotify: false,
-          dingdingNotifyStrategy: {success: false, fail: true},
-          dingdingAccessToken: '',
           triggerType: '',
           interval: 0,
           runDate: '',
@@ -401,12 +355,6 @@
           ],
           alarmMailList: [
             { required: false, message: '请选择告警邮箱', trigger: 'blur' }
-          ],
-          isDingDingNotify: [
-            { required: false, message: '请选择是否使用钉钉提醒', trigger: 'blur' }
-          ],
-          dingdingAccessToken: [
-            { required: false, message: '请输入钉钉AccessToken', trigger: 'blur' }
           ],
           triggerType: [
             { required: true, message: '请选择触发类型', trigger: 'blur' }
@@ -430,9 +378,6 @@
           isExecuteForbiddenedCase: false,
           testDomain: '',
           alarmMailList: [],
-          isDingDingNotify: false,
-          dingdingNotifyStrategy: {success: false, fail: true},
-          dingdingAccessToken: '',
           triggerType: '',
           interval: '',
           runDate: '',
@@ -642,9 +587,6 @@
                   triggerType: self.addForm.triggerType,
                   description: self.addForm.description,
                   alarmMailList: self.addForm.alarmMailList,
-                  isDingDingNotify: self.addForm.isDingDingNotify,
-                  dingdingAccessToken: self.addForm.dingdingAccessToken,
-                  dingdingNotifyStrategy: self.addForm.dingdingNotifyStrategy,
                   creatorNickName: unescape(getCookie('nickName').replace(/\\u/g, '%u')) || '未知用户',
                   lastUpdatorNickName: unescape(getCookie('nickName').replace(/\\u/g, '%u')) || '未知用户'
                 };
@@ -719,9 +661,6 @@
                   next_run_time: self.editForm.next_run_time, // 用于判断是否要resume定时任务
                   description: self.editForm.description,
                   alarmMailList: self.editForm.alarmMailList,
-                  isDingDingNotify: self.editForm.isDingDingNotify || false,
-                  dingdingAccessToken: self.editForm.dingdingAccessToken || '',
-                  dingdingNotifyStrategy: self.editForm.dingdingNotifyStrategy,
                   lastUpdatorNickName: unescape(getCookie('nickName').replace(/\\u/g, '%u')) || '未知用户'
                 };
                 if (self.editForm.runDate && self.editForm.runDate.toString().trim() !== ''){
