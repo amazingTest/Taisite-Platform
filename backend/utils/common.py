@@ -234,12 +234,32 @@ def dict_get(dic, locators, default=None):
             except KeyError:
                 return default
             continue
-        if isinstance(value, list):
+        if isinstance(value, list) and len(value) > 0:
             if can_convert_to_int(locator):
                 try:
                     value = value[int(locator)]
                 except IndexError:
                     return default
+                continue
+            elif is_specific_search_by_dict_value(locator) and all([isinstance(v, dict) for v in value]):
+                first_equal_index = locator.index('=')
+                last_dot_index = locator.rindex('.')
+                matched_key_re = locator[:first_equal_index]  # 字典中存在满足的正则条件的键
+                matched_value_re = locator[first_equal_index + 1:last_dot_index]  # matched_key对应的值需要满足的正则条件
+                needed_value_key = locator[last_dot_index + 1:]  # 满足正则条件的字典中待取的值的键
+
+                for dic in value:
+                    for k, v in dic.items():
+                        if re.match(matched_key_re, str(k)) and re.match(matched_value_re, str(v)):
+                            needed_value = dic.get(needed_value_key)
+                            value = needed_value
+                            break
+                    else:
+                        continue
+                    break
+                else:
+                    return default
+
                 continue
             elif locator == 'random':
                 try:
@@ -249,6 +269,13 @@ def dict_get(dic, locators, default=None):
                 continue
 
     return value
+
+
+def is_specific_search_by_dict_value(expression):
+    if re.match(r'(.)+=(.)+\.(.)+', expression):
+        return True
+    else:
+        return False
 
 
 def is_slice_expression(expression):
@@ -540,5 +567,4 @@ def get_random_key(digit_num=16):
 
 if __name__ == '__main__':
     pass
-
 
