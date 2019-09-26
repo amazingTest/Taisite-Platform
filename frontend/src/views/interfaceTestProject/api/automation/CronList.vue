@@ -184,43 +184,6 @@
           </div>
         </transition>
 
-        <el-form-item label="钉钉提醒">
-            <el-radio
-                v-model="addForm.isDingDingNotify"
-                :label="true">
-                是
-            </el-radio>
-            <el-radio
-                v-model="addForm.isDingDingNotify"
-                :label="false">
-                否
-            </el-radio>
-        </el-form-item>
-
-        <transition name="el-zoom-in-top">
-          <div
-              class="form-item-sub form-item-short"
-              v-if="addForm.isDingDingNotify && addForm.isDingDingNotify.toString()==='true'">
-            <el-form-item
-               style="width:90%"
-               label="钉钉Token"
-               prop="dingdingAccessToken">
-              <el-input v-model.trim="addForm.dingdingAccessToken" auto-complete="off"></el-input>
-            </el-form-item>
-
-            <el-form-item v-show="addForm.isDingDingNotify.toString()==='true'" label="提醒策略">
-                <el-checkbox
-                    v-model="addForm.dingdingNotifyStrategy.success"
-                    label="测试全通过时提醒">
-                </el-checkbox>
-                <el-checkbox
-                    v-model="addForm.dingdingNotifyStrategy.fail"
-                    label="测试存在失败时提醒">
-                </el-checkbox>
-            </el-form-item>
-          </div>
-        </transition>
-
         <el-form-item label="告警邮箱" prop="alarmMailList">
           <el-select clearable style="width: 60%;" v-model="addForm['alarmMailList']" @visible-change="checkActiveMailList" multiple placeholder="请选择告警报告接受者(可多选)">
             <el-option v-for="(item,index) in alarmMailList" :key="index" :label="item.name" :value="item.mailAddress"></el-option>
