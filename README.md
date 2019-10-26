@@ -295,12 +295,9 @@ AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME 为默认的数据表名（必填）
 
 ## VI . 泰斯特平台零距离体验（建议先看教程哦~）
 
-体验地址现已开放！ [点击马上体验](http://47.106.10.19:5099)
+因体验服务器配置问题，体验需关注下方公众号后回复 「体验地址」 获得：
 
-体验账号：test
-体验密码：test
-
-（感谢 TesterHome - qiChow 提供的服务器）
+![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)    
 
 ## Ⅶ . 泰斯特带你成长
 
