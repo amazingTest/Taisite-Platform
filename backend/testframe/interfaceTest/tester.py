@@ -148,7 +148,8 @@ class tester:
             for key, value in test_case['presendParams'].items():
                 if value is not None:
                     get_method_params_value = common.resolve_global_var(pre_resolve_var=value,
-                                                                 global_var_dic=self.global_vars)         
+                                                                        global_var_dic=self.global_vars)\
+                        if isinstance(value, str) else value
                     url += '%s=%s&' % (key, get_method_params_value)
             url = url[0:(len(url) - 1)]
         elif 'presendParams' in test_case and isinstance(test_case['presendParams'], dict):
