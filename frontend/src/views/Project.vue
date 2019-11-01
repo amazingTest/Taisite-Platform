@@ -10,6 +10,11 @@
 					<el-dropdown-menu slot="dropdown">
 						<!--<el-dropdown-item>我的消息</el-dropdown-item>-->
 						<!--<el-dropdown-item>设置</el-dropdown-item>-->
+						<el-dropdown-item divided>
+              <a target="_blank" href="https://mp.weixin.qq.com/s/csjfg7EHocHEvdwohxTwaA">
+                使用教程
+              </a>
+            </el-dropdown-item>
 						<el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
 					</el-dropdown-menu>
 				</el-dropdown>
