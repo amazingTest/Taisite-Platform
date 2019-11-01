@@ -90,7 +90,7 @@
 
 2.3 安装 python 依赖包
 
-    pip install tensorflow==1.11.0  -i https://pypi.tuna.tsinghua.edu.cn/simple
+    pip install tensorflow==1.14.0  -i https://pypi.tuna.tsinghua.edu.cn/simple
     pip install bert-serving-server==1.9.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
   
 2.4 启动模型
