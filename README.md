@@ -287,7 +287,7 @@ AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME 为默认的数据表名（必填）
 
 平台主流程使用可参考[本篇博文中的正文部分](https://juejin.im/post/5cd0117be51d456e537ef3bd)
 
-若想获得更多平台资讯或 **领取福利** 欢迎扫描下方二维码关注「泰斯特平台」官方公众号
+若想 **完整教程** 可关注下方微信号，回复 **优质教程**
 
 ![2D-Code](https://github.com/amazingTest/Taisite-Platform/blob/master/images/微信公众号.jpg)    
 
