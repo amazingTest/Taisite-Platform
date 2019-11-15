@@ -14,7 +14,7 @@ from flask_login import login_required
 @app.route('/api/project/<project_id>/caseSuiteList', methods=['GET', 'POST'])
 @login_required
 def case_suite_list(project_id):
-    total_num, case_suites = common.get_total_num_and_arranged_data(CaseSuite, request.args)
+    total_num, case_suites = common.get_total_num_and_arranged_data(CaseSuite, request.args, fuzzy_fields=['name'])
     return jsonify({'status': 'ok', 'data': {'totalNum': total_num, 'rows': case_suites}})
 
 
@@ -95,13 +95,11 @@ def update_case_suite(project_id, case_suite_id):
         filtered_data = CaseSuite.filter_field(request.get_json())
         for key, value in filtered_data.items():
             CaseSuite.update({"_id": ObjectId(case_suite_id)},
-                        {'$set': {key: value}})
+                             {'$set': {key: value}})
         update_response = CaseSuite.update({"_id": ObjectId(case_suite_id)},
-                    {'$set': {'lastUpdateTime': datetime.datetime.utcnow()}},)
+                                           {'$set': {'lastUpdateTime': datetime.datetime.utcnow()}}, )
         if update_response["n"] == 0:
             return jsonify({'status': 'failed', 'data': '未找到相应更新数据！'})
         return jsonify({'status': 'ok', 'data': '更新成功'})
     except BaseException as e:
         return jsonify({'status': 'failed', 'data': '更新失败: %s' % e})
-
-

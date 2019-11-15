@@ -136,8 +136,16 @@ def format_js_dic_to_python_dic(query_dic):
     return query_dic
 
 
-def get_total_num_and_arranged_data(raw_model, query_dic):
+def get_total_num_and_arranged_data(raw_model, query_dic, fuzzy_fields=None):
     query_dic = query_dic.to_dict() if query_dic.to_dict() else {}
+    if fuzzy_fields is not None:
+        if not isinstance(fuzzy_fields, list):
+            raise TypeError('fuzzy_fields need to be list.')
+        for fuzzy_field in fuzzy_fields:
+            if not isinstance(fuzzy_field, str):
+                raise TypeError('fuzzy_field need to be str')
+            if fuzzy_field in query_dic:
+                query_dic[fuzzy_field] = re.compile(query_dic[fuzzy_field])
     query_dic = format_js_dic_to_python_dic(query_dic)
     raw_model_copy = copy.deepcopy(raw_model)
     raw_model_data_copy = []
