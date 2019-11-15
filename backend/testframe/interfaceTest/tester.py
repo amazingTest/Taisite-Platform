@@ -36,8 +36,7 @@ class tester:
             from app import nlper
             self.nlper = nlper
         except ImportError as e:
-            pass
-            # raise ImportError('nlp模型导入失败！<%s>' % e)
+            raise ImportError('nlp模型导入失败！<%s>' % e)
 
         self.test_case_list = test_case_list
         self.domain = domain
