@@ -107,6 +107,20 @@ def can_convert_to_float(input):
         return False
 
 
+re_escapes = ['*', '.', '?', '+', '$', '^', '[', ']', '(', ')', '{', '}', '|']
+
+
+def format_escapes(input, escapes=re_escapes):
+    if can_convert_to_str(input):
+        input = str(input)
+        for index, char in enumerate(input):
+            if char in escapes:
+                input = input.replace(char, '\\' + char)
+        return input
+    else:
+        return None
+
+
 def format_order(raw_order):
     if not isinstance(raw_order, str):
         raise TypeError('raw_order must be str!')
@@ -145,7 +159,8 @@ def get_total_num_and_arranged_data(raw_model, query_dic, fuzzy_fields=None):
             if not isinstance(fuzzy_field, str):
                 raise TypeError('fuzzy_field need to be str')
             if fuzzy_field in query_dic and can_convert_to_str(query_dic[fuzzy_field]):
-                query_dic[fuzzy_field] = re.compile(str(query_dic[fuzzy_field]))
+                pre_compiled_str = format_escapes(str(query_dic[fuzzy_field]))
+                query_dic[fuzzy_field] = re.compile(pre_compiled_str)
     query_dic = format_js_dic_to_python_dic(query_dic)
     raw_model_copy = copy.deepcopy(raw_model)
     raw_model_data_copy = []
