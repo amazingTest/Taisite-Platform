@@ -111,14 +111,13 @@ re_escapes = ['*', '.', '?', '+', '$', '^', '[', ']', '(', ')', '{', '}', '|']
 
 
 def format_escapes(input, escapes=re_escapes):
-    if can_convert_to_str(input):
-        input = str(input)
+    if not isinstance(input, str):
+        return input
+    else:
         for index, char in enumerate(input):
             if char in escapes:
                 input = input.replace(char, '\\' + char)
         return input
-    else:
-        return None
 
 
 def format_order(raw_order):
