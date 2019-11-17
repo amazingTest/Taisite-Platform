@@ -114,9 +114,8 @@ def format_escapes(input, escapes=re_escapes):
     if not isinstance(input, str):
         return input
     else:
-        for index, char in enumerate(input):
-            if char in escapes:
-                input = input.replace(char, '\\' + char)
+        for escape in escapes:
+            input = input.replace(escape, '\\' + escape)
         return input
 
 
