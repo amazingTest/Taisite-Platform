@@ -107,7 +107,7 @@ def can_convert_to_float(input):
         return False
 
 
-re_escapes = ['*', '.', '?', '+', '$', '^', '[', ']', '(', ')', '{', '}', '|']
+re_escapes = ['\\', '/', '*', '.', '?', '+', '$', '^', '[', ']', '(', ')', '{', '}', '|']
 
 
 def format_escapes(input, escapes=re_escapes):
