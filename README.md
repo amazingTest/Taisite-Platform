@@ -66,7 +66,7 @@ The platform follows the idea of "separate development frontend and backend". Th
  ***（There are so many amazing little features waiting for you to explore & tap）***
  
 
-## Ⅲ .Taisite-platform function diagram
+## Ⅲ .Taisite-platform function diagram ( em.. you need to translate by yourself :))
 
 ### V1.0
 
