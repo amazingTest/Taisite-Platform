@@ -82,7 +82,7 @@ The platform follows the idea of "separate development frontend and backend". Th
 
 #### 1. Install python 3 env
 
-#### 2. 部署自然语言模型
+#### 2. deploy NLP model
 
 [Download model](https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip)
 
@@ -212,7 +212,7 @@ You can now log in using http://127.0.0.1:5050/#/login using the created adminis
   
 #### 3. Environment variable configuration
 
-// 编辑 /etc/profile 文件
+// Edit /etc/profile file
 
     sudo -i
     vi /etc/profile
@@ -287,7 +287,7 @@ When you start the project after you finish, you will not depend on the natural 
 
 ## V . Contact me
 
-if you have any questions feel free to email me , 523314409@qq.com.
+if you have any questions , feel free to email me , 523314409@qq.com.
 
 
 
