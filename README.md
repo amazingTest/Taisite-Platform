@@ -14,8 +14,10 @@
 
 ### Vision
 
-The platform is dedicated to effectively combining artificial intelligence technology with software testing, enabling the platform to be more intelligent and generalized while ensuring test accuracy requirements
-and ** optimize the user experience ** at the same time. The goal is to become the most intimate, best-used, highest value open source test platform.
+The platform is dedicated to effectively combining artificial intelligence technology with software testing, enabling 
+the platform to be more intelligent and generalized while ensuring test accuracy requirements
+and **optimize the user experience** at the same time. The goal is to become the most intimate, best-used, 
+highest value open source test platform.
  
 ### Technology stack
 
@@ -50,7 +52,7 @@ The platform follows the idea of "separate development frontend and backend". Th
  
  ![定时任务配置](https://github.com/amazingTest/Taisite-Platform/blob/master/images/定时任务配置.png)
  
- 5. The platform has import/export capabilities that support testers ** "favorite" ** Excel format for easy batch generation/modification of use cases.
+ 5. The platform has import/export capabilities that support testers **"favorite"** Excel format for easy batch generation/modification of use cases.
  
  ![数据导入展示](https://github.com/amazingTest/Taisite-Platform/blob/master/images/数据导入展示.png)
  
@@ -285,7 +287,7 @@ When you start the project after you finish, you will not depend on the natural 
 
 ## V . Contact me
 
-if u have any questions feel free to email me , 523314409@qq.com.
+if you have any questions feel free to email me , 523314409@qq.com.
 
 
 
