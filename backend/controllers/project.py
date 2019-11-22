@@ -16,6 +16,13 @@ def project_list():
     return jsonify({'status': 'ok', 'data': {'totalNum': total_num, 'rows': projects}})
 
 
+@app.route('/api/project/<project_id>', methods=['GET'])
+@login_required
+def get_project(project_id):
+    res = Project.find_one({'_id': ObjectId(project_id)})
+    return jsonify({'status': 'ok', 'data': common.format_response_in_dic(res)})
+
+
 @app.route('/api/project/addProject', methods=['POST'])
 @login_required
 def add_project():
