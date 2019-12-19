@@ -137,7 +137,7 @@
                style="width:90%"
                label="钉钉Token"
                prop="dingdingAccessToken">
-              <el-input v-model.trim="editForm.dingdingAccessToken" auto-complete="off"></el-input>
+              <el-input placeholder="如: 52597c9b583090fd397493626c035064f03aaf92669f032d215fde67e43a807e" v-model.trim="editForm.dingdingAccessToken" auto-complete="off"></el-input>
             </el-form-item>
 
             <el-form-item v-show="editForm.isDingDingNotify.toString()==='true'" label="提醒策略">
@@ -174,7 +174,7 @@
                style="width:90%"
                label="企微Token"
                prop="enterpriseWechatAccessToken">
-              <el-input v-model.trim="editForm.enterpriseWechatAccessToken" auto-complete="off"></el-input>
+              <el-input placeholder="如: 618311c0-yd0f-37e0-b11d-9f7c521d8gb9" v-model.trim="editForm.enterpriseWechatAccessToken" auto-complete="off"></el-input>
             </el-form-item>
 
             <el-form-item v-show="editForm.isEnterpriseWechatNotify.toString()==='true'" label="提醒策略">
@@ -279,7 +279,7 @@
                style="width:90%"
                label="钉钉Token"
                prop="dingdingAccessToken">
-              <el-input v-model.trim="addForm.dingdingAccessToken" auto-complete="off"></el-input>
+              <el-input placeholder="如: 52597c9b583090fd397493626c035064f03aaf92669f032d215fde67e43a807e" v-model.trim="addForm.dingdingAccessToken" auto-complete="off"></el-input>
             </el-form-item>
 
             <el-form-item v-show="addForm.isDingDingNotify.toString()==='true'" label="提醒策略">
@@ -316,7 +316,7 @@
                style="width:90%"
                label="企微Token"
                prop="enterpriseWechatAccessToken">
-              <el-input v-model.trim="addForm.enterpriseWechatAccessToken" auto-complete="off"></el-input>
+              <el-input placeholder="如: 618311c0-yd0f-37e0-b11d-9f7c521d8gb9" v-model.trim="addForm.enterpriseWechatAccessToken" auto-complete="off"></el-input>
             </el-form-item>
 
             <el-form-item v-show="addForm.isEnterpriseWechatNotify.toString()==='true'" label="提醒策略">
