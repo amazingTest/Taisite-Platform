@@ -4,7 +4,19 @@
     </br>
     </br>
     <div style="font-size:20px; text-align: center;">
-      我，泰斯特，软件测试、机器学习爱好者。致力于将人工智能与自动化测试有效结合，让软件测试更具智能化。
+     我，泰斯特，软件测试、机器学习爱好者。致力于将人工智能与自动化测试有效结合，让软件测试更具智能化。
+    </div>
+    </br>
+    </br>
+    </br>
+    <div style="font-size:20px; text-align: center;">
+      恭喜你成功部署了超好用的泰斯特平台~
+    </div>
+    </br>
+    </br>
+    </br>
+    <div style="font-size:25px; text-align: center;">
+      <a target="_blank" style="color: #ff9e1b" href="https://shimo.im/docs/8TqxG3Ttjvj9yT8T" >点我了解泰斯特平台如何使用</a>
     </div>
     </br>
     </br>
