@@ -13,7 +13,8 @@ import requests
 class Cron:
     def __init__(self, test_case_suite_id_list, test_domain,  trigger_type, is_execute_forbiddened_case=False,
                  test_case_id_list=None, alarm_mail_list=None, is_ding_ding_notify=False, ding_ding_access_token=None,
-                 ding_ding_notify_strategy=None, is_web_hook=False, **trigger_args):
+                 ding_ding_notify_strategy=None, is_enterprise_wechat_notify=False, enterprise_wechat_access_token=None,
+                 enterprise_wechat_notify_strategy=None, is_web_hook=False, **trigger_args):
 
         if test_case_id_list is None:
             test_case_id_list = []
@@ -44,6 +45,14 @@ class Cron:
 
         # print('self.ding_ding_access_token ----> %s' % self.ding_ding_access_token)
         # print('self.ding_ding_notify_strategy ----> %s' % self.ding_ding_notify_strategy)
+
+        self.enterprise_wechat_access_token = enterprise_wechat_access_token if enterprise_wechat_access_token else None
+        self.enterprise_wechat_notify_strategy = {'success': True, 'fail': True} \
+            if is_enterprise_wechat_notify and enterprise_wechat_notify_strategy is None\
+                else enterprise_wechat_notify_strategy
+
+        print('self.enterprise_wechat_access_token ----> %s' % enterprise_wechat_access_token)
+        print('self.enterprise_wechat_notify_strategy ----> %s' % self.enterprise_wechat_notify_strategy)
 
         self._id = str(common.get_object_id())
         self.alarm_mail_list = []
@@ -138,9 +147,13 @@ class Cron:
         res = requests.post(url=hook_url, json=data, headers=headers)
         return res
 
-    # TODO 当webhook模式触发cron时，可选测试结果发送微信群
-    def send_wechat_notify(self, hook_url, message):
-        pass
+    def send_enterprise_wechat_notify(self, title, content, headers=None):
+        if headers is None:
+            headers = {'Content-Type': 'application/json'}
+        hook_url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={}".format(self.enterprise_wechat_access_token)
+        data = {"msgtype": "markdown", "markdown": {"content": "{} \n >{}".format(title, content)}}
+        res = requests.post(url=hook_url, json=data, headers=headers)
+        return res
 
     # TODO 发送报告具体链接至邮箱。 如interfaceTestProject/5ccfa182b144f831b04d7ca5/projectReport
     def send_report_to_staff(self, project_id, mail_list, mail_title, mail_content):
@@ -180,6 +193,26 @@ class Cron:
             is_send_mail = self.failed_count > 0 and isinstance(self.alarm_mail_list, list)\
                                    and len(self.alarm_mail_list) > 0
             is_send_ding_ding = self.ding_ding_access_token if hasattr(self, 'ding_ding_access_token') else False
+
+            is_send_enterprise_wechat = self.enterprise_wechat_access_token if hasattr(self, 'enterprise_wechat_access_token')\
+                else False
+
+            if is_send_enterprise_wechat:
+                enterprise_wechat_title = '智能测试平台企业微信服务'
+                enterprise_wechat_content = '泰斯特平台 \n >⛔ 测试失败 \n >  生成报告id: {}'.format(self.report_id) \
+                    if self.failed_count > 0 else '泰斯特平台 \n >👍️️️️ 测试通过 \n >  生成报告id: {}' \
+                    .format(self.report_id)
+                if hasattr(self, 'enterprise_wechat_notify_strategy') and self.enterprise_wechat_notify_strategy.get('fail') \
+                        and self.failed_count > 0:
+                    enterprise_wechat_res = self.send_enterprise_wechat_notify(title=enterprise_wechat_title, content=enterprise_wechat_content)
+                    if not enterprise_wechat_res.status_code == 200:
+                        raise BaseException('企业微信发送异常: {}'.format(enterprise_wechat_res.text))
+                if hasattr(self, 'enterprise_wechat_notify_strategy') and self.enterprise_wechat_notify_strategy.get('success') \
+                        and self.failed_count <= 0:
+                    enterprise_wechat_res = self.send_enterprise_wechat_notify(title=enterprise_wechat_title, content=enterprise_wechat_content)
+                    if not enterprise_wechat_res.status_code == 200:
+                        raise BaseException('企业微信发送异常: {}'.format(enterprise_wechat_res.text))
+
             if is_send_ding_ding:
                 dingding_title = '智能测试平台钉钉服务'
                 dingding_content = '### ⛔️ 泰斯特平台 \n >⛔ 测试失败 \n >  生成报告id: {}'.format(self.report_id)\
@@ -195,6 +228,7 @@ class Cron:
                     dingding_res = self.send_ding_ding_notify(title=dingding_title, content=dingding_content)
                     if not dingding_res.status_code == 200:
                         raise BaseException('钉钉发送异常: {}'.format(dingding_res.text))
+
             if is_send_mail:
                 mesg_title = '测试平台告警'
                 mesg_content = "Dears: \n\n   定时测试中存在用例未通过！，请登录平台查看详情 ！\n\n   报告编号为:" \

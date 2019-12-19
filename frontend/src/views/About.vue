@@ -9,41 +9,8 @@
     </br>
     </br>
     </br>
-    <div align="center">
-      <img src="../assets/imgs/i-am-strong.jpg">
-      </img>
-    </div>
-    </br>
-    </br>
-    </br>
     <div style="font-size:20px; text-align: center;">
-      若您想在自动化测试上更近一步，欢迎扫描下方海报二维码、泰斯特带你成长~
-    </div>
-    </br>
-    </br>
-    </br>
-    <div align="center">
-      <img src="../assets/imgs/planetPoster.jpg">
-      </img>
-    </div>
-    </br>
-    </br>
-    </br>
-    <div style="font-size:20px; text-align: center;">
-      若您对「泰斯特平台」有任何吐槽或想对平台有更深入的了解，欢迎扫描下方二维码关注我并了解最新资讯。
-    </div>
-    </br>
-    </br>
-    </br>
-    <div align="center">
-      <img src="../assets/imgs/publicAcount.jpg">
-      </img>
-    </div>
-    </br>
-    </br>
-    </br>
-    <div style="font-size:20px; text-align: center;">
-      若您觉得「泰斯特平台」使用起来非常顺心，舒服，那么也希望您能为开源项目的维护迭代尽一份绵薄之力~
+      若您觉得「泰斯特平台」使用起来非常顺心，舒服，希望他变得更好用，那么也希望您能为开源项目的维护迭代尽一份绵薄之力~
     </div>
     </br>
     </br>
