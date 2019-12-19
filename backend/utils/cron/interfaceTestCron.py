@@ -43,16 +43,10 @@ class Cron:
         self.ding_ding_notify_strategy = {'success': True, 'fail': True}\
             if is_ding_ding_notify and ding_ding_notify_strategy is None else ding_ding_notify_strategy
 
-        # print('self.ding_ding_access_token ----> %s' % self.ding_ding_access_token)
-        # print('self.ding_ding_notify_strategy ----> %s' % self.ding_ding_notify_strategy)
-
         self.enterprise_wechat_access_token = enterprise_wechat_access_token if enterprise_wechat_access_token else None
         self.enterprise_wechat_notify_strategy = {'success': True, 'fail': True} \
             if is_enterprise_wechat_notify and enterprise_wechat_notify_strategy is None\
                 else enterprise_wechat_notify_strategy
-
-        print('self.enterprise_wechat_access_token ----> %s' % enterprise_wechat_access_token)
-        print('self.enterprise_wechat_notify_strategy ----> %s' % self.enterprise_wechat_notify_strategy)
 
         self._id = str(common.get_object_id())
         self.alarm_mail_list = []
