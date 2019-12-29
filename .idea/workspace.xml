@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3eea9fa2-78aa-48ef-980b-e40ac93966bd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/static/css/app.040e9964d8ea2489efcdcc40708e43f8.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/static/css/app.040e9964d8ea2489efcdcc40708e43f8.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/static/js/app.15c833a883292742bcea.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/static/js/app.15c833a883292742bcea.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_CN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/caseSuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/caseSuite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/cronTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/cronTab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/testingCase.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/testingCase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/webhook.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/webhook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/cronTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/cronTab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/utils/cron/cronManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/utils/cron/cronManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/utils/cron/interfaceTestCron.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/utils/cron/interfaceTestCron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/img/icomoon.513433b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/static/img/iconfont.3b1767f.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/About.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/interfaceTestProject/api/automation/CronList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/interfaceTestProject/api/automation/CronList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/泰斯特平台LOGO.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/泰斯特平台LOGO.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
             </state>
           </provider>
         </entry>
@@ -25,8 +44,8 @@
       <file leaf-file-name="Project.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/views/Project.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-780">
-              <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+            <state relative-caret-position="-870">
+              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -80,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/views/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="16" />
+              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -115,8 +134,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="833" />
-    <option name="y" value="33" />
+    <option name="x" value="122" />
+    <option name="y" value="55" />
     <option name="width" value="1741" />
     <option name="height" value="926" />
   </component>
@@ -256,15 +275,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="833" y="33" width="1741" height="926" extended-state="0" />
+    <frame x="122" y="55" width="1741" height="926" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.50028986" side_tool="true" visible="true" weight="0.4037037" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.38395062" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="right" id="PTest View" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.4037037" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49971014" visible="true" weight="0.4037037" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17101449" />
       <window_info anchor="right" id="R Packages" order="3" />
       <window_info anchor="right" id="R Graphics" order="3" />
@@ -613,14 +632,14 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/views/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="16" />
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/views/Project.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        <state relative-caret-position="-870">
+          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -655,7 +674,7 @@
     <entry file="file://$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
