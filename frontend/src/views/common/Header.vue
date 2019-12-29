@@ -24,7 +24,7 @@
           <!--<el-dropdown-item>我的消息</el-dropdown-item>-->
           <!--<el-dropdown-item>设置</el-dropdown-item>-->
           <el-dropdown-item divided>
-            <a target="_blank" href="https://mp.weixin.qq.com/s/csjfg7EHocHEvdwohxTwaA">
+            <a target="_blank" href="https://shimo.im/docs/8TqxG3Ttjvj9yT8T">
               使用教程
             </a>
           </el-dropdown-item>
