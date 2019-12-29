@@ -28,7 +28,7 @@ Vue.component("header-view", Header)
 router.beforeEach(async (to, from, next) => {
 
   if (to.matched.length === 0) { //匹配前往的路由不存在
-    next('/aboutAuthor')
+    next('/interfaceProjectList')
     return
   }
 
@@ -37,7 +37,7 @@ router.beforeEach(async (to, from, next) => {
     //TODO 判断太草率
     nickName !== '' ?
       to.path.trim() === '/' ?
-        next('/aboutAuthor') :
+        next('/interfaceProjectList') :
         next() :
       next('/login')
   } else {
