@@ -95,6 +95,9 @@ class CronManager:
         is_ding_ding_notify = cron_info.get('isDingDingNotify')
         ding_ding_access_token = cron_info.get('dingdingAccessToken')
         ding_ding_notify_strategy = cron_info.get('dingdingNotifyStrategy')
+        is_enterprise_wechat_notify = cron_info.get('isEnterpriseWechatNotify')
+        enterprise_wechat_access_token = cron_info.get('enterpriseWechatAccessToken')
+        enterprise_wechat_notify_strategy = cron_info.get('enterpriseWechatNotifyStrategy')
 
         try:
             if trigger_type == 'interval' and int(interval) > 0:
@@ -112,6 +115,9 @@ class CronManager:
                             is_ding_ding_notify=is_ding_ding_notify,
                             ding_ding_access_token=ding_ding_access_token,
                             ding_ding_notify_strategy=ding_ding_notify_strategy,
+                            is_enterprise_wechat_notify=is_enterprise_wechat_notify,
+                            enterprise_wechat_access_token=enterprise_wechat_access_token,
+                            enterprise_wechat_notify_strategy=enterprise_wechat_notify_strategy,
                             trigger_type=trigger_type,  # 更新定时器时，此参数并没有真正起到作用, 仅修改展示字段
                             test_case_id_list=test_case_id_list,
                             run_date=run_date)  # 更新定时器时，此参数并没有起到作用, 仅修改展示字段
@@ -123,6 +129,9 @@ class CronManager:
                             is_ding_ding_notify=is_ding_ding_notify,
                             ding_ding_access_token=ding_ding_access_token,
                             ding_ding_notify_strategy=ding_ding_notify_strategy,
+                            is_enterprise_wechat_notify=is_enterprise_wechat_notify,
+                            enterprise_wechat_access_token=enterprise_wechat_access_token,
+                            enterprise_wechat_notify_strategy=enterprise_wechat_notify_strategy,
                             trigger_type=trigger_type,  # 更新定时器时，此参数并没有起到作用, 仅修改展示字段
                             test_case_id_list=test_case_id_list,
                             seconds=interval)  # 更新定时器时，此参数并没有起到作用, 仅修改展示字段

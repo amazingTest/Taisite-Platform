@@ -116,6 +116,80 @@
          </div>
         </transition>
 
+        <el-form-item label="钉钉提醒">
+            <el-radio
+                v-model="editForm.isDingDingNotify"
+                :label="true">
+                是
+            </el-radio>
+            <el-radio
+                v-model="editForm.isDingDingNotify"
+                :label="false">
+                否
+            </el-radio>
+        </el-form-item>
+
+        <transition name="el-zoom-in-top">
+          <div
+              class="form-item-sub form-item-short"
+              v-if="editForm.isDingDingNotify && editForm.isDingDingNotify.toString()==='true'">
+            <el-form-item
+               style="width:90%"
+               label="钉钉Token"
+               prop="dingdingAccessToken">
+              <el-input placeholder="如: 52597c9b583090fd397493626c035064f03aaf92669f032d215fde67e43a807e" v-model.trim="editForm.dingdingAccessToken" auto-complete="off"></el-input>
+            </el-form-item>
+
+            <el-form-item v-show="editForm.isDingDingNotify.toString()==='true'" label="提醒策略">
+                <el-checkbox
+                    v-model="editForm.dingdingNotifyStrategy.success"
+                    label="测试全通过时提醒">
+                </el-checkbox>
+                <el-checkbox
+                    v-model="editForm.dingdingNotifyStrategy.fail"
+                    label="测试存在失败时提醒">
+                </el-checkbox>
+            </el-form-item>
+          </div>
+        </transition>
+
+        <el-form-item label="企微提醒">
+            <el-radio
+                v-model="editForm.isEnterpriseWechatNotify"
+                :label="true">
+                是
+            </el-radio>
+            <el-radio
+                v-model="editForm.isEnterpriseWechatNotify"
+                :label="false">
+                否
+            </el-radio>
+        </el-form-item>
+
+        <transition name="el-zoom-in-top">
+          <div
+              class="form-item-sub form-item-short"
+              v-if="editForm.isEnterpriseWechatNotify && editForm.isEnterpriseWechatNotify.toString()==='true'">
+            <el-form-item
+               style="width:90%"
+               label="企微Token"
+               prop="enterpriseWechatAccessToken">
+              <el-input placeholder="如: 618311c0-yd0f-37e0-b11d-9f7c521d8gb9" v-model.trim="editForm.enterpriseWechatAccessToken" auto-complete="off"></el-input>
+            </el-form-item>
+
+            <el-form-item v-show="editForm.isEnterpriseWechatNotify.toString()==='true'" label="提醒策略">
+                <el-checkbox
+                    v-model="editForm.enterpriseWechatNotifyStrategy.success"
+                    label="测试全通过时提醒">
+                </el-checkbox>
+                <el-checkbox
+                    v-model="editForm.enterpriseWechatNotifyStrategy.fail"
+                    label="测试存在失败时提醒">
+                </el-checkbox>
+            </el-form-item>
+          </div>
+        </transition>
+
         <el-form-item label="告警邮箱" prop="alarmMailList">
           <el-select
             style="width: 60%;"
@@ -180,6 +254,80 @@
                type="datetime"
                placeholder="请选择触发日期">
               </el-date-picker>
+            </el-form-item>
+          </div>
+        </transition>
+
+        <el-form-item label="钉钉提醒">
+            <el-radio
+                v-model="addForm.isDingDingNotify"
+                :label="true">
+                是
+            </el-radio>
+            <el-radio
+                v-model="addForm.isDingDingNotify"
+                :label="false">
+                否
+            </el-radio>
+        </el-form-item>
+
+        <transition name="el-zoom-in-top">
+          <div
+              class="form-item-sub form-item-short"
+              v-if="addForm.isDingDingNotify && addForm.isDingDingNotify.toString()==='true'">
+            <el-form-item
+               style="width:90%"
+               label="钉钉Token"
+               prop="dingdingAccessToken">
+              <el-input placeholder="如: 52597c9b583090fd397493626c035064f03aaf92669f032d215fde67e43a807e" v-model.trim="addForm.dingdingAccessToken" auto-complete="off"></el-input>
+            </el-form-item>
+
+            <el-form-item v-show="addForm.isDingDingNotify.toString()==='true'" label="提醒策略">
+                <el-checkbox
+                    v-model="addForm.dingdingNotifyStrategy.success"
+                    label="测试全通过时提醒">
+                </el-checkbox>
+                <el-checkbox
+                    v-model="addForm.dingdingNotifyStrategy.fail"
+                    label="测试存在失败时提醒">
+                </el-checkbox>
+            </el-form-item>
+          </div>
+        </transition>
+
+        <el-form-item label="企微提醒">
+            <el-radio
+                v-model="addForm.isEnterpriseWechatNotify"
+                :label="true">
+                是
+            </el-radio>
+            <el-radio
+                v-model="addForm.isEnterpriseWechatNotify"
+                :label="false">
+                否
+            </el-radio>
+        </el-form-item>
+
+        <transition name="el-zoom-in-top">
+          <div
+              class="form-item-sub form-item-short"
+              v-if="addForm.isEnterpriseWechatNotify && addForm.isEnterpriseWechatNotify.toString()==='true'">
+            <el-form-item
+               style="width:90%"
+               label="企微Token"
+               prop="enterpriseWechatAccessToken">
+              <el-input placeholder="如: 618311c0-yd0f-37e0-b11d-9f7c521d8gb9" v-model.trim="addForm.enterpriseWechatAccessToken" auto-complete="off"></el-input>
+            </el-form-item>
+
+            <el-form-item v-show="addForm.isEnterpriseWechatNotify.toString()==='true'" label="提醒策略">
+                <el-checkbox
+                    v-model="addForm.enterpriseWechatNotifyStrategy.success"
+                    label="测试全通过时提醒">
+                </el-checkbox>
+                <el-checkbox
+                    v-model="addForm.enterpriseWechatNotifyStrategy.fail"
+                    label="测试存在失败时提醒">
+                </el-checkbox>
             </el-form-item>
           </div>
         </transition>
@@ -276,6 +424,12 @@
           alarmMailList: [
             { required: false, message: '请选择告警邮箱', trigger: 'blur' }
           ],
+          isDingDingNotify: [
+            { required: false, message: '请选择是否使用钉钉提醒', trigger: 'blur' }
+          ],
+          dingdingAccessToken: [
+            { required: false, message: '请输入钉钉AccessToken', trigger: 'blur' }
+          ],
           triggerType: [
             { required: true, message: '请选择触发类型', trigger: 'blur' }
           ],
@@ -298,6 +452,12 @@
           isExecuteForbiddenedCase: false,
           testDomain: '',
           alarmMailList: [],
+          isDingDingNotify: false,
+          dingdingNotifyStrategy: {success: false, fail: true},
+          dingdingAccessToken: '',
+          isEnterpriseWechatNotify: false,
+          enterpriseWechatNotifyStrategy: {success: false, fail: true},
+          enterpriseWechatAccessToken: '',
           triggerType: '',
           interval: 0,
           runDate: '',
@@ -318,6 +478,12 @@
           ],
           alarmMailList: [
             { required: false, message: '请选择告警邮箱', trigger: 'blur' }
+          ],
+          isDingDingNotify: [
+            { required: false, message: '请选择是否使用钉钉提醒', trigger: 'blur' }
+          ],
+          dingdingAccessToken: [
+            { required: false, message: '请输入钉钉AccessToken', trigger: 'blur' }
           ],
           triggerType: [
             { required: true, message: '请选择触发类型', trigger: 'blur' }
@@ -341,6 +507,12 @@
           isExecuteForbiddenedCase: false,
           testDomain: '',
           alarmMailList: [],
+          isDingDingNotify: false,
+          dingdingNotifyStrategy: {success: false, fail: true},
+          dingdingAccessToken: '',
+          isEnterpriseWechatNotify: false,
+          enterpriseWechatNotifyStrategy: {success: false, fail: true},
+          enterpriseWechatAccessToken: '',
           triggerType: '',
           interval: '',
           runDate: '',
@@ -550,6 +722,12 @@
                   triggerType: self.addForm.triggerType,
                   description: self.addForm.description,
                   alarmMailList: self.addForm.alarmMailList,
+                  isDingDingNotify: self.addForm.isDingDingNotify,
+                  dingdingAccessToken: self.addForm.dingdingAccessToken,
+                  dingdingNotifyStrategy: self.addForm.dingdingNotifyStrategy,
+                  isEnterpriseWechatNotify: self.addForm.isEnterpriseWechatNotify,
+                  enterpriseWechatAccessToken: self.addForm.enterpriseWechatAccessToken,
+                  enterpriseWechatNotifyStrategy: self.addForm.enterpriseWechatNotifyStrategy,
                   creatorNickName: unescape(getCookie('nickName').replace(/\\u/g, '%u')) || '未知用户',
                   lastUpdatorNickName: unescape(getCookie('nickName').replace(/\\u/g, '%u')) || '未知用户'
                 };
@@ -624,6 +802,12 @@
                   next_run_time: self.editForm.next_run_time, // 用于判断是否要resume定时任务
                   description: self.editForm.description,
                   alarmMailList: self.editForm.alarmMailList,
+                  isDingDingNotify: self.editForm.isDingDingNotify || false,
+                  dingdingAccessToken: self.editForm.dingdingAccessToken || '',
+                  dingdingNotifyStrategy: self.editForm.dingdingNotifyStrategy,
+                  isEnterpriseWechatNotify: self.editForm.isEnterpriseWechatNotify || false,
+                  enterpriseWechatAccessToken: self.editForm.enterpriseWechatAccessToken || '',
+                  enterpriseWechatNotifyStrategy: self.editForm.enterpriseWechatNotifyStrategy,
                   lastUpdatorNickName: unescape(getCookie('nickName').replace(/\\u/g, '%u')) || '未知用户'
                 };
                 if (self.editForm.runDate && self.editForm.runDate.toString().trim() !== ''){

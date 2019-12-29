@@ -29,6 +29,28 @@ class CronTab(Model):
     interval = FloatField()
     runDate = DateField()
     alarmMailList = ArrayField()
+    isDingDingNotify = BooleanField(field_name='isDingDingNotify', default=False)
+    dingdingAccessToken = StringField()
+    dingdingNotifyStrategy = DictField(field_name='dingdingNotifyStrategy',
+                                       default={'success': True, 'fail': True},
+                                       expected_structure={
+                                           'expectedTypeRange': [dict],
+                                           'expectedDict': {
+                                               'success': {'expectedTypeRange': [bool]},
+                                               'fail': {'expectedTypeRange': [bool]}
+                                           }
+                                       })
+    isEnterpriseWechatNotify = BooleanField(field_name='isEnterpriseWechatNotify', default=False)
+    enterpriseWechatAccessToken = StringField()
+    enterpriseWechatNotifyStrategy = DictField(field_name='enterpriseWechatNotifyStrategy',
+                                       default={'success': True, 'fail': True},
+                                       expected_structure={
+                                           'expectedTypeRange': [dict],
+                                           'expectedDict': {
+                                               'success': {'expectedTypeRange': [bool]},
+                                               'fail': {'expectedTypeRange': [bool]}
+                                           }
+                                       })
     status = StringField(field_name='status', default='CREATED')
     createAt = DateField()
     creatorNickName = StringField()
