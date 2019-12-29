@@ -158,7 +158,7 @@ def find(cls, *args, **kargs):
 @classmethod
 def find_one(cls, *args, **kargs):
     data_dict = db[cls.Meta.collection].find_one(*args, **kargs)
-    return cls.dict2obj(data_dict)
+    return data_dict
 
 @classmethod
 def insert(cls, *args, **kargs):

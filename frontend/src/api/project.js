@@ -9,6 +9,13 @@ export function getProjects (params, header) {
   })
 }
 
+export function getProjectInfo(project_id) {
+  return request({
+    url: `/api/project/${project_id}`,
+    method: 'GET'
+  })
+}
+
 export function addProject (params, header) {
   return request({
     url: `/api/project/addProject`,
