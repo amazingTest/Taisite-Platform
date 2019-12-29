@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3eea9fa2-78aa-48ef-980b-e40ac93966bd" name="Default" comment="Merge remote-tracking branch 'remotes/origin/master' into dev&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;dist/index.html&#10;#&#9;dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map&#10;#&#9;frontend/package.json&#10;#&#9;frontend/src/views/Home.vue&#10;#&#9;frontend/src/views/Project.vue">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.040e9964d8ea2489efcdcc40708e43f8.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.040e9964d8ea2489efcdcc40708e43f8.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.2392859d9d9ca73ef90dcaf7d70771d9.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.2392859d9d9ca73ef90dcaf7d70771d9.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.5b8cadb1c68ed783d588567f669ded4e.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/css/app.5b8cadb1c68ed783d588567f669ded4e.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/img/planetPoster.cd6a198.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.15c833a883292742bcea.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.15c833a883292742bcea.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.879aaf457c431ea53788.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.879aaf457c431ea53788.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.f83b0cd33cf14451fb0d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/app.f83b0cd33cf14451fb0d.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.561d4f5b1644c4d523f1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/vendor.561d4f5b1644c4d523f1.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/common/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/common/Header.vue" afterDir="false" />
+    <list default="true" id="3eea9fa2-78aa-48ef-980b-e40ac93966bd" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/__init__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tester.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tester.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="37" column="32" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+            <state relative-caret-position="330">
+              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -50,11 +31,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/app/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+            <state relative-caret-position="30">
+              <caret line="20" column="27" lean-forward="true" selection-end-line="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testReport.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/controllers/testReport.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/utils/common.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2700">
+              <caret line="107" selection-start-line="107" selection-end-line="107" />
             </state>
           </provider>
         </entry>
@@ -95,29 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/views/Login.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Home.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/views/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -133,8 +114,9 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/frontend/src/views/common/Header.vue" />
-        <option value="$PROJECT_DIR$/backend/app/__init__.py" />
         <option value="$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py" />
+        <option value="$PROJECT_DIR$/backend/controllers/testReport.py" />
+        <option value="$PROJECT_DIR$/backend/app/__init__.py" />
       </list>
     </option>
   </component>
@@ -171,6 +153,12 @@
               <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="testframe" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -201,16 +189,7 @@
               <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -289,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577627970938</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge remote-tracking branch 'remotes/origin/master' into dev&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;dist/index.html&#10;#&#9;dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map&#10;#&#9;frontend/package.json&#10;#&#9;frontend/src/views/Home.vue&#10;#&#9;frontend/src/views/Project.vue">
+      <created>1577628667894</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577628667894</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -341,13 +327,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'remotes/origin/master' into dev&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;dist/index.html&#10;#&#9;dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map&#10;#&#9;frontend/package.json&#10;#&#9;frontend/src/views/Home.vue&#10;#&#9;frontend/src/views/Project.vue" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/views/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -485,13 +464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/utils/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
         </state>
       </provider>
     </entry>
@@ -680,17 +652,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/__init__.py">
+    <entry file="file://$PROJECT_DIR$/backend/utils/common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+        <state relative-caret-position="-2700">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="37" column="32" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        <state relative-caret-position="330">
+          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/controllers/testReport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="20" column="27" lean-forward="true" selection-end-line="45" />
         </state>
       </provider>
     </entry>
