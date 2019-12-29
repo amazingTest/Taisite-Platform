@@ -46,9 +46,11 @@ def update_project(project_id):
             Project.update({"_id": ObjectId(project_id)},
                            {'$set': {key: value}})
         update_response = Project.update({"_id": ObjectId(project_id)},
-                                         {'$set': {'lastUpdateTime': datetime.datetime.utcnow()}}, )
+                       {'$set': {'lastUpdateTime': datetime.datetime.utcnow()}},)
         if update_response["n"] == 0:
             return jsonify({'status': 'failed', 'data': '未找到相应更新数据！'})
         return jsonify({'status': 'ok', 'data': '更新成功'})
     except BaseException as e:
         return jsonify({'status': 'failed', 'data': '更新失败: %s' % e})
+
+
