@@ -63,7 +63,7 @@
     <!--报告详情-->
     <el-dialog title="报告详情" width="97%" v-loading="detailLoading" :visible.sync="isReportDetailShow" :close-on-click-modal="false">
       <div style="height:700px;overflow:auto;overflow-x:hidden;border: 1px solid #e6e6e6">
-        <el-table height="700" :data="testReportDetail" :row-class-name="reportsTableRow"  :header-cell-style="reportHeaderColor" :row-style="reportRowStyle"  v-loading="listLoading" style="width: 100%;">
+        <el-table height="700" :data="testReportDetail" :row-class-name="reportsTableRow" :header-cell-style="reportHeaderColor" v-loading="listLoading" style="width: 100%;">
           <el-table-column prop="testBaseInfo.name" label="用例名称" min-width="30%" sortable show-overflow-tooltip>
           </el-table-column>
           <el-table-column prop="testBaseInfo.requestMethod" label="请求方法" min-width="15%" sortable show-overflow-tooltip>
@@ -294,15 +294,12 @@
                 })
             },
             // 修改table tr行的背景色
-            reportRowStyle({ row, rowIndex }){
-              if (row.status.toString() === 'ok')
-                return 'background-color: #33CC00;color: #fff;font-weight: 500;'
-              else {
-                return 'background-color: #FF3333;color: #fff;font-weight: 500;'
-              }
-            },
             reportsTableRow({ row, rowIndex }){
-              return 'reportsTableRow';
+              if (row.status.toString() === 'ok')
+                return 'bg1-row reportsTableRow'
+              else {
+                return 'bg2-row reportsTableRow'
+              }
             },
             // 修改table header的背景色
             reportHeaderColor({ row, column, rowIndex, columnIndex }) {
@@ -357,5 +354,15 @@
   }
   .el-table .el-table__body .reportsTableRow:hover>td {
     background-color: deepskyblue;
+  }
+  .el-table .bg1-row{
+    background-color: #33CC00;
+    color: #fff;
+    font-weight: 500;
+  }
+  .el-table .bg2-row{
+    background-color: #FF3333;
+    color: #fff;
+    font-weight: 500;
   }
 </style>
