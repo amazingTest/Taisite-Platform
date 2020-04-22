@@ -72,7 +72,7 @@
 
 ## 平台部署
 
-[点我进入平台部署](https://mp.weixin.qq.com/s/D_SzmVlCpxQN5w2EUU67qA)
+[点我进入平台部署](https://mp.weixin.qq.com/s/bLyDWHCAPCshF8vmbSHtWw)
 
 ## 平台教程
 
