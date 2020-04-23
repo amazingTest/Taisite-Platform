@@ -78,9 +78,6 @@
 
 [点我进入平台教程](https://shimo.im/docs/8TqxG3Ttjvj9yT8T)
 
-## 平台体验
-
-[点我进入平台体验](https://mp.weixin.qq.com/s/tAq4g33ln8y9REAem7_LUg)
 
 ## Ⅷ . 捐赠
 
