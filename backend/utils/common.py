@@ -219,12 +219,14 @@ def dict_get(dic, locators, default=None):
     '''
 
     if not isinstance(dic, dict):
-        if isinstance(dic, str) and len(locators) == 1 and is_slice_expression(locators[0]):
-            slice_indexes = locators[0].split(':')
-            start_index = int(slice_indexes[0]) if slice_indexes[0] else None
-            end_index = int(slice_indexes[-1]) if slice_indexes[-1] else None
-            value = dic[start_index:end_index]
-            return value
+        if isinstance(dic, str):
+            if len(locators) == 1 and is_slice_expression(locators[0]):
+                slice_indexes = locators[0].split(':')
+                start_index = int(slice_indexes[0]) if slice_indexes[0] else None
+                end_index = int(slice_indexes[-1]) if slice_indexes[-1] else None
+                value = dic[start_index:end_index]
+                return value
+            return dic
         return default
 
     if dic == {} or len(locators) < 1:
