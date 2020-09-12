@@ -246,8 +246,45 @@ class tester:
             is_check_res_number_valid = isinstance(test_case.get('checkResponseNumber'), list) and \
                                         len(list(filter(lambda x: str(x.get('expressions').get('expectResult')).strip()
                                                                   == '', test_case.get('checkResponseNumber')))) < 1
+            if is_check_res_data_valid:
+                if 'checkResponseData' in test_case and not test_case['checkResponseData'] in [[], {}, "", None]:
+                    if not isinstance(test_case['checkResponseData'], list):
+                        raise TypeError('checkResponseData must be list！')
+                    for index, crd in enumerate(test_case['checkResponseData']):
+                        if not isinstance(crd, dict) or 'regex' not in crd or 'query' not in crd or \
+                                not isinstance(crd['regex'], str) or not isinstance(crd['query'], list):
+                            raise TypeError('checkResponseData is not valid!')
+
+                        # TODO 可开启/关闭 全局替换
+                        test_case['checkResponseData'][index]['regex'] = \
+                            common.resolve_global_var(pre_resolve_var=crd['regex'], global_var_dic=self.global_vars) if \
+                                crd.get('regex') and isinstance(crd.get('regex'), str) else ''  # 警告！python判断空字符串为False
+
+                    check_response_data = test_case['checkResponseData']
+                    if check_response_data:
+                        try:
+                            for crd in check_response_data:
+                                regex = crd['regex']
+                                if regex.strip() == '':
+                                    continue
+                                query = crd['query']
+                                # query 支持全局变量替换
+                                for index, single_query in enumerate(query):
+                                    query[index] = common.resolve_global_var(pre_resolve_var=single_query,
+                                                                             global_var_dic=self.global_vars)
+                                result = re.search(regex, str(response.text))  # python 将regex字符串取了r''(原生字符串)
+                                if not result:
+                                    returned_data["status"] = 'failed'
+                                    returned_data["testConclusion"].append('判断响应值错误(查询语句为: %s),    响应值应满足正则: <%s>,\
+                                                                                实际值: <%s> (%s)。(正则匹配时会将数据转化成string)\t'
+                                                                           % (
+                                                                           query, regex, response.text, type(response.text)))
+                        except BaseException as e:
+                            returned_data["status"] = 'failed'
+                            returned_data["testConclusion"].append('判断响应值时报错, 错误信息: <%s>。\t' % e)
+
             # TODO 目前默认当 is_check_res_similarity_valid 和  is_check_res_number_valid 为真时，返回格式必须可转 json ，可优化
-            is_test_failed = is_check_res_data_valid or is_check_res_number_valid or is_check_res_similarity_valid
+            is_test_failed = is_check_res_number_valid or is_check_res_similarity_valid
 
             returned_data['status'] = 'failed' if is_test_failed else 'ok'
 
