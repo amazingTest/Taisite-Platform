@@ -183,6 +183,13 @@
                         item["responseData"] = item["responseData"]:
                        item["responseData"] = '(无任何数据)'
 
+                      if(item["responseData"].length > 5000){
+                        item["responseData"] = item["responseData"].substr(0, 5000) + '......(长度已超出限制，完整响应请前往数据库查看)'
+                      }
+
+                      if(item["testConclusion"].length > 5000){
+                        item["testConclusion"] = item["testConclusion"].substr(0, 5000) + '......(长度已超出限制，完整响应请前往数据库查看)'
+                      }
 
                       item["responseHttpStatusCode"] ?
                        item["responseHttpStatusCode"].toString().trim() === '' ?
