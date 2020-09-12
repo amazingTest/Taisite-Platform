@@ -401,8 +401,7 @@ def frontend_date_str2datetime(input_str, timedelta=None):
 
 
 def is_valid_email(email):
-    re_email = re.compile(r'^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+\.[a-zA-Z]{3}$')
-    if re_email.match(email):
+    if re.match('^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$', email):
         return True
     else:
         return False
