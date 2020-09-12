@@ -37,6 +37,7 @@ class tester:
             from app import nlper
             self.nlper = nlper
         except ImportError as e:
+            # pass
             raise ImportError('nlp模型导入失败！<%s>' % e)
 
         self.test_case_list = test_case_list
@@ -136,49 +137,58 @@ class tester:
 
         domain = test_case["domain"] if 'domain' in test_case and isinstance(test_case["domain"], str) and \
                                         not test_case["domain"].strip() == '' else self.domain
-        if 'requestProtocol' in test_case and 'route' in test_case:
-            test_case['route'] = \
-                common.resolve_global_var(pre_resolve_var=test_case['route'], global_var_dic=self.global_vars) \
-                    if isinstance(test_case['route'], str) else test_case['route']
-            url = '%s://%s%s' % (test_case['requestProtocol'].lower(), domain, test_case['route'])
 
-        if 'requestMethod' in test_case:
-            method = test_case['requestMethod']
+        try:
 
-        if 'presendParams' in test_case and isinstance(test_case['presendParams'], dict):
-            # dict 先转 str，方便全局变量替换
-            test_case['presendParams'] = str(test_case['presendParams'])
+            if 'requestProtocol' in test_case and 'route' in test_case:
+                test_case['route'] = \
+                    common.resolve_global_var(pre_resolve_var=test_case['route'], global_var_dic=self.global_vars) \
+                        if isinstance(test_case['route'], str) else test_case['route']
+                url = '%s://%s%s' % (test_case['requestProtocol'].lower(), domain, test_case['route'])
 
-            # 全局替换
-            test_case['presendParams'] = common.resolve_global_var(pre_resolve_var=test_case['presendParams'],
-                                                                   global_var_dic=self.global_vars)
+            if 'requestMethod' in test_case:
+                method = test_case['requestMethod']
 
-            # 转回 dict
-            test_case['presendParams'] = ast.literal_eval(test_case['presendParams'])
+            if 'presendParams' in test_case and isinstance(test_case['presendParams'], dict):
+                # dict 先转 str，方便全局变量替换
+                test_case['presendParams'] = str(test_case['presendParams'])
 
-            json_data = test_case['presendParams']
+                # 全局替换
+                test_case['presendParams'] = common.resolve_global_var(pre_resolve_var=test_case['presendParams'],
+                                                                       global_var_dic=self.global_vars)
 
-        if 'headers' in test_case and not test_case['headers'] in ["", None, {}, {'': ''}]:
-            if isinstance(test_case['headers'], list):
-                for header in test_case['headers']:
-                    if not header['name'].strip() == '':
-                        headers[header['name']] = \
-                            common.resolve_global_var(pre_resolve_var=header['value'], global_var_dic=self.global_vars) \
-                                if isinstance(header['value'], str) else headers[header['name']]
-            else:
-                raise TypeError('headers must be list!')
+                # 转回 dict
+                test_case['presendParams'] = ast.literal_eval(test_case['presendParams'])
 
-        if 'setGlobalVars' in test_case and not test_case['setGlobalVars'] in [[], {}, "", None]:
-            set_global_vars = test_case['setGlobalVars']
+                json_data = test_case['presendParams']
 
-        headers = None if headers == {} else headers
+            if 'headers' in test_case and not test_case['headers'] in ["", None, {}, {'': ''}]:
+                if isinstance(test_case['headers'], list):
+                    for header in test_case['headers']:
+                        if not header['name'].strip() == '':
+                            headers[header['name']] = \
+                                common.resolve_global_var(pre_resolve_var=header['value'],
+                                                          global_var_dic=self.global_vars) \
+                                    if isinstance(header['value'], str) else headers[header['name']]
+                else:
+                    raise TypeError('headers must be list!')
 
-        test_case['cookies'] = []
-        for key, value in session.cookies.items():
-            cookie_dic = dict()
-            cookie_dic['name'] = key
-            cookie_dic['value'] = value
-            test_case['cookies'].append(cookie_dic)
+            if 'setGlobalVars' in test_case and not test_case['setGlobalVars'] in [[], {}, "", None]:
+                set_global_vars = test_case['setGlobalVars']
+
+            headers = None if headers == {} else headers
+
+            test_case['cookies'] = []
+            for key, value in session.cookies.items():
+                cookie_dic = dict()
+                cookie_dic['name'] = key
+                cookie_dic['value'] = value
+                test_case['cookies'].append(cookie_dic)
+
+        except BaseException as e:
+            returned_data["status"] = 'failed'
+            returned_data["testConclusion"].append('测试前置准备失败, 错误信息: <%s> ' % e)
+            return returned_data
 
         try:
 
@@ -191,7 +201,7 @@ class tester:
                 response = session.request(url=url, method=method, json=json_data, headers=headers,
                                            verify=False) if use_json_data \
                     else session.request(url=url, method=method, data=json_data, headers=headers, verify=False)
-
+            # print(response.headers) TODO 请求头断言
         except BaseException as e:
             returned_data["status"] = 'failed'
             returned_data["testConclusion"].append('请求失败, 错误信息: <%s> ' % e)
@@ -204,8 +214,10 @@ class tester:
         returned_data["responseData"] = response.text
 
         try:
+
             response_json = json.loads(response.text) if isinstance(response.text, str) \
                                                          and response.text.strip() else {}
+
         except BaseException as e:
 
             if set_global_vars and isinstance(set_global_vars, list):
@@ -328,6 +340,10 @@ class tester:
                     if regex.strip() == '':
                         continue
                     query = crd['query']
+                    # query 支持全局变量替换
+                    for index, single_query in enumerate(query):
+                        query[index] = common.resolve_global_var(pre_resolve_var=single_query,
+                                                                 global_var_dic=self.global_vars)
                     real_value = common.dict_get(response_json, query)
                     if real_value is None:
                         returned_data["status"] = 'failed'
