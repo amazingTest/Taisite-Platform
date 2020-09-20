@@ -481,7 +481,8 @@ def export_test_cases():
             print(e)
         return _case_info
 
-    export_testing_cases = map(export_case_format,  map(add_case_suite_name, TestingCase.find(query)))
+    export_testing_cases = map(export_case_format,  map(add_case_suite_name, TestingCase.find(query).sort([('caseSuiteId', pymongo.ASCENDING),
+           ('createAt', pymongo.ASCENDING)])))
 
     bytes_io = BytesIO()
     workbook = xlsxwriter.Workbook(bytes_io, {'in_memory': True})
