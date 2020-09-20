@@ -219,7 +219,8 @@ def dict_get(dic, locators, default=None):
     '''
 
     if not isinstance(dic, dict):
-        if isinstance(dic, str):
+        if can_convert_to_str(dic):
+            dic = str(dic)
             if len(locators) == 1 and is_slice_expression(locators[0]):
                 slice_indexes = locators[0].split(':')
                 start_index = int(slice_indexes[0]) if slice_indexes[0] else None
