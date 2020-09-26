@@ -93,7 +93,7 @@
           </el-table-column>
           <el-table-column prop="testStartTime" label="测试开始时间" min-width="25%" sortable show-overflow-tooltip>
           </el-table-column>
-          <el-table-column prop="" label="测试耗时/s" min-width="18%" sortable show-overflow-tooltip>
+          <el-table-column prop="spendingTimeInSec" label="测试耗时/s" min-width="18%" sortable show-overflow-tooltip>
           </el-table-column>
         </el-table>
       </div>
