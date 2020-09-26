@@ -4,11 +4,12 @@ from models.testingCase import TestingCase
 from models.mailSender import MailSender
 from testframe.interfaceTest.tester import tester
 from models.testReport import TestReport
+from models.project import Project
 import pymongo
 from bson import ObjectId
 import datetime
 import requests
-
+import time
 
 class Cron:
     def __init__(self, test_case_suite_id_list, test_domain,  trigger_type, is_execute_forbiddened_case=False,
@@ -101,7 +102,7 @@ class Cron:
     def get_id(self):
         return self._id
 
-    def generate_test_report(self, project_id, cron_id, test_result_list):
+    def generate_test_report(self, project_id, cron_id, test_result_list, total_test_spending_time, project_name):
 
         test_count = len(test_result_list)
         passed_count = len(
@@ -117,6 +118,7 @@ class Cron:
 
         raw_data = {
             "projectId": ObjectId(project_id),
+            "projectName": project_name,
             "testCount": test_count,
             "passCount": passed_count,
             "failedCount": failed_count,
@@ -124,6 +126,8 @@ class Cron:
             "comeFrom": execute_from,
             "executorNickName": "定时机器人",
             "cronId": cron_id,
+            "totalTestSpendingTimeInSec": total_test_spending_time,
+            "testDomain": self.test_domain,
             "testDetail": test_result_list,
             "createAt": datetime.datetime.utcnow()  # 存入库时什么datetime都当utc使
         }
@@ -171,19 +175,27 @@ class Cron:
         cron_test_cases_list = self.get_cron_test_cases_list()
         if len(cron_test_cases_list) > 0:
             project_id = cron_test_cases_list[0]["projectId"]
+            project_name = Project.find_one({'_id': ObjectId(project_id)})['name']
         else:
             raise TypeError('定时任务执行中未找到任何可执行用例！')
 
         tester_for_cron = tester(test_case_list=cron_test_cases_list,
                                  domain=self.test_domain)
+
+        total_test_start_time = time.time()
+
         test_result_list = tester_for_cron.execute_all_test_for_cron_and_single_test()
+
+        total_test_end_time = time.time()
+
+        total_test_spending_time = round(total_test_end_time - total_test_start_time, 3)
 
         for index, test_result in enumerate(test_result_list):
             test_result = common.format_response_in_dic(test_result)
             test_result_list[index] = test_result
 
         if len(test_result_list) > 0:
-            self.generate_test_report(project_id, self.get_id(), test_result_list)
+            self.generate_test_report(project_id, self.get_id(), test_result_list, total_test_spending_time, project_name)
             is_send_mail = self.failed_count > 0 and isinstance(self.alarm_mail_list, list)\
                                    and len(self.alarm_mail_list) > 0
             is_send_ding_ding = self.ding_ding_access_token if hasattr(self, 'ding_ding_access_token') else False
