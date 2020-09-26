@@ -1,5 +1,5 @@
 <template>
-  <div style="margin:35px">
+  <section style="margin:35px">
 
     <!--工具条-->
     <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
@@ -24,23 +24,24 @@
       </el-table-column>
       <el-table-column sortable='custom' prop="_id" label="报告编号" min-width="17%" show-overflow-tooltip>
       </el-table-column>
-      <el-table-column sortable='custom' prop="testCount" label="测试接口总数" min-width="8%" show-overflow-tooltip>
+      <el-table-column sortable='custom' prop="testCount" label="用例总数" min-width="8%" show-overflow-tooltip>
       </el-table-column>
-      <el-table-column sortable='custom' prop="passCount" label="通过的接口总数" min-width="8%" show-overflow-tooltip>
+      <el-table-column sortable='custom' prop="passCount" label="通过数" min-width="8%" show-overflow-tooltip>
       </el-table-column>
-      <el-table-column sortable='custom' prop="failedCount" label="失败的接口总数" min-width="8%" show-overflow-tooltip>
+      <el-table-column sortable='custom' prop="failedCount" label="失败数" min-width="8%" show-overflow-tooltip>
       </el-table-column>
       <el-table-column sortable='custom' prop="passRate" label="通过率" min-width="8%" show-overflow-tooltip>
       </el-table-column>
-      <el-table-column sortable='custom' prop="comeFrom" label="执行方式" min-width="10%" show-overflow-tooltip>
+      <el-table-column sortable='custom' prop="comeFrom" label="报告来源" min-width="10%" show-overflow-tooltip>
       </el-table-column>
       <el-table-column sortable='custom' prop="executorNickName" label="执行人" min-width="10%" show-overflow-tooltip>
       </el-table-column>
       <el-table-column sortable='custom' prop="createAt" label="报告生成时间" min-width="15%" show-overflow-tooltip>
       </el-table-column>
-      <el-table-column label="操作" min-width="15%">
+      <el-table-column label="操作" min-width="20%">
         <template slot-scope="scope">
           <el-button size="small" class="el-icon-document" type="primary" @click="showReportDetail(scope.$index, scope.row)"> 查看详情</el-button>
+          <el-button size="small" class="el-icon-download" :loading="exportLoading" type="primary" @click="exportReportDetail(scope.$index, scope.row)"> 导出</el-button>
           <!--<el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">删除</el-button>-->
         </template>
       </el-table-column>
@@ -92,21 +93,33 @@
           </el-table-column>
           <el-table-column prop="testStartTime" label="测试开始时间" min-width="25%" sortable show-overflow-tooltip>
           </el-table-column>
-          <el-table-column prop="spendingTimeInSec" label="测试耗时/s" min-width="18%" sortable show-overflow-tooltip>
+          <el-table-column prop="" label="测试耗时/s" min-width="18%" sortable show-overflow-tooltip>
           </el-table-column>
         </el-table>
       </div>
     </el-dialog>
 
-  </div>
+    <a
+        class="js-download-doc"
+        :href="downloadLink"
+        :download="downloadName"
+        v-show="false"
+    />
+
+  </section>
+
 </template>
 <script>
-    import {getReportList, getReportDetail} from "../../api/testReport";
+    import {getReportList, getReportDetail, exportReportDetail} from "../../api/testReport";
+    import moment from "moment";
     export default {
         data () {
             return {
+                downloadLink: '',
+                downloadName: '',
                 listLoading: false,
                 detailLoading: false,
+                exportLoading: false,
                 isReportDetailShow: false,
                 testReports: [],
                 testReportDetail: [],
@@ -158,6 +171,37 @@
                   });
                   self.listLoading = false;
                 })
+            },
+            // 导出报告详情
+            async exportReportDetail(index, row){
+              let self = this;
+              self.exportLoading = true;
+              let project_id = row.projectId
+              let report_id = row._id
+              let header = {
+                  "Content-Type": "application/json"
+              };
+              exportReportDetail(project_id, report_id, header).then((res) => {
+                const blob = new Blob([res])
+                self.downloadLink = window.URL.createObjectURL(blob)
+                self.downloadName = `接口测试报告_${moment().format('YYYY-MM-DD-HH-mm-ss')}.xlsx`
+                self.$nextTick(() => {
+                    self.$el.querySelector('.js-download-doc').click()
+                    window.URL.revokeObjectURL(this.downloadLink)
+                    self.exportLoading = false;
+                    self.$message.success({
+                      message: '报告导出成功',
+                      center: true,
+                    });
+                })
+              }).catch((error) => {
+                  console.log(error)
+                  self.$message.error({
+                      message: '报告导出失败，请稍后重试哦~',
+                      center: true,
+                  });
+                  self.exportLoading = false;
+              })
             },
             showReportDetail(index, row){
               let self = this;
