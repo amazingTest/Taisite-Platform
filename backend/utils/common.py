@@ -161,13 +161,13 @@ def get_total_num_and_arranged_data(raw_model, query_dic, fuzzy_fields=None):
                 query_dic[fuzzy_field] = re.compile(pre_compiled_str)
     query_dic = format_js_dic_to_python_dic(query_dic)
     raw_model_copy = copy.deepcopy(raw_model)
-    raw_model_data_copy = []
-
-    if not isinstance(raw_model_copy.find(), list):
-        try:
-            raw_model_data_copy = list(raw_model_copy.find({'isDeleted': {"$ne": True}}))
-        except BaseException as e:
-            raise TypeError('raw_data cannot convert to list: %s' % e)
+    # raw_model_data_copy = []
+    #
+    # if not isinstance(raw_model_copy.find(), list):
+    #     try:
+    #         raw_model_data_copy = list(raw_model_copy.find({'isDeleted': {"$ne": True}}))
+    #     except BaseException as e:
+    #         raise TypeError('raw_data cannot convert to list: %s' % e)
     if not isinstance(query_dic, dict):
         raise TypeError('query_dic must be dict')
 
@@ -183,9 +183,10 @@ def get_total_num_and_arranged_data(raw_model, query_dic, fuzzy_fields=None):
 
     if not query_dic == {}:
         query_dic['isDeleted'] = {"$ne": True}
-        total_num = len(list(raw_model_copy.find(query_dic)))
+        # total_num = len(list(raw_model_copy.find(query_dic)))
+        total_num = raw_model_copy.find(query_dic).count()
     else:
-        total_num = len(raw_model_data_copy)
+        total_num = raw_model_copy.find(query_dic).count()
     if sort_by and order and format_order(order):
         sort_query = [(sort_by, format_order(order))]
     else:
