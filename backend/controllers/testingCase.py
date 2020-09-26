@@ -10,6 +10,7 @@ from io import BytesIO
 from models.testingCase import TestingCase
 from models.caseSuite import CaseSuite
 from models.testReport import TestReport
+from models.project import Project
 from bson import ObjectId
 from utils import common
 import pymongo
@@ -171,6 +172,7 @@ def start_test():
 
     if len(testing_case_list) > 0:
         project_id = testing_case_list[0]["projectId"]
+        project_name = Project.find_one({'_id': ObjectId(project_id)})['name']
     else:
         return jsonify({'status': 'failed', 'data': '请先「启用」接口测试用例'})
 
@@ -194,7 +196,7 @@ def start_test():
 
     if not is_single_test:
         try:
-            tester.execute_all_test_and_send_report(TestingCase, TestReport, project_id, executor_nick_name, execution_mode)
+            tester.execute_all_test_and_send_report(TestingCase, TestReport, project_id, executor_nick_name, execution_mode, project_name)
             return jsonify({'status': 'ok', 'data': '测试已启动，稍后请留意自动化测试报告'})
         except BaseException as e:
             return jsonify({'status': 'failed', 'data': '测试启动失败: %s' % e})
@@ -221,12 +223,15 @@ def start_test():
 
             raw_data = {
                 "projectId": ObjectId(project_id),
+                "projectName": project_name,
                 "testCount": test_count,
                 "passCount": passed_count,
                 "failedCount": failed_count,
                 "passRate": passed_rate,
                 "comeFrom": execution_mode,
                 "executorNickName": executor_nick_name,
+                "totalTestSpendingTimeInSec": test_result_list[0]['spendingTimeInSec'],
+                "testDomain": domain,
                 "testDetail": test_result_list,
                 "createAt": datetime.datetime.utcnow()
             }
@@ -481,8 +486,9 @@ def export_test_cases():
             print(e)
         return _case_info
 
-    export_testing_cases = map(export_case_format,  map(add_case_suite_name, TestingCase.find(query).sort([('caseSuiteId', pymongo.ASCENDING),
-           ('createAt', pymongo.ASCENDING)])))
+    export_testing_cases = map(export_case_format, map(add_case_suite_name,
+                                                       TestingCase.find(query).sort([('caseSuiteId', pymongo.ASCENDING),
+                                                                                     ('createAt', pymongo.ASCENDING)])))
 
     bytes_io = BytesIO()
     workbook = xlsxwriter.Workbook(bytes_io, {'in_memory': True})
