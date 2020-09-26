@@ -175,6 +175,10 @@
                       item["testBaseInfo"]["cookies"] = JSON.stringify(item["testBaseInfo"]["cookies"]) || '';
                       item["testBaseInfo"]["presendParams"] = JSON.stringify(item["testBaseInfo"]["presendParams"]) || '';
 
+                      if(item["testBaseInfo"]["presendParams"].length > 5000){
+                        item["testBaseInfo"]["presendParams"] = item["testBaseInfo"]["presendParams"].substr(0, 5000) + '......(长度已超出限制，完整请求参数请前往数据库查看)'
+                      }
+
                       // TODO 判断可优化
 
                       item["responseData"] ?
