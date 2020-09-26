@@ -58,8 +58,9 @@ class tester:
     # 异步方便返回测试启动是否成功的提示给前端
     @async_test
     def execute_all_test_and_send_report(self, testing_case_model, test_report_model,
-                                         project_id, executor_nick_name, execution_mode):
+                                         project_id, executor_nick_name, execution_mode, project_name):
         test_results = []
+        total_test_start_time = time.time()
         for test_case in self.test_case_list:
             test_start_time = time.time()
             test_start_datetime = datetime.datetime.utcnow()
@@ -76,10 +77,11 @@ class tester:
             test_result["testStartTime"] = test_start_datetime
             test_result["spendingTimeInSec"] = round(test_end_time - test_start_time, 3)
             test_results.append(test_result)
-
+        total_test_end_time = time.time()
+        total_test_spending_time = round(total_test_end_time - total_test_start_time, 3)
         self.test_result_list = test_results
         self.update_case_info(testing_case_model)
-        self.send_report(test_report_model, project_id, executor_nick_name, execution_mode)
+        self.send_report(test_report_model, project_id, executor_nick_name, execution_mode, total_test_spending_time, project_name)
 
     # TODO 方便单个接口调试时同步返回结果，需重构
     def execute_all_test_for_cron_and_single_test(self):
@@ -449,7 +451,7 @@ class tester:
             testing_case_model.update({"_id": ObjectId(test_case_id)},
                                       {'$set': {'lastManualTestResult': test_result}})
 
-    def send_report(self, test_report_model, project_id, executor_nick_name, execution_mode):
+    def send_report(self, test_report_model, project_id, executor_nick_name, execution_mode, total_test_spending_time, project_name):
         test_count = len(self.test_result_list)
         passed_count = len(
             list(filter(lambda x: x == 'ok', [test_result["status"] for test_result in self.test_result_list])))
@@ -464,13 +466,16 @@ class tester:
 
             raw_data = {
                 "projectId": ObjectId(project_id),
+                "projectName": project_name,
                 "testCount": test_count,
                 "passCount": passed_count,
                 "failedCount": failed_count,
                 "passRate": passed_rate,
                 "comeFrom": execution_mode,
+                "testDomain": self.domain,
                 "executorNickName": executor_nick_name,
                 "testDetail": self.test_result_list,
+                "totalTestSpendingTimeInSec": total_test_spending_time,
                 "createAt": datetime.datetime.utcnow()
             }
             filtered_data = test_report_model.filter_field(raw_data, use_set_default=True)
