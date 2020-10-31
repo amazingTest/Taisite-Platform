@@ -34,13 +34,13 @@ def add_mail_sender(project_id):
 
 @app.route('/api/project/<project_id>/mailSenderList/<sender_id>/updateMailSender', methods=['POST'])
 @login_required
-def update_mail_sender(project_id, host_id):
+def update_mail_sender(project_id, sender_id):
     try:
         filtered_data = MailSender.filter_field(request.get_json())
         for key, value in filtered_data.items():
-            MailSender.update({"_id": ObjectId(host_id)},
+            MailSender.update({"_id": ObjectId(sender_id)},
                         {'$set': {key: value}})
-        update_response = MailSender.update({"_id": ObjectId(host_id)},
+        update_response = MailSender.update({"_id": ObjectId(sender_id)},
                     {'$set': {'lastUpdateTime': datetime.datetime.utcnow()}})
         if update_response["n"] == 0:
             return jsonify({'status': 'failed', 'data': '未找到相应更新数据！'})
