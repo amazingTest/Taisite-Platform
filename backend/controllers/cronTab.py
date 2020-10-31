@@ -55,7 +55,8 @@ def add_cron(project_id):
                         trigger_type=filtered_data.get('triggerType'),
                         test_case_id_list=filtered_data.get('testCaseIdList'),
                         is_execute_forbiddened_case=filtered_data.get('isExecuteForbiddenedCase'),
-                        run_date=filtered_data.get('runDate'))
+                        run_date=filtered_data.get('runDate'),
+                        cron_name=filtered_data.get('name'))
         else:
             cron = Cron(test_case_suite_id_list=filtered_data.get('testCaseSuiteIdList'),
                         test_domain=filtered_data.get('testDomain'),
@@ -69,7 +70,9 @@ def add_cron(project_id):
                         trigger_type=filtered_data.get('triggerType'),
                         test_case_id_list=filtered_data.get('testCaseIdList'),
                         is_execute_forbiddened_case=filtered_data.get('isExecuteForbiddenedCase'),
-                        seconds=filtered_data.get('interval'))
+                        seconds=filtered_data.get('interval'),
+                        cron_name=filtered_data.get('name'))
+
         cron_id = cron_manager.add_cron(cron)
         for key, value in filtered_data.items():
 
