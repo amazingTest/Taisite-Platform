@@ -7,12 +7,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
 
-#发送邮件
-#title：标题
-#conen：内容
-
-
-def send_report_email(username, password, mail_namelist, title, content, attachment=None):
+def send_report_email(username, password, mail_namelist, title, content, attachment_name='attachment',
+                      attachment_content=None):
     try:
         msg = MIMEMultipart()
         msg['from'] = username
@@ -21,11 +17,12 @@ def send_report_email(username, password, mail_namelist, title, content, attachm
         txt = MIMEText(content, 'html', 'utf-8')
         msg.attach(txt)
 
-        if attachment:
+        if attachment_name and attachment_content:
             # 添加附件
-            part = MIMEApplication(open(attachment, 'rb').read())
+            part = MIMEApplication(attachment_content)
+            # part = MIMEApplication(open(attachment, 'rb').read())
             part.add_header('Content-Disposition', 'attachment', filename=
-                            attachment)
+                            attachment_name)
             msg.attach(part)
 
         # 设置服务器、端口
@@ -47,5 +44,7 @@ def send_report_email(username, password, mail_namelist, title, content, attachm
 
 if __name__ == '__main__':
     pass
+
+
 
 
