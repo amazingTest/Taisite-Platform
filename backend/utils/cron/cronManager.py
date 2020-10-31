@@ -98,6 +98,7 @@ class CronManager:
         is_enterprise_wechat_notify = cron_info.get('isEnterpriseWechatNotify')
         enterprise_wechat_access_token = cron_info.get('enterpriseWechatAccessToken')
         enterprise_wechat_notify_strategy = cron_info.get('enterpriseWechatNotifyStrategy')
+        cron_name = cron_info.get('name')
 
         try:
             if trigger_type == 'interval' and int(interval) > 0:
@@ -120,7 +121,8 @@ class CronManager:
                             enterprise_wechat_notify_strategy=enterprise_wechat_notify_strategy,
                             trigger_type=trigger_type,  # 更新定时器时，此参数并没有真正起到作用, 仅修改展示字段
                             test_case_id_list=test_case_id_list,
-                            run_date=run_date)  # 更新定时器时，此参数并没有起到作用, 仅修改展示字段
+                            run_date=run_date,
+                            cron_name=cron_name)  # 更新定时器时，此参数并没有起到作用, 仅修改展示字段
             else:
                 cron = Cron(test_case_suite_id_list=test_case_suite_id_list,
                             is_execute_forbiddened_case=is_execute_forbiddened_case,
@@ -134,7 +136,8 @@ class CronManager:
                             enterprise_wechat_notify_strategy=enterprise_wechat_notify_strategy,
                             trigger_type=trigger_type,  # 更新定时器时，此参数并没有起到作用, 仅修改展示字段
                             test_case_id_list=test_case_id_list,
-                            seconds=interval)  # 更新定时器时，此参数并没有起到作用, 仅修改展示字段
+                            seconds=interval,  # 更新定时器时，此参数并没有起到作用, 仅修改展示字段
+                            cron_name=cron_name)
             # 玄学，更改job的时候必须改args，不能改func
             self.scheduler.modify_job(job_id=cron_id, coalesce=True, args=[cron])
 
