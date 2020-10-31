@@ -149,6 +149,7 @@ def format_js_dic_to_python_dic(query_dic):
 
 
 def get_total_num_and_arranged_data(raw_model, query_dic, fuzzy_fields=None):
+
     query_dic = query_dic.to_dict() if query_dic.to_dict() else {}
     if fuzzy_fields is not None:
         if not isinstance(fuzzy_fields, list):
@@ -161,13 +162,7 @@ def get_total_num_and_arranged_data(raw_model, query_dic, fuzzy_fields=None):
                 query_dic[fuzzy_field] = re.compile(pre_compiled_str)
     query_dic = format_js_dic_to_python_dic(query_dic)
     raw_model_copy = copy.deepcopy(raw_model)
-    # raw_model_data_copy = []
-    #
-    # if not isinstance(raw_model_copy.find(), list):
-    #     try:
-    #         raw_model_data_copy = list(raw_model_copy.find({'isDeleted': {"$ne": True}}))
-    #     except BaseException as e:
-    #         raise TypeError('raw_data cannot convert to list: %s' % e)
+
     if not isinstance(query_dic, dict):
         raise TypeError('query_dic must be dict')
 
@@ -204,6 +199,7 @@ def get_total_num_and_arranged_data(raw_model, query_dic, fuzzy_fields=None):
         else:
             arranged_data = raw_model_copy.find(query_dic).skip(skip).limit(size)
 
+    # TODO 性能优化
     return total_num, list(map(format_response_in_dic, map(raw_model_copy.filter_field, arranged_data)))
 
 
@@ -575,8 +571,11 @@ def send_email(model, project_id, send_data):
     mail_list = send_data.get('mail_list')
     mail_title = send_data.get('mail_title')
     mail_content = send_data.get('mail_content')
+    attachment_name = send_data.get('attachment_name', 'attachment')
+    attachment_content = send_data.get('attachment_content')
 
-    if send_report_email(user_name, pass_word, mail_list, mail_title, mail_content):
+    if send_report_email(user_name, pass_word, mail_list, mail_title, mail_content,
+                         attachment_name, attachment_content):
         return {'status': 'ok', 'data': '邮件发送成功'}
     else:
         return {'status': 'failed', 'data': '邮件发送失败'}
