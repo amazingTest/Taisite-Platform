@@ -117,10 +117,10 @@
         <el-dialog title="发件人配置" :visible.sync="ConfigFormVisible" :close-on-click-modal="false" style="width: 60%; left: 20%">
           <el-form :inline="true" :model="ConfigForm" label-width="100px" :rules="ConfigFormRules" ref="ConfigForm">
             <el-form-item label="发件人邮箱" prop="username">
-              <el-input v-model.trim="ConfigForm.username" auto-complete="off"></el-input>
+              <el-input placeholder="目前仅支持 QQ 邮箱哦～" v-model.trim="ConfigForm.username" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item label="邮箱授权码" prop='password'>
-              <el-input type="password" v-model.trim="ConfigForm.password" auto-complete="off"></el-input>
+              <el-input placeholder="目前仅支持 QQ 邮箱哦～" type="password" v-model.trim="ConfigForm.password" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button :disabled="isMailSenderChecked" type="info" @click.native="testMailSender" :loading="testMailSenderLoading">请先验证</el-button>
