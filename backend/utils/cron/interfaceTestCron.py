@@ -10,13 +10,20 @@ from bson import ObjectId
 import datetime
 import requests
 import time
+import copy
 
 
 class Cron:
+
+    stop_alert_and_wait_until_resume = {}
+    recorded_first_failed_time = {}
+    recorded_first_failed_report_id = {}
+
     def __init__(self, cron_name, test_case_suite_id_list, test_domain,  trigger_type, is_execute_forbiddened_case=False,
                  test_case_id_list=None, alarm_mail_list=None, is_ding_ding_notify=False, ding_ding_access_token=None,
                  ding_ding_notify_strategy=None, is_enterprise_wechat_notify=False, enterprise_wechat_access_token=None,
-                 enterprise_wechat_notify_strategy=None, is_web_hook=False, **trigger_args):
+                 enterprise_wechat_notify_strategy=None, is_web_hook=False, retry_limit=3, retry_interval=20,
+                 **trigger_args):
 
         if test_case_id_list is None:
             test_case_id_list = []
@@ -70,6 +77,9 @@ class Cron:
         self.failed_count = 0  # 用于判断是否邮件发送告警
 
         self.cron_name = cron_name
+        self.current_retry_count = 0  # 记录当前定时任务尝试次数
+        self.retry_limit = retry_limit  # 定时任务报错后重试次数限制
+        self.retry_interval = retry_interval  # 定时任务报错后重试时间间隔
 
     def get_cron_test_cases_list(self):
         if not self.is_execute_forbiddened_case:
@@ -110,14 +120,15 @@ class Cron:
         test_count = len(test_result_list)
         passed_count = len(
             list(filter(lambda x: x == 'ok', [test_result["status"] for test_result in test_result_list])))
-        failed_count = len(
-            list(filter(lambda x: x == 'failed', [test_result["status"] for test_result in test_result_list])))
+        # failed count 已在生成报告前进行计算
+        # failed_count = len(
+        #     list(filter(lambda x: x == 'failed', [test_result["status"] for test_result in test_result_list])))
         passed_rate = '%d' % round((passed_count / test_count) * 100, 2) + '%'
 
         self.report_created_time = datetime.datetime.now()
-        self.failed_count = failed_count
+        failed_count = self.failed_count
 
-        execute_from = "WebHook" if hasattr(self, 'is_web_hook') and self.is_web_hook else "定时任务"
+        execute_from = "WebHook" if hasattr(self, 'is_web_hook') and self.is_web_hook else f"定时任务 - {self.cron_name}"
 
         raw_data = {
             "projectId": ObjectId(project_id),
@@ -187,8 +198,8 @@ class Cron:
                              attachment_name, attachment_content):
         if not isinstance(mail_list, list):
             raise TypeError("mail_list must be list!")
-        if self.failed_count < 1:
-            raise TypeError('测试全通过，不需要发送告警报告！')
+        # if self.failed_count < 1:
+        #     raise TypeError('测试全通过，不需要发送告警报告！')
         if not self.report_created_time:
             raise TypeError('无测试报告生成时间，报告发送失败！')
 
@@ -203,6 +214,7 @@ class Cron:
         return result
 
     def cron_mission(self):
+        # print(self.stop_alert_and_wait_until_resume )
         cron_test_cases_list = self.get_cron_test_cases_list()
         if len(cron_test_cases_list) > 0:
             project_id = cron_test_cases_list[0]["projectId"]
@@ -225,62 +237,152 @@ class Cron:
             test_result = common.format_response_in_dic(test_result)
             test_result_list[index] = test_result
 
-        if len(test_result_list) > 0:
-            self.generate_test_report(project_id, self.get_id(), test_result_list, total_test_spending_time, project_name)
-            is_send_mail = self.failed_count > 0 and isinstance(self.alarm_mail_list, list)\
-                                   and len(self.alarm_mail_list) > 0
+        if not len(test_result_list):
+            return
+
+        self.failed_count = len(
+            list(filter(lambda x: x == 'failed', [test_result["status"] for test_result in test_result_list])))
+
+        self.current_retry_count += 1 if self.failed_count > 0 else -self.current_retry_count
+
+        generate_retry_cron = self.failed_count > 0 and self.current_retry_count < self.retry_limit
+
+        self.generate_test_report(project_id, self.get_id(), test_result_list, total_test_spending_time, project_name)
+
+        if generate_retry_cron:
+
+            print(f'当前失败用例个数:{self.failed_count}')
+            print(f'正在重试第 {self.current_retry_count} 次')
+
+            time.sleep(self.retry_interval)
+
+            self.cron_mission()
+
+        else:
+            is_send_mail = self.failed_count > 0 and isinstance(self.alarm_mail_list, list) \
+                           and len(self.alarm_mail_list) > 0
+
             is_send_ding_ding = self.ding_ding_access_token if hasattr(self, 'ding_ding_access_token') else False
 
-            is_send_enterprise_wechat = self.enterprise_wechat_access_token if hasattr(self, 'enterprise_wechat_access_token')\
+            is_send_enterprise_wechat = self.enterprise_wechat_access_token if hasattr(self,
+                                                                                       'enterprise_wechat_access_token') \
                 else False
 
-            if is_send_enterprise_wechat:
-                enterprise_wechat_title = '### 接口测试平台企业微信服务'
-                enterprise_wechat_content = f' ⛔ {project_name} 项目 \n\n > 🚑 {self.cron_name} 测试失败 \n\n' \
-                                            f' > 生成报告id: {self.report_id} \n\n > ⬇️ 此时下方应有报告详情 ' \
-                    if self.failed_count > 0 else f' ✅️ {project_name} 项目 \n\n > 👍️️️️ {self.cron_name} 测试通过 \n\n ' \
-                                                  f'> 生成报告id: {self.report_id} \n\n > ⬇️ 此时下方应有报告详情 '
-                if hasattr(self, 'enterprise_wechat_notify_strategy') and self.enterprise_wechat_notify_strategy.get('fail') \
-                        and self.failed_count > 0:
-                    enterprise_wechat_res = self.send_enterprise_wechat_notify(title=enterprise_wechat_title, content=enterprise_wechat_content)
-                    if not enterprise_wechat_res.status_code == 200:
-                        raise BaseException('企业微信发送异常: {}'.format(enterprise_wechat_res.text))
-                if hasattr(self, 'enterprise_wechat_notify_strategy') and self.enterprise_wechat_notify_strategy.get('success') \
-                        and self.failed_count <= 0:
-                    enterprise_wechat_res = self.send_enterprise_wechat_notify(title=enterprise_wechat_title, content=enterprise_wechat_content)
-                    if not enterprise_wechat_res.status_code == 200:
-                        raise BaseException('企业微信发送异常: {}'.format(enterprise_wechat_res.text))
+            finally_passed_and_send_resume_notify = not self.failed_count and self.stop_alert_and_wait_until_resume.get(self.cron_name)
 
-            if is_send_ding_ding:
-                dingding_title = '### 接口测试平台钉钉服务'
-                dingding_content = f' ⛔ {project_name} 项目 \n\n > 🚑 {self.cron_name} 测试失败 \n\n' \
-                                   f' > 生成报告id: {self.report_id}' \
-                    if self.failed_count > 0 else f' ✅️ {project_name} 项目 \n\n > 👍️️️️ {self.cron_name} 测试通过 \n\n ' \
-                                                  f'> 生成报告id: {self.report_id}'
-                if hasattr(self, 'ding_ding_notify_strategy') and self.ding_ding_notify_strategy.get('fail')\
-                        and self.failed_count > 0:
-                    dingding_res = self.send_ding_ding_notify(title=dingding_title, content=dingding_content)
-                    if not dingding_res.status_code == 200:
-                        raise BaseException('钉钉发送异常: {}'.format(dingding_res.text))
-                if hasattr(self, 'ding_ding_notify_strategy') and self.ding_ding_notify_strategy.get('success')\
-                        and self.failed_count <= 0:
-                    dingding_res = self.send_ding_ding_notify(title=dingding_title, content=dingding_content)
-                    if not dingding_res.status_code == 200:
-                        raise BaseException('钉钉发送异常: {}'.format(dingding_res.text))
+            failed_again_but_wait_for_resume = self.failed_count and self.stop_alert_and_wait_until_resume.get(self.cron_name)
 
-            if is_send_mail:
-                mesg_title = '接口测试平台告警'
-                mesg_content = "Dears: \n\n  【{}】 项目下 【{}】 测试任务中存在未通过的测试用例！测试报告详情内容请查阅附件 ～ \n\n   报告 id 为:" \
-                               " {} \n\n   报告生成时间为: {}"\
-                    .format(project_name, self.cron_name, self.report_id, self.report_created_time.strftime('%Y-%m-%d %H:%M:%S'))
+            if finally_passed_and_send_resume_notify:
+
+                print(f'finally_passed_and_send_resume_notify... report id: {self.report_id}')
+
+                if is_send_enterprise_wechat:
+
+                    enterprise_wechat_title = '### 接口测试平台企业微信服务'
+                    enterprise_wechat_content = f' ✅️ {project_name} 项目 \n\n > 👍️️️️ {self.cron_name} 测试通过 \n\n ' \
+                                                f'> 😄 于 {self.recorded_first_failed_time[self.cron_name]} 发生的告警已恢复～ \n\n ' \
+                                                f'> 过往报错报告id: {self.recorded_first_failed_report_id[self.cron_name]} \n\n' \
+                                                f'> 最新生成报告id: {self.report_id} \n\n > ⬇️ 此时下方应有最新报告详情 '
+
+                    if hasattr(self, 'enterprise_wechat_notify_strategy'):
+                        enterprise_wechat_res = self.send_enterprise_wechat_notify(title=enterprise_wechat_title,
+                                                                                   content=enterprise_wechat_content)
+                        if not enterprise_wechat_res.status_code == 200:
+                            raise BaseException('企业微信发送异常: {}'.format(enterprise_wechat_res.text))
+
+                if is_send_ding_ding:
+                    dingding_title = '### 接口测试平台钉钉服务'
+                    dingding_content = f' ✅️ {project_name} 项目 \n\n > 👍️️️️ {self.cron_name} 测试通过 \n\n ' \
+                                       f'> 😄 于 {self.recorded_first_failed_time[self.cron_name]} 发生的告警已恢复～ \n\n ' \
+                                       f'> 过往报错报告id: {self.recorded_first_failed_report_id[self.cron_name]} \n\n' \
+                                       f'> 最新生成报告id: {self.report_id}'
+
+                    if hasattr(self, 'ding_ding_notify_strategy'):
+                        dingding_res = self.send_ding_ding_notify(title=dingding_title, content=dingding_content)
+                        if not dingding_res.status_code == 200:
+                            raise BaseException('钉钉发送异常: {}'.format(dingding_res.text))
+
+                mesg_title = '接口测试平台告警恢复提醒 ：）'
+                mesg_content = "Dears: \n\n 于 【{}】 【{}】 项目下 【{}】 测试任务 (报告 id: {}) 中报错测试用例已全部恢复通过～ 最新测试报告详情内容请查阅附件 ～ \n\n   最新报告 id 为:" \
+                               " {} \n\n   最新报告生成时间为: {}" \
+                    .format(self.recorded_first_failed_time[self.cron_name], project_name, self.cron_name,
+                            self.recorded_first_failed_report_id[self.cron_name], self.report_id,
+                            self.report_created_time.strftime('%Y-%m-%d %H:%M:%S'))
                 mesg_attachment_name = f'接口测试报告_{self.report_created_time.strftime("%Y-%m-%d %H:%M:%S")}.xlsx'
                 mesg_attachment_content = TestReport.get_test_report_excel_bytes_io(self.report_id).read()
                 result_json = self.send_report_to_staff(project_id, self.alarm_mail_list, mesg_title, mesg_content,
                                                         mesg_attachment_name, mesg_attachment_content)
                 if result_json.get('status') == 'failed':
                     raise BaseException('邮件发送异常: {}'.format(result_json.get('data')))
-        else:
-            raise TypeError('无任何测试结果！')
+
+                self.stop_alert_and_wait_until_resume[self.cron_name] = False
+
+            elif failed_again_but_wait_for_resume:
+                # 在等待中且有失败的情况，暂时不做任何操作，防止使用者被不断的定时任务提醒轰炸
+                print(f'failed_again_but_wait_for_resume， report_id: {self.report_id}')
+            elif not self.stop_alert_and_wait_until_resume.get(self.cron_name):
+                if self.failed_count > 0:
+                    self.recorded_first_failed_report_id[self.cron_name] = copy.deepcopy(self.report_id)
+                    date_now = str(datetime.datetime.now())
+                    dot_index = date_now.rindex('.')
+                    self.recorded_first_failed_time[self.cron_name] = date_now[:dot_index]
+                    self.stop_alert_and_wait_until_resume[self.cron_name] = True if self.failed_count else False
+
+                if is_send_enterprise_wechat:
+
+                    enterprise_wechat_title = '### 接口测试平台企业微信服务'
+                    enterprise_wechat_content = f' ⛔ {project_name} 项目 \n\n > 🚑 {self.cron_name} 测试失败 \n\n' \
+                                                f' > 生成报告id: {self.report_id} \n\n > ⬇️ 此时下方应有报告详情 ' \
+                        if self.failed_count > 0 else f' ✅️ {project_name} 项目 \n\n > 👍️️️️ {self.cron_name} 测试通过 \n\n ' \
+                                                      f'> 生成报告id: {self.report_id} \n\n > ⬇️ 此时下方应有报告详情 '
+                    if hasattr(self,
+                               'enterprise_wechat_notify_strategy') and self.enterprise_wechat_notify_strategy.get(
+                            'fail') \
+                            and self.failed_count > 0:
+                        enterprise_wechat_res = self.send_enterprise_wechat_notify(title=enterprise_wechat_title,
+                                                                                   content=enterprise_wechat_content)
+                        if not enterprise_wechat_res.status_code == 200:
+                            raise BaseException('企业微信发送异常: {}'.format(enterprise_wechat_res.text))
+                    if hasattr(self,
+                               'enterprise_wechat_notify_strategy') and self.enterprise_wechat_notify_strategy.get(
+                            'success') \
+                            and self.failed_count <= 0:
+                        enterprise_wechat_res = self.send_enterprise_wechat_notify(title=enterprise_wechat_title,
+                                                                                   content=enterprise_wechat_content)
+                        if not enterprise_wechat_res.status_code == 200:
+                            raise BaseException('企业微信发送异常: {}'.format(enterprise_wechat_res.text))
+
+                if is_send_ding_ding:
+                    dingding_title = '### 接口测试平台钉钉服务'
+                    dingding_content = f' ⛔ {project_name} 项目 \n\n > 🚑 {self.cron_name} 测试失败 \n\n' \
+                                       f' > 生成报告id: {self.report_id}' \
+                        if self.failed_count > 0 else f' ✅️ {project_name} 项目 \n\n > 👍️️️️ {self.cron_name} 测试通过 \n\n ' \
+                                                      f'> 生成报告id: {self.report_id}'
+                    if hasattr(self, 'ding_ding_notify_strategy') and self.ding_ding_notify_strategy.get('fail') \
+                            and self.failed_count > 0:
+                        dingding_res = self.send_ding_ding_notify(title=dingding_title, content=dingding_content)
+                        if not dingding_res.status_code == 200:
+                            raise BaseException('钉钉发送异常: {}'.format(dingding_res.text))
+                    if hasattr(self, 'ding_ding_notify_strategy') and self.ding_ding_notify_strategy.get('success') \
+                            and self.failed_count <= 0:
+                        dingding_res = self.send_ding_ding_notify(title=dingding_title, content=dingding_content)
+                        if not dingding_res.status_code == 200:
+                            raise BaseException('钉钉发送异常: {}'.format(dingding_res.text))
+
+                if is_send_mail:
+                    mesg_title = '接口测试平台告警 :('
+                    mesg_content = "Dears: \n\n  【{}】 项目下 【{}】 测试任务中存在未通过的测试用例！测试报告详情内容请查阅附件 ～ \n\n   报告 id 为:" \
+                                   " {} \n\n   报告生成时间为: {}" \
+                        .format(project_name, self.cron_name, self.report_id,
+                                self.report_created_time.strftime('%Y-%m-%d %H:%M:%S'))
+                    mesg_attachment_name = f'接口测试报告_{self.report_created_time.strftime("%Y-%m-%d %H:%M:%S")}.xlsx'
+                    mesg_attachment_content = TestReport.get_test_report_excel_bytes_io(self.report_id).read()
+                    result_json = self.send_report_to_staff(project_id, self.alarm_mail_list, mesg_title, mesg_content,
+                                                            mesg_attachment_name, mesg_attachment_content)
+                    if result_json.get('status') == 'failed':
+                        raise BaseException('邮件发送异常: {}'.format(result_json.get('data')))
+            else:
+                pass
 
 
 if __name__ == '__main__':
