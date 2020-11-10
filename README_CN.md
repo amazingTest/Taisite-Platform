@@ -4,6 +4,21 @@
 
 ![泰斯特平台LOGO.png](https://github.com/amazingTest/Taisite-Platform/blob/master/images/泰斯特平台LOGO.png)
 
+## 更新记录
+
+**2020-11-08**
+
+[2020-11-08 - 定时任务智能提醒](https://mp.weixin.qq.com/s/UZxPWlqpKlgFcHwxrBeATg)
+
+**2020-10-31**
+
+[2020-10-31 - 企业微信提醒功能强化](https://mp.weixin.qq.com/s/aR2ExueuOMdeDGTX3LqD3g)
+
+**2020-09-26**
+
+[2020-09-26 - 测试报告导出功能](https://mp.weixin.qq.com/s/Mz1cru2pZeXjEkY8QG4Q8Q)
+
+
 ## 开源申明
 
  **这是一个受限制的自由软件！您不能在任何未经允许的前提下对程序代码进行修改和用于商业用途；也不允许对程序代码修改后以任何形式任何目的的再发布。** 
