@@ -10,3 +10,4 @@ python-dateutil==2.7.3
 xlrd==1.1.0
 xlsxwriter==1.1.8
 github_webhook==1.0.2
+Faker==4.14.2
