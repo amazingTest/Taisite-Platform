@@ -11,8 +11,12 @@ from utils.sendReportEmail import send_report_email
 from tzlocal import get_localzone
 import string
 
+from faker import Faker
 
-def generate_curl(url, headers=None, data=None):
+
+def generate_curl(url, method='POST', headers=None, data=None):
+
+    curl_method = f' -X {method.upper()}'
 
     curl_headers = ''
 
@@ -20,11 +24,12 @@ def generate_curl(url, headers=None, data=None):
         for k, v in headers.items():
             curl_headers += f" -H '{k}: {v}'"
 
-    data = str(data).replace("'", '"')
+    data = str(data).replace("'", '"') if data else None
 
-    curl_data = f" --data-binary '{data}'"
+    curl_data = f" --data-binary '{data}'" if data else ''
 
     curl = f"curl '{url}'" \
+           f"{curl_method}" \
            f"{curl_headers}" \
            f"{curl_data} "
 
@@ -325,6 +330,34 @@ def is_slice_expression(expression):
         return False
 
 
+def resolve_fake_var(pre_resolve_var, fake_var_regex='\${faker\..+\(.*\)}', locale='zh-CN'):
+    # usage:
+    # print(resolve_fake_var('这是随机出来的地址: 【${faker.address()}】 我厉害吧！'))
+
+    re_global_var = re.compile(fake_var_regex)
+
+    faker = Faker(locale)
+
+    def fake_var_repl(match_obj):
+
+        attribute_start_index = match_obj.group().index('.') + 1
+        attribute_end_index = match_obj.group().index('(')
+        _attribute = match_obj.group()[attribute_start_index: attribute_end_index]
+
+        _str_params = match_obj.group()[attribute_end_index + 1: -2]
+        _dict_params = str_params_2_dict(_str_params) if '=' in _str_params else {}
+
+        nonlocal faker
+
+        match_value = getattr(faker, _attribute)(**_dict_params)
+        # 将一些数字类型转成str，否则re.sub会报错, match_value可能是0！
+        match_value = str(match_value) if match_value is not None else match_value
+        return match_value if match_value else match_obj.group()
+
+    resolved_var = re.sub(pattern=re_global_var, string=pre_resolve_var, repl=fake_var_repl)
+    return resolved_var
+
+
 def resolve_global_var(pre_resolve_var, global_var_dic, global_var_regex='\${.*?}',
                        match2key_sub_string_start_index=2, match2key_sub_string_end_index=-1):
 
@@ -607,6 +640,18 @@ def get_random_key(digit_num=16):
     return keys
 
 
+# TODO 暂时没有处理非字符串类型的值
+def str_params_2_dict(str_params: str) -> dict:
+    str_params = str_params.replace(' ', '')
+    params = str_params.split(',')
+    dic = {}
+    for param in params:
+        equal_sign_index = param.index('=')
+        key = param[:equal_sign_index]
+        value = param[equal_sign_index + 1:]
+        dic[key] = value
+    return dic
+
+
 if __name__ == '__main__':
     pass
-
