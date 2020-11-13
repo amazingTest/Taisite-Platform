@@ -73,7 +73,8 @@ class tester:
             if 'requestProtocol' in test_case and 'route' in test_case:
                 url = '%s://%s%s' % (test_case['requestProtocol'].lower(), domain, test_case['route'])
                 test_case["url"] = url
-            test_case['curl'] = common.generate_curl(url=test_case["url"],
+            test_case['curl'] = common.generate_curl(method=test_case["requestMethod"],
+                                                     url=test_case["url"],
                                                      headers=test_case["headers"],
                                                      data=test_case['presendParams'])
             test_result["testBaseInfo"] = test_case
@@ -101,7 +102,8 @@ class tester:
             if 'requestProtocol' in test_case and 'route' in test_case:
                 url = '%s://%s%s' % (test_case['requestProtocol'].lower(), domain, test_case['route'])
                 test_case["url"] = url
-            test_case['curl'] = common.generate_curl(url=test_case["url"],
+            test_case['curl'] = common.generate_curl(method=test_case["requestMethod"],
+                                                     url=test_case["url"],
                                                      headers=test_case["headers"],
                                                      data=test_case['presendParams'])
             test_result["testBaseInfo"] = test_case
@@ -160,6 +162,9 @@ class tester:
             if 'presendParams' in test_case and isinstance(test_case['presendParams'], dict):
                 # dict 先转 str，方便全局变量替换
                 test_case['presendParams'] = str(test_case['presendParams'])
+
+                # 转换 fake 数据
+                test_case['presendParams'] = common.resolve_fake_var(pre_resolve_var=test_case['presendParams'])
 
                 # 全局替换
                 test_case['presendParams'] = common.resolve_global_var(pre_resolve_var=test_case['presendParams'],
