@@ -6,10 +6,14 @@
 
 ## 更新记录
 
+**2020-11-16**
+
+[2020-11-16 - 与 Faker 集成生成随机参数](https://mp.weixin.qq.com/s/EdFZuGzkA7f2f6F7BTvYEg)
+
 **2020-11-08**
 
 [2020-11-08 - 定时任务智能提醒](https://mp.weixin.qq.com/s/UZxPWlqpKlgFcHwxrBeATg)
-
+    
 **2020-10-31**
 
 [2020-10-31 - 企业微信提醒功能强化](https://mp.weixin.qq.com/s/aR2ExueuOMdeDGTX3LqD3g)
