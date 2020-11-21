@@ -70,6 +70,7 @@ class TestingCase(Model):
     status = BooleanField(field_name='status', default=False)
     isClearCookie = BooleanField(field_name='isClearCookie', default=False)
     checkHttpCode = StringField()
+    checkResponseTime = FloatField()
     checkResponseData = ArrayField(field_name='checkResponseData', default=[{'regex': '', 'query': []}],
                                    expected_structure={'expectedTypeRange': [list, type(None)],
                                                        'expectedValueRange': [{
