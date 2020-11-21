@@ -41,6 +41,7 @@ test_report_detail_map = {
     "['responseData']": '实际数据',
     "['testConclusion']": '测试结论',
     "['testStartTime']": '测试开始时间',
+    "['testBaseInfo', 'checkResponseTime']": '耗时校验/s',
     "['spendingTimeInSec']": '测试耗时/s',
 }
 
@@ -80,7 +81,9 @@ class TestReport(Model):
         workbook = xlsxwriter.Workbook(bytes_io, {'in_memory': True})
 
         summary_sheet = workbook.add_worksheet(u'测试报告概览')
+        summary_sheet.freeze_panes(1, 0)
         detail_sheet = workbook.add_worksheet(u'测试报告详情')
+        detail_sheet.freeze_panes(1, 0)
 
         # 设置测试报告表头 format
 
@@ -150,7 +153,9 @@ class TestReport(Model):
                     else:
                         detail_sheet.write(col_index + 1, index, str(common.dict_get(detail, locator)))
                 else:
-                    detail_sheet.write(col_index + 1, index, str(common.dict_get(detail, locator)))
+                    pre_write_value = str(common.dict_get(detail, locator))
+                    pre_write_value = '(空)' if pre_write_value == 'None' else pre_write_value
+                    detail_sheet.write(col_index + 1, index, pre_write_value)
 
         workbook.close()
 
