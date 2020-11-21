@@ -181,6 +181,7 @@
                                 <el-radio-group v-model="form.check">
                                     <el-radio-button label="noCheck"><div>不校验</div></el-radio-button>
                                     <el-radio-button label="checkHttpStatusCode"><div>HTTP状态校验</div></el-radio-button>
+                                    <el-radio-button label="checkResponseTime"><div>接口耗时校验</div></el-radio-button>
                                     <el-radio-button label="checkJsonRegex"><div>JSON正则校验</div></el-radio-button>
                                     <el-radio-button label="checkNumber"><div>数值校验</div></el-radio-button>
                                     <el-radio-button label="checkSimilarity"><div>智能相似度校验</div></el-radio-button>
@@ -191,6 +192,14 @@
                                 <el-select v-model="form.checkHttp" clearable placeholder="HTTP状态">
                                     <el-option v-for="(item,index) in httpCode" :key="index+''" :label="item.label" :value="item.value"></el-option>
                                 </el-select>
+                            </div>
+                            <div v-show="showResponseTimeCheck">
+                                <el-input
+                                  v-model="form.checkResponseTime"
+                                  placeholder="接口期望耗时/s（以内）"
+                                  type="number"
+                                  style="max-width:20%">
+                                </el-input>
                             </div>
                             <div v-show="showJsonRegexCheck">
                                 <el-collapse-item title="JSON正则校验" name="4">
@@ -421,6 +430,7 @@
                 apiResponseLoading: false,
                 saveCorrelation: false,
                 showHttpCodeCheck: false,
+                showResponseTimeCheck: false,
                 showJsonRegexCheck: false,
                 showNumberCheck: false,
                 showSimilarityCheck: false,
@@ -446,6 +456,7 @@
                     check: "checkSimilarity",
                     RegularParam: "",
                     checkHttp: "",
+                    checkResponseTime: null,
                 },
                 FormRules: {
                     name : [{ required: true, message: '请输入名称', trigger: 'blur' }],
@@ -511,11 +522,17 @@
                                 lastUpdatorNickName: unescape(getCookie('nickName').replace(/\\u/g, '%u')) || '未知用户'
                             };
 
-                            if (self.form.checkHttp){
-                              params["checkHttpCode"] = self.form.checkHttp
-                            }
+
+                            params["checkHttpCode"] = self.form.checkHttp
+
+
+
+                            params["checkResponseTime"] = parseFloat(self.form.checkResponseTime)
+
+
                             if (self.form.check === 'noCheck'){
                               params["checkHttpCode"] = null
+                              params["checkResponseTime"] = null
                               params["checkResponseData"] = null
                               params["checkResponseNumber"] = null
                               params["checkResponseSimilarity"] = null
@@ -649,7 +666,7 @@
                               });
                             }
                             self.form.checkHttp = data.checkHttpCode;
-
+                            self.form.checkResponseTime = data.checkResponseTime;
                             if (data.checkResponseData === null || data.checkResponseData === undefined){
                               self.form.checkRegex = [{regex: "", query: []}]
                             }
@@ -711,6 +728,7 @@
                 //注意：当观察的数据为对象或数组时，curVal和oldVal是相等的，因为这两个形参指向的是同一个数据对象
                 handler(curVal,oldVal){
                     if (curVal.check === 'noCheck') {
+                        this.showResponseTimeCheck = false
                         this.showHttpCodeCheck = false
                         this.showJsonRegexCheck = false
                         this.showNumberCheck = false
@@ -720,21 +738,31 @@
                         this.showJsonRegexCheck = false
                         this.showNumberCheck = false
                         this.showSimilarityCheck = false
+                        this.showResponseTimeCheck = false
                     } else if (curVal.check === 'checkJsonRegex'){
                         this.showHttpCodeCheck = false
                         this.showJsonRegexCheck = true
                         this.showNumberCheck = false
                         this.showSimilarityCheck = false
+                        this.showResponseTimeCheck = false
                     } else if (curVal.check === 'checkNumber'){
                         this.showHttpCodeCheck = false
                         this.showJsonRegexCheck = false
                         this.showNumberCheck = true
                         this.showSimilarityCheck = false
+                        this.showResponseTimeCheck = false
                     } else if (curVal.check === 'checkSimilarity'){
                         this.showHttpCodeCheck = false
                         this.showJsonRegexCheck = false
                         this.showNumberCheck = false
                         this.showSimilarityCheck = true
+                        this.showResponseTimeCheck = false
+                    } else if (curVal.check === 'checkResponseTime'){
+                        this.showHttpCodeCheck = false
+                        this.showJsonRegexCheck = false
+                        this.showNumberCheck = false
+                        this.showSimilarityCheck = false
+                        this.showResponseTimeCheck = true
                     }
                 },
                 deep:true
