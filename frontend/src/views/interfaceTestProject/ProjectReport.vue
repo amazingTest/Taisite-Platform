@@ -65,7 +65,7 @@
     <el-dialog title="报告详情" width="97%" v-loading="detailLoading" :visible.sync="isReportDetailShow" :close-on-click-modal="false">
       <div style="height:700px;overflow:auto;overflow-x:hidden;border: 1px solid #e6e6e6">
         <el-table height="700" :data="testReportDetail" :row-class-name="reportsTableRow" :header-cell-style="reportHeaderColor" v-loading="listLoading" style="width: 100%;">
-          <el-table-column prop="testBaseInfo.name" label="用例名称" min-width="30%" sortable show-overflow-tooltip>
+          <el-table-column prop="testBaseInfo.name" label="用例名称" min-width="25%" sortable show-overflow-tooltip>
           </el-table-column>
           <el-table-column prop="testBaseInfo.requestMethod" label="请求方法" min-width="15%" sortable show-overflow-tooltip>
           </el-table-column>
@@ -93,7 +93,9 @@
           </el-table-column>
           <el-table-column prop="testStartTime" label="测试开始时间" min-width="25%" sortable show-overflow-tooltip>
           </el-table-column>
-          <el-table-column prop="spendingTimeInSec" label="测试耗时/s" min-width="18%" sortable show-overflow-tooltip>
+          <el-table-column prop="testBaseInfo.checkResponseTime" label="耗时校验/s" min-width="17%" sortable show-overflow-tooltip>
+          </el-table-column>
+          <el-table-column prop="spendingTimeInSec" label="测试耗时/s" min-width="17%" sortable show-overflow-tooltip>
           </el-table-column>
         </el-table>
       </div>
@@ -275,6 +277,9 @@
                       }
                       if (item["testBaseInfo"]["checkHttpCode"] === null || item["testBaseInfo"]["checkHttpCode"] === undefined){
                         item["testBaseInfo"]["checkHttpCode"] = '(无任何校验)'
+                      }
+                      if (item["testBaseInfo"]["checkResponseTime"] === null || item["testBaseInfo"]["checkResponseTime"] === undefined){
+                        item["testBaseInfo"]["checkResponseTime"] = '(无任何校验)'
                       }
                     });
                   }
