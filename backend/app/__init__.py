@@ -32,10 +32,10 @@ from utils.cron.cronManager import CronManager
 cron_manager = CronManager()
 cron_manager.start()
 
-from utils.nlp.Nlper import Nlper
-bert_ip = _config.get_nlp_server_host() if _config.get_nlp_server_host() else '127.0.0.1'
-bert_client = BertClient(ip=bert_ip, timeout=10000)
-nlper = Nlper(bert_client)
+# from utils.nlp.Nlper import Nlper
+# bert_ip = _config.get_nlp_server_host() if _config.get_nlp_server_host() else '127.0.0.1'
+# bert_client = BertClient(ip=bert_ip, timeout=10000)
+# nlper = Nlper(bert_client)
 
 from models import project, host, caseSuite, testingCase, testReport, cronTab, mail, mailSender
 
