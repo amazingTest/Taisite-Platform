@@ -62,10 +62,11 @@ class tester:
         test_results = []
         total_test_start_time = time.time()
         for test_case in self.test_case_list:
-            test_start_time = time.time()
+            backup_test_start = time.time()
             test_start_datetime = datetime.datetime.utcnow()
             test_result = self.execute_single_test(test_case)
-            test_end_time = time.time()
+            backup_test_end = time.time()
+            backup_test_spending_time = round(backup_test_end - backup_test_start, 3)
             if 'lastManualTestResult' in test_case:
                 test_case.pop('lastManualTestResult')
             domain = test_case["domain"] if 'domain' in test_case and isinstance(test_case["domain"], str) and \
@@ -77,9 +78,10 @@ class tester:
                                                      url=test_case["url"],
                                                      headers=test_case["headers"],
                                                      data=test_case['presendParams'])
+            test_result["spendingTimeInSec"] = test_case.pop(
+                'spendingTimeInSec') if 'spendingTimeInSec' in test_case else backup_test_spending_time
             test_result["testBaseInfo"] = test_case
             test_result["testStartTime"] = test_start_datetime
-            test_result["spendingTimeInSec"] = round(test_end_time - test_start_time, 3)
             test_results.append(test_result)
         total_test_end_time = time.time()
         total_test_spending_time = round(total_test_end_time - total_test_start_time, 3)
@@ -91,10 +93,11 @@ class tester:
     def execute_all_test_for_cron_and_single_test(self):
         test_results = []
         for test_case in self.test_case_list:
-            test_start_time = time.time()
+            backup_test_start = time.time()
             test_start_datetime = datetime.datetime.utcnow()
             test_result = self.execute_single_test(test_case)
-            test_end_time = time.time()
+            backup_test_end = time.time()
+            backup_test_spending_time = round(backup_test_end - backup_test_start, 3)
             if 'lastManualTestResult' in test_case:
                 test_case.pop('lastManualTestResult')
             domain = test_case["domain"] if 'domain' in test_case and isinstance(test_case["domain"], str) and \
@@ -106,9 +109,10 @@ class tester:
                                                      url=test_case["url"],
                                                      headers=test_case["headers"],
                                                      data=test_case['presendParams'])
+            test_result["spendingTimeInSec"] = test_case.pop('spendingTimeInSec')\
+                if 'spendingTimeInSec' in test_case else backup_test_spending_time
             test_result["testBaseInfo"] = test_case
             test_result["testStartTime"] = test_start_datetime
-            test_result["spendingTimeInSec"] = round(test_end_time - test_start_time, 3)
             test_results.append(test_result)
         return test_results
 
@@ -140,6 +144,7 @@ class tester:
         json_data = None
         headers = dict()
         check_http_code = None
+        check_response_time = None
         check_response_data = None
         check_response_number = None
         check_response_similarity = None
@@ -208,12 +213,17 @@ class tester:
             use_json_data = len(list(filter(lambda x: str(x).lower() == 'content-type' and 'json'
                                                       in headers[x], headers.keys() if headers else {}))) > 0
 
+            test_start = time.time()
             if test_case['requestMethod'].lower() == 'get':
                 response = session.request(url=url, method=method, params=json_data, headers=headers, verify=False)
             else:
                 response = session.request(url=url, method=method, json=json_data, headers=headers,
                                            verify=False) if use_json_data \
                     else session.request(url=url, method=method, data=json_data, headers=headers, verify=False)
+            test_end = time.time()
+            test_spending_time = round(test_end - test_start, 3)
+            test_case['spendingTimeInSec'] = test_spending_time
+            # response.encoding = 'utf-8'
             # print(response.headers) TODO 请求头断言
         except BaseException as e:
             returned_data["status"] = 'failed'
@@ -223,8 +233,13 @@ class tester:
         test_case['headers'] = headers  # 重新赋值生成报告时用
 
         response_status_code = response.status_code
+
         returned_data["responseHttpStatusCode"] = response_status_code
-        returned_data["responseData"] = response.text
+
+        try:
+            returned_data["responseData"] = response.content.decode('unicode-escape')
+        except BaseException:
+            returned_data["responseData"] = response.text
 
         try:
 
@@ -250,9 +265,19 @@ class tester:
                                                        % (check_http_code, response_status_code))
                 return returned_data
 
+            if 'checkResponseTime' in test_case and test_case['checkResponseTime']:
+                check_response_time = test_case['checkResponseTime']
+
+            if check_response_time and float(test_spending_time) > float(check_response_time):
+                returned_data["status"] = 'failed'
+                returned_data["testConclusion"].append('响应时间过长, 期待值: <%s s>, 实际值: <%s s>。\t'
+                                                       % (check_response_time, test_spending_time))
+                return returned_data
+
             is_check_res_data_valid = isinstance(test_case.get('checkResponseData'), list) and \
                                       len(list(filter(lambda x: str(x.get('regex')).strip() == '',
                                                       test_case.get('checkResponseData')))) < 1
+
             is_check_res_similarity_valid = isinstance(test_case.get('checkResponseSimilarity'), list) and \
                                             len(list(filter(lambda x: isinstance(x.get('targetSimilarity'), type(None)),
                                                             test_case.get('checkResponseSimilarity')))) < 1
@@ -321,6 +346,9 @@ class tester:
         if 'checkHttpCode' in test_case and not test_case['checkHttpCode'] in ["", None]:
             check_http_code = test_case['checkHttpCode']
 
+        if 'checkResponseTime' in test_case and test_case['checkResponseTime']:
+            check_response_time = test_case['checkResponseTime']
+
         if 'checkResponseData' in test_case and not test_case['checkResponseData'] in [[], {}, "", None]:
             if not isinstance(test_case['checkResponseData'], list):
                 raise TypeError('checkResponseData must be list！')
@@ -383,6 +411,12 @@ class tester:
             returned_data["status"] = 'failed'
             returned_data["testConclusion"].append('响应状态码错误, 期待值: <%s>, 实际值: <%s>。\t'
                                                    % (check_http_code, response_status_code))
+
+        if check_response_time and float(test_spending_time) > float(check_response_time):
+            returned_data["status"] = 'failed'
+            returned_data["testConclusion"].append('响应时间过长, 期待值: <%s s>, 实际值: <%s s>。\t'
+                                                   % (check_response_time, test_spending_time))
+
         if check_response_data:
             try:
                 for crd in check_response_data:
