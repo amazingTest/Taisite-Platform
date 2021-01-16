@@ -76,6 +76,14 @@
               </el-tooltip>
             </el-form-item>
             <el-form-item style="float: right; margin-right: 116px">
+               <el-select v-model="testDataId" @visible-change='checkActiveStorage' clearable placeholder="测试数据" >
+                <el-option
+                  v-for="(item,index) in TestDataStorage"
+                  :key="index+''"
+                  :label="item.name"
+                  :value="item._id">
+                </el-option>
+              </el-select>
               <el-select v-model="url" @visible-change='checkActiveEnv' clearable placeholder="测试环境" >
                 <el-option
                   v-for="(item,index) in Host"
@@ -219,6 +227,7 @@
 <script>
     import {getCaseList, updateCase, copyCase, importTestCases, exportTestCases, addCase, getLastSingleTestResult} from '../../../../api/testCase';
     import {getHosts} from '../../../../api/host';
+    import {getTestDataStorageList} from '../../../../api/testDataStorage';
     import {startInterfaceTest} from "../../../../api/common";
     import {getCookie} from '@/utils/cookie';
     import moment from "moment";
@@ -282,6 +291,8 @@
                 totalNum: 0,
                 url: '',
                 Host: [],
+                testDataId: '',
+                TestDataStorage: [],
                 apiListLoading: false,
                 sels: [],//列表选中列
                 TestResult: false,
@@ -535,7 +546,8 @@
                             caseIdList: [row._id],
                             domain: self.url,
                             executorNickName: unescape(getCookie('nickName').replace(/\\u/g, '%u')),
-                            executionMode: '单个用例手动执行'
+                            executionMode: '单个用例手动执行',
+                            globalVarsId : self.testDataId
                     };
                     startInterfaceTest(params, header).then((res) => {
                       self.testLoading = false;
@@ -793,6 +805,28 @@
                   self.listLoading = false;
                 })
             },
+            getTestDataStorage(){
+              let self = this;
+                let header = {};
+                let params = {status: true, projectId: self.$route.params.project_id};
+                getTestDataStorageList(self.$route.params.project_id, params, header).then((res) => {
+                  let {status, data} = res
+                  if (status === 'ok'){
+                    self.TestDataStorage = data.rows
+                  }
+                  else{
+                    self.$message.error({
+                        message: data,
+                        center: true,
+                    })
+                  }
+                }).catch((error) => {
+                  self.$message.error({
+                      message: '暂时无法获取 TestDataStorage，请稍后刷新重试~',
+                      center: true,
+                  });
+                })
+            },
             getHost() {
                 let self = this;
                 let header = {};
@@ -810,7 +844,7 @@
                   }
                 }).catch((error) => {
                   self.$message.error({
-                      message: '暂时无法获取HOST，请稍后刷新重试~',
+                      message: '暂时无法获取 HOST，请稍后刷新重试~',
                       center: true,
                   });
                 })
@@ -820,6 +854,15 @@
               if (self.Host.length < 1){
                 self.$message.warning({
                     message: '未找到「启用的测试环境」哦, 请前往「Host配置」进行设置',
+                    center: true,
+                })
+              }
+            },
+            checkActiveStorage: function(){
+              let self = this;
+              if (self.TestDataStorage.length < 1){
+                self.$message.warning({
+                    message: '未找到「启用的数据字典」哦, 请前往「数据仓库」进行设置',
                     center: true,
                 })
               }
@@ -862,6 +905,7 @@
         mounted() {
             this.getCaseApiList();
             this.getHost();
+            this.getTestDataStorage();
             this.warmPrompt();
         },
         computed: {

@@ -13,6 +13,16 @@
                 <el-form-item style="margin-left: 5px">
                   <el-button type="primary" class="el-icon-caret-right" :disabled="!hasSels" @click="executeTest"> 执行测试</el-button>
                 </el-form-item>
+
+                <el-select v-model="testDataId" @visible-change='checkActiveStorage' clearable placeholder="测试数据" >
+                  <el-option
+                    v-for="(item,index) in TestDataStorage"
+                    :key="index+''"
+                    :label="item.name"
+                    :value="item._id">
+                  </el-option>
+                </el-select>
+
                 <el-select v-model="testUrl" @visible-change="checkActiveEnv" clearable placeholder="测试环境" style="margin-left: 5px">
                   <el-option v-for="(item,index) in Host" :key="index+''" :label="item.name" :value="item.host"></el-option>
                 </el-select>
@@ -155,6 +165,7 @@
     import {getCaseSuiteList, addCaseSuite, updateCaseSuite, copyCaseSuite} from '../../../../api/caseSuite';
     import {exportTestCases} from '../../../../api/testCase';
     import {getHosts} from "../../../../api/host";
+    import {getTestDataStorageList} from '../../../../api/testDataStorage';
     import {getCrons, addCron, pauseCron, resumeCron, delCron} from "../../../../api/cron";
     import {startInterfaceTest} from "../../../../api/common";
     import {getCookie} from "@/utils/cookie";
@@ -189,6 +200,7 @@
                 currentPage: 1,
                 totalNum: 0,
                 testUrl: '',
+                testDataId: '',
                 listLoading: false,
                 copyLoading: false,
                 exportLoading: false,
@@ -199,6 +211,7 @@
                 disDel: true,
                 TestStatus: false,
                 Host: [],
+                TestDataStorage: [],
                 hasSels: false,
                 editFormVisible: false,//编辑界面是否显示
                 editLoading: false,
@@ -257,8 +270,10 @@
                   "domain": self.testUrl,
                   "caseSuiteIdList": ids,
                   "executorNickName": unescape(getCookie('nickName').replace(/\\u/g, '%u')),
-                  "executionMode" : "用例组手动执行"
+                  "executionMode" : "用例组手动执行",
+                  "globalVarsId" : self.testDataId
                 });
+
                 startInterfaceTest(params, header).then((res) => {
                   self.listLoading = false;
                   self.update = false;
@@ -300,6 +315,28 @@
                                 project_id: this.$route.params.project_id,
                             }
                     });
+            },
+            getTestDataStorage(){
+              let self = this;
+                let header = {};
+                let params = {status: true, projectId: self.$route.params.project_id};
+                getTestDataStorageList(self.$route.params.project_id, params, header).then((res) => {
+                  let {status, data} = res
+                  if (status === 'ok'){
+                    self.TestDataStorage = data.rows
+                  }
+                  else{
+                    self.$message.error({
+                        message: data,
+                        center: true,
+                    })
+                  }
+                }).catch((error) => {
+                  self.$message.error({
+                      message: '暂时无法获取 TestDataStorage，请稍后刷新重试~',
+                      center: true,
+                  });
+                })
             },
             getHost() {
               let self = this;
@@ -726,6 +763,15 @@
                 })
               }
             },
+            checkActiveStorage: function(){
+              let self = this;
+              if (self.TestDataStorage.length < 1){
+                self.$message.warning({
+                    message: '未找到「启用的数据字典」哦, 请前往「数据仓库」进行设置',
+                    center: true,
+                })
+              }
+            },
             // 修改table tr行的背景色
             reportRowStyle({ row, rowIndex }){
               if (!(row.status === true))
@@ -741,6 +787,7 @@
         mounted() {
             this.getCaseSuites();
             this.getHost();
+            this.getTestDataStorage();
 
         },
         computed: {
