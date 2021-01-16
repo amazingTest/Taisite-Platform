@@ -33,7 +33,7 @@ export default new Router({
       projectHidden: true,
       children: [
         { path: '/interfaceProjectList', component: interfaceProjectList, iconCls:'fa fa-plug', name: '接口测试'},
-        //{ path: '/aboutAuthor', component: about, iconCls:'fa fa-id-card-o', name: '关于作者'},
+        { path: '/aboutAuthor', component: about, iconCls:'fa fa-id-card-o', name: '关于作者'},
       ]
     },
     {
