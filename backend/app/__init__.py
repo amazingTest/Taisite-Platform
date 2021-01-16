@@ -37,9 +37,9 @@ cron_manager.start()
 # bert_client = BertClient(ip=bert_ip, timeout=10000)
 # nlper = Nlper(bert_client)
 
-from models import project, host, caseSuite, testingCase, testReport, cronTab, mail, mailSender
+from models import project, host, caseSuite, testingCase, testReport, cronTab, mail, mailSender, testDataStorage
 
 from controllers import user
-from controllers import project, host, caseSuite, testingCase, testReport, cronTab, mail, mailSender, webhook
+from controllers import project, host, caseSuite, testingCase, testReport, cronTab, mail, mailSender, webhook, testDataStorage
 
 
