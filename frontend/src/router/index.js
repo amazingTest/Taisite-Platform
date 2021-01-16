@@ -13,6 +13,7 @@ import addCaseApi from '@/views/interfaceTestProject/api/automation/AddCaseApi'
 import updateCaseApi from '@/views/interfaceTestProject/api/automation/UpdateCaseApi'
 import globalHost from '@/views/interfaceTestProject/global/Globalhost'
 import globalMail from '@/views/interfaceTestProject/global/GlobalMail'
+import globalTestDataStorage from '@/views/interfaceTestProject/global/GlobalTestDataStorage'
 import projectReport from '@/views/interfaceTestProject/ProjectReport'
 Vue.use(Router)
 
@@ -32,7 +33,7 @@ export default new Router({
       projectHidden: true,
       children: [
         { path: '/interfaceProjectList', component: interfaceProjectList, iconCls:'fa fa-plug', name: '接口测试'},
-        { path: '/aboutAuthor', component: about, iconCls:'fa fa-id-card-o', name: '关于作者'},
+        //{ path: '/aboutAuthor', component: about, iconCls:'fa fa-id-card-o', name: '关于作者'},
       ]
     },
     {
@@ -63,6 +64,12 @@ export default new Router({
             path: '/interfaceTestProject/:project_id/GlobalMail',
             component: globalMail,
             name: '邮箱配置',
+            leaf: true
+        },
+        {
+            path: '/interfaceTestProject/:project_id/GlobalTestDataStorage',
+            component: globalTestDataStorage,
+            name: '数据仓库',
             leaf: true
         },
         {
