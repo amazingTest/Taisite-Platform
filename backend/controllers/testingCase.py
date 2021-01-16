@@ -11,6 +11,7 @@ from models.testingCase import TestingCase
 from models.caseSuite import CaseSuite
 from models.testReport import TestReport
 from models.project import Project
+from models.testDataStorage import TestDataStorage
 from bson import ObjectId
 from utils import common
 import pymongo
@@ -146,6 +147,13 @@ def start_test():
     else:
         domain = request_data["domain"]
 
+    # 获取 global_vars_id
+    global_vars_id = request_data["globalVarsId"] if request_data.get('globalVarsId') else None
+
+    # 查找数据字典
+    global_vars = TestDataStorage.find_one({'_id': ObjectId(global_vars_id)}).get('dataMap', {})\
+        if global_vars_id else {}
+
     if 'caseSuiteIdList' in request_data:
         case_suite_id_list = request_data["caseSuiteIdList"]
 
@@ -205,7 +213,7 @@ def start_test():
     if 'caseSuiteIdList' not in request_data and len(testing_case_list) == 1:
         is_single_test = True
 
-    tester = tester(test_case_list=testing_case_list, domain=domain)
+    tester = tester(test_case_list=testing_case_list, domain=domain, global_vars=global_vars)
 
     if not is_single_test:
         try:
