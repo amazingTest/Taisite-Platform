@@ -22,7 +22,7 @@ class Cron:
     def __init__(self, cron_name, test_case_suite_id_list, test_domain,  trigger_type, is_execute_forbiddened_case=False,
                  test_case_id_list=None, alarm_mail_list=None, is_ding_ding_notify=False, ding_ding_access_token=None,
                  ding_ding_notify_strategy=None, is_enterprise_wechat_notify=False, enterprise_wechat_access_token=None,
-                 enterprise_wechat_notify_strategy=None, is_web_hook=False, retry_limit=3, retry_interval=20,
+                 enterprise_wechat_notify_strategy=None, is_web_hook=False, retry_limit=3, retry_interval=60, global_vars=None,
                  **trigger_args):
 
         if test_case_id_list is None:
@@ -80,6 +80,8 @@ class Cron:
         self.current_retry_count = 0  # 记录当前定时任务尝试次数
         self.retry_limit = retry_limit  # 定时任务报错后重试次数限制
         self.retry_interval = retry_interval  # 定时任务报错后重试时间间隔
+
+        self.global_vars = global_vars if global_vars else {}
 
     def get_cron_test_cases_list(self):
         if not self.is_execute_forbiddened_case:
@@ -222,8 +224,11 @@ class Cron:
         else:
             raise TypeError('定时任务执行中未找到任何可执行用例！')
 
+        _global_vars = self.global_vars if hasattr(self, 'global_vars') else {}
+
         tester_for_cron = tester(test_case_list=cron_test_cases_list,
-                                 domain=self.test_domain)
+                                 domain=self.test_domain,
+                                 global_vars=_global_vars)
 
         total_test_start_time = time.time()
 
