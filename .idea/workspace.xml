@@ -1,327 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3eea9fa2-78aa-48ef-980b-e40ac93966bd" name="Default" comment="[fix](dist)修复 dist 部分文件缺失问题">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Taisite-Platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Taisite-Platform.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tester.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Header.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/views/common/Header.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icon-yes.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/icon-yes.svg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="logo.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/logo.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/app/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="i-am-strong.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/i-am-strong.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="icon-yes.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/assets/icon-yes.svg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="icon-no.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/assets/icon-no.svg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="wx.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/assets/wx.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>eyes</find>
-      <find>applitools.selenium</find>
-      <find>/aboutAuthor</find>
-      <find>泰斯特平台</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/backend/controllers/webhook.py" />
-        <option value="$PROJECT_DIR$/backend/requirements.txt" />
-        <option value="$PROJECT_DIR$/frontend/src/views/About.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/views/Home.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/views/Project.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/main.js" />
-        <option value="$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py" />
-        <option value="$PROJECT_DIR$/backend/app/__init__.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="124" />
-    <option name="y" value="42" />
-    <option name="width" value="1741" />
-    <option name="height" value="926" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="testframe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="testframe" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaceTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Taisite-Platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Taisite-Platform" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectId" id="1eqs9PwD6ECqbnVFYx8eAddcJoP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/views/interfaceTestProject/global" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\GitProject\Taisite-Platform\backend\app" />
+      <recent name="$PROJECT_DIR$/frontend/src/views/interfaceTestProject/global" />
+      <recent name="$PROJECT_DIR$/frontend/src/api" />
+      <recent name="$PROJECT_DIR$/backend/models" />
+      <recent name="$PROJECT_DIR$/backend/controllers" />
+      <recent name="$PROJECT_DIR$/backend/utils" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/backend/__pycache__/config.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/backend/controllers/project.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/backend/utils/__pycache__/__init__.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/backend/utils/__pycache__/common.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/backend/utils/__pycache__/mango.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/backend/utils/__pycache__/sendReportEmail.cpython-36.pyc</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/backend/utils/mango.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/dist/index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/package.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/api/project.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/assets/imgs/logo.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/main.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/views/Home.vue</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/views/Project.vue</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gitignore</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/package-lock.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/frontend/src/views/common/Header.vue</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/dist/static/css/app.040e9964d8ea2489efcdcc40708e43f8.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/dist/static/css/app.040e9964d8ea2489efcdcc40708e43f8.css.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/dist/static/js/app.15c833a883292742bcea.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/dist/static/js/app.15c833a883292742bcea.js.map</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.run">
+    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Taisite-Platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="common" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Taisite-Platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/utils/common.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Taisite-Platform" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -339,10 +122,115 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python">
+      <module name="Taisite-Platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="AUTOTEST_PLATFORM_MONGO_HOST" value="10.0.0.90" />
+        <env name="AUTOTEST_PLATFORM_MONGO_PORT" value="27017" />
+        <env name="AUTOTEST_PLATFORM_MONGO_USERNAME" value="osr_190403" />
+        <env name="AUTOTEST_PLATFORM_MONGO_PASSWORD" value="7xd36KH8Y21j42j" />
+        <env name="AUTOTEST_PLATFORM_MONGO_DEFAULT_DBNAME" value="btp_taisite_test" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="t" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Taisite-Platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/testframe/interfaceTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/testframe/interfaceTest/t.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Taisite-Platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/testframe" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/testframe/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tester" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Taisite-Platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/testframe/interfaceTest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Unnamed" />
+      <item itemvalue="Python.run" />
+      <item itemvalue="Python.config" />
+      <item itemvalue="Python.t" />
+      <item itemvalue="Python.tester" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.common" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.common" />
         <item itemvalue="Python.config" />
+        <item itemvalue="Python.tester" />
+        <item itemvalue="Python.t" />
       </list>
     </recent_temporary>
   </component>
@@ -367,382 +255,107 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="132" y="75" width="1741" height="926" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3930435" side_tool="true" weight="0.42469135" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.38395062" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49971014" weight="0.32962963" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="right" id="PTest View" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.60695654" visible="true" weight="0.42469135" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17101449" />
-      <window_info anchor="right" id="R Packages" order="3" />
-      <window_info anchor="right" id="R Graphics" order="3" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32938075" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17101449" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="right" id="R Packages" order="3" />
-      <window_info anchor="right" id="R Graphics" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29753086" />
-      <window_info anchor="right" id="PTest View" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
-    </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[fix](dist)修复 dist 部分文件缺失问题" />
     <option name="LAST_COMMIT_MESSAGE" value="[fix](dist)修复 dist 部分文件缺失问题" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/interfaceTestProject/api/automation/AddCaseApi.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14040" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/interfaceTestProject/api/automation/AutomationTest.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1194" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/interfaceTestProject/api/automation/CaseApiList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15030" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/interfaceTestProject/api/automation/CaseSuiteList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23558" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/interfaceTestProject/api/automation/CronList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2250" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/interfaceTestProject/global/Globalhost.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9777">
-          <caret line="198" column="61" lean-forward="true" selection-start-line="198" selection-start-column="61" selection-end-line="198" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/interfaceTestProject/global/GlobalMail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17445" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/utils/cookie.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1350" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/api/testCase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1440" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/utils/request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile.frontend">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile.backend">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1822">
-          <caret line="61" column="49" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile.frontend">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="69" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/re.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6810">
-          <caret line="230" column="4" selection-start-line="230" selection-start-column="4" selection-end-line="230" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile.backend">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README_CN.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="2910">
-            <caret line="97" column="18" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="37">
-            <caret line="280" selection-start-line="280" selection-end-line="280" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/controllers/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile.frontend">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="69" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/utils/cron/interfaceTestCron.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="210" column="8" selection-start-line="210" selection-start-column="8" selection-end-line="210" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/controllers/caseSuite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="114" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/controllers/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/controllers/webhook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/utils/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile.backend">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="30" column="49" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/vuex/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="485">
-            <caret line="280" selection-start-line="280" selection-end-line="280" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-239">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" selection-start-column="41" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="61" column="49" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/createAdminUser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/Login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/About.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/Project.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/__init1__.py" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/Banner.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/icon-no.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/common/Header.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/imgs/logo.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/testframe/interfaceTest/tester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="369" y="186" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605940068834">
+      <screen x="0" y="23" width="1440" height="841" />
+    </state>
+    <state x="369" y="45" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.838@0.23.1440.838" timestamp="1604041545744" />
+    <state x="369" y="186" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.839@0.23.1440.839" timestamp="1604114854345" />
+    <state x="369" y="186" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.841@0.23.1440.841" timestamp="1605940068834" />
+    <state x="698" y="114" key="EnvironmentVariablesDialog" timestamp="1605940066703">
+      <screen x="0" y="23" width="1440" height="841" />
+    </state>
+    <state x="759" y="120" key="EnvironmentVariablesDialog/0.23.1440.838@0.23.1440.838" timestamp="1604041544822" />
+    <state x="698" y="114" key="EnvironmentVariablesDialog/0.23.1440.839@0.23.1440.839" timestamp="1604114850744" />
+    <state x="698" y="114" key="EnvironmentVariablesDialog/0.23.1440.841@0.23.1440.841" timestamp="1605940066703" />
+    <state width="1301" height="188" key="GridCell.Tab.0.bottom" timestamp="1610765541309">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1229" height="225" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1603097927708" />
+    <state width="1229" height="225" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1603163077827" />
+    <state width="1229" height="225" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1603246990685" />
+    <state width="1301" height="189" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1610764737868" />
+    <state width="1301" height="188" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1610765541309" />
+    <state width="1229" height="225" key="GridCell.Tab.0.bottom/0.23.1440.837@0.23.1440.837" timestamp="1602559098236" />
+    <state width="1229" height="225" key="GridCell.Tab.0.bottom/0.23.1440.838@0.23.1440.838" timestamp="1603960165263" />
+    <state width="1229" height="225" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1604117454665" />
+    <state width="1229" height="225" key="GridCell.Tab.0.bottom/0.23.1440.840@0.23.1440.840" timestamp="1604117737903" />
+    <state width="1301" height="158" key="GridCell.Tab.0.bottom/0.23.1440.841@0.23.1440.841" timestamp="1605940115567" />
+    <state width="1301" height="158" key="GridCell.Tab.0.bottom/0.23.1440.842@0.23.1440.842" timestamp="1606298681687" />
+    <state width="1301" height="188" key="GridCell.Tab.0.center" timestamp="1610765541308">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1229" height="225" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1603097927707" />
+    <state width="1229" height="225" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1603163077826" />
+    <state width="1229" height="225" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1603246990684" />
+    <state width="1301" height="189" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1610764737866" />
+    <state width="1301" height="188" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1610765541308" />
+    <state width="1229" height="225" key="GridCell.Tab.0.center/0.23.1440.837@0.23.1440.837" timestamp="1602559098236" />
+    <state width="1229" height="225" key="GridCell.Tab.0.center/0.23.1440.838@0.23.1440.838" timestamp="1603960165261" />
+    <state width="1229" height="225" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1604117454664" />
+    <state width="1229" height="225" key="GridCell.Tab.0.center/0.23.1440.840@0.23.1440.840" timestamp="1604117737901" />
+    <state width="1301" height="158" key="GridCell.Tab.0.center/0.23.1440.841@0.23.1440.841" timestamp="1605940115565" />
+    <state width="1301" height="158" key="GridCell.Tab.0.center/0.23.1440.842@0.23.1440.842" timestamp="1606298681686" />
+    <state width="1301" height="188" key="GridCell.Tab.0.left" timestamp="1610765541307">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1229" height="225" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1603097927706" />
+    <state width="1229" height="225" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1603163077826" />
+    <state width="1229" height="225" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1603246990683" />
+    <state width="1301" height="189" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1610764737865" />
+    <state width="1301" height="188" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1610765541307" />
+    <state width="1229" height="225" key="GridCell.Tab.0.left/0.23.1440.837@0.23.1440.837" timestamp="1602559098235" />
+    <state width="1229" height="225" key="GridCell.Tab.0.left/0.23.1440.838@0.23.1440.838" timestamp="1603960165260" />
+    <state width="1229" height="225" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1604117454663" />
+    <state width="1229" height="225" key="GridCell.Tab.0.left/0.23.1440.840@0.23.1440.840" timestamp="1604117737900" />
+    <state width="1301" height="158" key="GridCell.Tab.0.left/0.23.1440.841@0.23.1440.841" timestamp="1605940115564" />
+    <state width="1301" height="158" key="GridCell.Tab.0.left/0.23.1440.842@0.23.1440.842" timestamp="1606298681685" />
+    <state width="1301" height="188" key="GridCell.Tab.0.right" timestamp="1610765541308">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1229" height="225" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1603097927707" />
+    <state width="1229" height="225" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1603163077827" />
+    <state width="1229" height="225" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1603246990684" />
+    <state width="1301" height="189" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1610764737867" />
+    <state width="1301" height="188" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1610765541308" />
+    <state width="1229" height="225" key="GridCell.Tab.0.right/0.23.1440.837@0.23.1440.837" timestamp="1602559098236" />
+    <state width="1229" height="225" key="GridCell.Tab.0.right/0.23.1440.838@0.23.1440.838" timestamp="1603960165262" />
+    <state width="1229" height="225" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1604117454664" />
+    <state width="1229" height="225" key="GridCell.Tab.0.right/0.23.1440.840@0.23.1440.840" timestamp="1604117737902" />
+    <state width="1301" height="158" key="GridCell.Tab.0.right/0.23.1440.841@0.23.1440.841" timestamp="1605940115566" />
+    <state width="1301" height="158" key="GridCell.Tab.0.right/0.23.1440.842@0.23.1440.842" timestamp="1606298681686" />
+    <state x="277" y="183" key="IDE.errors.dialog" timestamp="1610765603864">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state x="277" y="183" key="IDE.errors.dialog/0.23.1440.832@0.23.1440.832" timestamp="1610765603864" />
+    <state x="475" y="182" width="598" height="552" key="find.popup" timestamp="1608003957300">
+      <screen x="0" y="23" width="1440" height="847" />
+    </state>
+    <state x="475" y="180" width="598" height="548" key="find.popup/0.23.1440.838@0.23.1440.838" timestamp="1604041606615" />
+    <state x="475" y="180" width="598" height="549" key="find.popup/0.23.1440.839@0.23.1440.839" timestamp="1604117397720" />
+    <state x="475" y="180" width="598" height="550" key="find.popup/0.23.1440.840@0.23.1440.840" timestamp="1604385576121" />
+    <state x="475" y="181" width="598" height="548" key="find.popup/0.23.1440.841@0.23.1440.841" timestamp="1607322781291" />
+    <state x="475" y="181" width="598" height="548" key="find.popup/0.23.1440.842@0.23.1440.842" timestamp="1606991959575" />
+    <state x="475" y="182" width="598" height="552" key="find.popup/0.23.1440.847@0.23.1440.847" timestamp="1608003957300" />
+    <state x="428" y="237" key="git4idea.merge.GitMergeDialog" timestamp="1610765884408">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state x="428" y="237" key="git4idea.merge.GitMergeDialog/0.23.1440.832@0.23.1440.832" timestamp="1610765884408" />
   </component>
 </project>
