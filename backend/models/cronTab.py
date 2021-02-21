@@ -23,6 +23,7 @@ class CronTab(Model):
     isExecuteForbiddenedCase = BooleanField(field_name='isExecuteForbiddenedCase', default=False)
     testCaseSuiteIdList = ArrayField()
     testCaseIdList = ArrayField()
+    globalVarsId = ObjectIdField()
     testDomain = StringField()
     next_run_time = FloatField()
     triggerType = StringField()
