@@ -6,6 +6,7 @@ from flask import jsonify, request
 from flask_login import login_required
 from utils.cron.interfaceTestCron import Cron
 from models.cronTab import CronTab
+from models.testDataStorage import TestDataStorage
 from utils import common
 from bson import ObjectId
 import datetime
@@ -41,9 +42,13 @@ def add_cron(project_id):
         if 'runDate' in data:
             data['runDate'] = common.frontend_date_str2datetime(data['runDate'])
 
+        if 'globalVarsId' in data:
+            data['globalVarsId'] = ObjectId(data['globalVarsId'])
+
         filtered_data = CronTab.filter_field(data, use_set_default=True)
         if filtered_data.get('runDate'):
             cron = Cron(test_case_suite_id_list=filtered_data.get('testCaseSuiteIdList'),
+                        global_vars_id=filtered_data.get('globalVarsId'),
                         test_domain=filtered_data.get('testDomain'),
                         alarm_mail_list=filtered_data.get('alarmMailList'),
                         is_ding_ding_notify=filtered_data.get('isDingDingNotify'),
@@ -59,6 +64,7 @@ def add_cron(project_id):
                         cron_name=filtered_data.get('name'))
         else:
             cron = Cron(test_case_suite_id_list=filtered_data.get('testCaseSuiteIdList'),
+                        global_vars_id=filtered_data.get('globalVarsId'),
                         test_domain=filtered_data.get('testDomain'),
                         alarm_mail_list=filtered_data.get('alarmMailList'),
                         is_ding_ding_notify=filtered_data.get('isDingDingNotify'),
@@ -105,8 +111,12 @@ def update_cron(cron_id):
     if 'runDate' in data:
         data['runDate'] = common.frontend_date_str2datetime(data['runDate'])
 
+    if 'globalVarsId' in data:
+        data['globalVarsId'] = ObjectId(data['globalVarsId'])
+
     has_next_run_time = True if 'next_run_time' in data and data.pop('next_run_time') else False  # 判断是否需要重启cron
     data = CronTab.filter_field(data)
+
     try:
         cron_manager.update_cron(cron_id=cron_id, cron_info=data)
         # TODO 仅修改名字/描述时，也重启了定时器，导致下一次运行时间变更, 解决成本有点大，暂不解决:)
