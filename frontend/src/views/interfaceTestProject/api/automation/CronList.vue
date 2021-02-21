@@ -90,6 +90,15 @@
               <el-option v-for="(item,index) in Host" :key="index" :label="item.name" :value="item.host"></el-option>
           </el-select>
         </el-form-item>
+        <el-form-item label="测试数据" prop="globalVarsId">
+          <el-select
+            v-model="editForm.globalVarsId"
+            @visible-change="checkActiveStorage"
+            clearable
+            auto-complete="off">
+              <el-option v-for="(item,index) in TestDataStorage" :key="index" :label="item.name" :value="item._id"></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item label="触发类型" prop="triggerType">
           <el-select clearable v-model.trim="editForm.triggerType" @change="editFormTriggerTypeChange" auto-complete="off">
             <el-option v-for="(item,index) in TriggerTypes" :key="index+''" :label="item.name" :value="item.value"></el-option>
@@ -232,6 +241,15 @@
             <el-option v-for="(item,index) in Host" :key="index" :label="item.name" :value="item.host"></el-option>
           </el-select>
         </el-form-item>
+        <el-form-item label="测试数据" prop="globalVarsId">
+          <el-select
+            v-model="addForm.globalVarsId"
+            @visible-change="checkActiveStorage"
+            clearable
+            auto-complete="off">
+              <el-option v-for="(item,index) in TestDataStorage" :key="index" :label="item.name" :value="item._id"></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item label="触发类型" prop="triggerType">
           <el-select clearable v-model.trim="addForm.triggerType" auto-complete="off" @change="addFormTriggerTypeChange">
             <el-option v-for="(item,index) in TriggerTypes" :key="index+''" :label="item.name" :value="item.value"></el-option>
@@ -370,6 +388,7 @@
   import {getCaseSuiteList} from '../../../../api/caseSuite';
   import {getHosts} from "../../../../api/host";
   import {getMails} from '../../../../api/mail';
+  import {getTestDataStorageList} from '../../../../api/testDataStorage';
   import {getCrons, addCron, updateCron, pauseCron, resumeCron, delCron} from "../../../../api/cron";
   import {getCookie} from "@/utils/cookie";
   export default {
@@ -400,6 +419,7 @@
         order: 'descending',
         pageNum: 1,
         totalNum: 0,
+        TestDataStorage:[],
         sels: [],//列表选中列
         delLoading: false,
         disDel: true,
@@ -420,6 +440,9 @@
           ],
           testDomain: [
             { required: true, message: '请选择测试环境', trigger: 'blur' }
+          ],
+          globalVarsId: [
+            { required: false, message: '请选择测试数据', trigger: 'blur' }
           ],
           alarmMailList: [
             { required: false, message: '请选择告警邮箱', trigger: 'blur' }
@@ -451,6 +474,7 @@
           testCaseSuiteIdList: [],
           isExecuteForbiddenedCase: false,
           testDomain: '',
+          globalVarsId: '',
           alarmMailList: [],
           isDingDingNotify: false,
           dingdingNotifyStrategy: {success: false, fail: true},
@@ -475,6 +499,9 @@
           ],
           testDomain: [
             { required: true, message: '请选择测试环境', trigger: 'blur' }
+          ],
+          globalVarsId: [
+            { required: false, message: '请选择测试数据', trigger: 'blur' }
           ],
           alarmMailList: [
             { required: false, message: '请选择告警邮箱', trigger: 'blur' }
@@ -506,6 +533,7 @@
           testCaseSuiteIdList: [],
           isExecuteForbiddenedCase: false,
           testDomain: '',
+          globalVarsId: '',
           alarmMailList: [],
           isDingDingNotify: false,
           dingdingNotifyStrategy: {success: false, fail: true},
@@ -529,6 +557,28 @@
       }
     },
     methods: {
+      getTestDataStorage(){
+        let self = this;
+          let header = {};
+          let params = {status: true, projectId: self.$route.params.project_id};
+          getTestDataStorageList(self.$route.params.project_id, params, header).then((res) => {
+            let {status, data} = res
+            if (status === 'ok'){
+              self.TestDataStorage = data.rows
+            }
+            else{
+              self.$message.error({
+                  message: data,
+                  center: true,
+              })
+            }
+          }).catch((error) => {
+            self.$message.error({
+                message: '暂时无法获取 TestDataStorage，请稍后刷新重试~',
+                center: true,
+            });
+          })
+      },
       getHost() {
         let self = this;
         let header = {};
@@ -718,6 +768,7 @@
                   name: self.addForm.name,
                   testCaseSuiteIdList: self.addForm.testCaseSuiteIdList,
                   testDomain: self.addForm.testDomain,
+                  globalVarsId: self.addForm.globalVarsId,
                   isExecuteForbiddenedCase: self.addForm.isExecuteForbiddenedCase,
                   triggerType: self.addForm.triggerType,
                   description: self.addForm.description,
@@ -798,6 +849,7 @@
                   testCaseSuiteIdList: self.editForm.testCaseSuiteIdList,
                   isExecuteForbiddenedCase: self.editForm.isExecuteForbiddenedCase,
                   testDomain: self.editForm.testDomain,
+                  globalVarsId: self.editForm.globalVarsId,
                   triggerType: self.editForm.triggerType,
                   next_run_time: self.editForm.next_run_time, // 用于判断是否要resume定时任务
                   description: self.editForm.description,
@@ -1072,6 +1124,15 @@
           })
         }
       },
+      checkActiveStorage: function(){
+        let self = this;
+        if (self.TestDataStorage.length < 1){
+          self.$message.warning({
+              message: '未找到「启用的数据字典」哦, 请前往「数据仓库」进行设置',
+              center: true,
+          })
+        }
+      },
       // 修改table tr行的背景色
       reportRowStyle({ row, rowIndex }){
         if (row.status === 'PAUSED')
@@ -1087,6 +1148,7 @@
     mounted() {
       this.getCaseSuites();
       this.getHost();
+      this.getTestDataStorage();
       this.getMail();
       this.getTask();
     }
