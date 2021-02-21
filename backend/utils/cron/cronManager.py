@@ -91,6 +91,7 @@ class CronManager:
         is_execute_forbiddened_case = cron_info.get('isExecuteForbiddenedCase')
         test_case_id_list = cron_info.get('testCaseIdList')
         test_domain = cron_info.get('testDomain')
+        global_vars_id = cron_info.get('globalVarsId')
         alarm_mail_list = cron_info.get('alarmMailList')
         is_ding_ding_notify = cron_info.get('isDingDingNotify')
         ding_ding_access_token = cron_info.get('dingdingAccessToken')
@@ -112,6 +113,7 @@ class CronManager:
                 cron = Cron(test_case_suite_id_list=test_case_suite_id_list,
                             is_execute_forbiddened_case=is_execute_forbiddened_case,
                             test_domain=test_domain,
+                            global_vars_id=global_vars_id,
                             alarm_mail_list=alarm_mail_list,
                             is_ding_ding_notify=is_ding_ding_notify,
                             ding_ding_access_token=ding_ding_access_token,
@@ -127,6 +129,7 @@ class CronManager:
                 cron = Cron(test_case_suite_id_list=test_case_suite_id_list,
                             is_execute_forbiddened_case=is_execute_forbiddened_case,
                             test_domain=test_domain,
+                            global_vars_id=global_vars_id,
                             alarm_mail_list=alarm_mail_list,
                             is_ding_ding_notify=is_ding_ding_notify,
                             ding_ding_access_token=ding_ding_access_token,
