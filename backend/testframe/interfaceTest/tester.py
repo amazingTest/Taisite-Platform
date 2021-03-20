@@ -1,4 +1,5 @@
 import requests
+requests.packages.urllib3.disable_warnings()
 import json
 import time
 import datetime
@@ -70,11 +71,6 @@ class tester:
             backup_test_spending_time = round(backup_test_end - backup_test_start, 3)
             if 'lastManualTestResult' in test_case:
                 test_case.pop('lastManualTestResult')
-            domain = test_case["domain"] if 'domain' in test_case and isinstance(test_case["domain"], str) and \
-                                            not test_case["domain"].strip() == '' else self.domain
-            if 'requestProtocol' in test_case and 'route' in test_case:
-                url = '%s://%s%s' % (test_case['requestProtocol'].lower(), domain, test_case['route'])
-                test_case["url"] = url
             test_case['curl'] = common.generate_curl(method=test_case["requestMethod"],
                                                      url=test_case["url"],
                                                      headers=test_case["headers"],
@@ -101,11 +97,6 @@ class tester:
             backup_test_spending_time = round(backup_test_end - backup_test_start, 3)
             if 'lastManualTestResult' in test_case:
                 test_case.pop('lastManualTestResult')
-            domain = test_case["domain"] if 'domain' in test_case and isinstance(test_case["domain"], str) and \
-                                            not test_case["domain"].strip() == '' else self.domain
-            if 'requestProtocol' in test_case and 'route' in test_case:
-                url = '%s://%s%s' % (test_case['requestProtocol'].lower(), domain, test_case['route'])
-                test_case["url"] = url
             test_case['curl'] = common.generate_curl(method=test_case["requestMethod"],
                                                      url=test_case["url"],
                                                      headers=test_case["headers"],
@@ -121,6 +112,7 @@ class tester:
         returned_data = dict()
         returned_data["_id"] = test_case["_id"]
         returned_data["testConclusion"] = []
+        returned_data["status"] = 'ok'
         if not isinstance(test_case, dict):
             returned_data["status"] = 'failed'
             returned_data["testConclusion"].append('测试用例结构不正确！ ')
@@ -151,8 +143,9 @@ class tester:
         check_response_similarity = None
         set_global_vars = None  # for example {'status': ['status']}
 
-        domain = test_case["domain"] if 'domain' in test_case and isinstance(test_case["domain"], str) and \
-                                        not test_case["domain"].strip() == '' else self.domain
+        domain = common.resolve_global_var(test_case["domain"], self.global_vars) \
+            if 'domain' in test_case and isinstance(test_case["domain"], str) \
+               and not test_case["domain"].strip() == '' else self.domain
 
         try:
 
@@ -160,8 +153,10 @@ class tester:
                 test_case['route'] = \
                     common.resolve_global_var(pre_resolve_var=test_case['route'], global_var_dic=self.global_vars) \
                         if isinstance(test_case['route'], str) else test_case['route']
+                domain = domain.replace('https://', '').replace('http://', '')
+                test_case['route'] = '' if test_case['route'] == '/' else test_case['route']
                 url = '%s://%s%s' % (test_case['requestProtocol'].lower(), domain, test_case['route'])
-
+                test_case['url'] = url
             if 'requestMethod' in test_case:
                 method = test_case['requestMethod']
 
