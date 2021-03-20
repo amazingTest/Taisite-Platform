@@ -42,8 +42,10 @@ def add_cron(project_id):
         if 'runDate' in data:
             data['runDate'] = common.frontend_date_str2datetime(data['runDate'])
 
-        if 'globalVarsId' in data:
+        if 'globalVarsId' in data and data['globalVarsId']:
             data['globalVarsId'] = ObjectId(data['globalVarsId'])
+        else:
+            data['globalVarsId'] = None
 
         filtered_data = CronTab.filter_field(data, use_set_default=True)
         if filtered_data.get('runDate'):
@@ -111,8 +113,10 @@ def update_cron(cron_id):
     if 'runDate' in data:
         data['runDate'] = common.frontend_date_str2datetime(data['runDate'])
 
-    if 'globalVarsId' in data:
+    if 'globalVarsId' in data and data['globalVarsId']:
         data['globalVarsId'] = ObjectId(data['globalVarsId'])
+    else:
+        data['globalVarsId'] = None
 
     has_next_run_time = True if 'next_run_time' in data and data.pop('next_run_time') else False  # 判断是否需要重启cron
     data = CronTab.filter_field(data)
