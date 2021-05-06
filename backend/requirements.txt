@@ -2,7 +2,7 @@ six==1.11.0
 APScheduler==3.6.0
 Flask==1.0.2
 Flask-login==0.4.1
-Flask-Cors==3.0.6
+Flask-Cors==3.0.9
 pymongo==3.7.2
 bert-serving-client==1.9.1
 requests==2.20.0
